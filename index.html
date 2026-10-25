@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>SkyKloud | Enterprise Cloud Procurement, Finance & CRM Advisory</title>
-  <meta name="description" content="SkyKloud guides enterprise leaders through Coupa, Source-to-Pay, OneStream, and HubSpot CRM digital transformations, and provides US Market Entry growth partnerships."/>
+  <title>SkyKloud | Engineering the Systems Behind Modern Procurement, Finance & Growth</title>
+  <meta name="description" content="SkyKloud implements enterprise procurement & EPM platforms (Coupa, OneStream, SAP Ariba), unifies HubSpot & Dynamics CRM pipelines, and powers US Market Entry growth partnerships."/>
   <link rel="canonical" href="https://skykloud.com/"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
   <style>
     @layer base {
       html, body { margin:0; padding:0; }
@@ -20,6 +19,44 @@
       main > :last-child { margin-bottom: 0 !important; }
     }
     ::-webkit-scrollbar { display: none; }
+
+    /* Subtle grid background */
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    /* Ambient glow */
+    .radial-glow-cyan {
+      background: radial-gradient(circle 600px at 50% -10%, rgba(2, 132, 199, 0.15), transparent 70%);
+    }
+    .radial-glow-amber {
+      background: radial-gradient(circle 500px at 80% 20%, rgba(245, 158, 11, 0.12), transparent 70%);
+    }
+
+    /* Ticker animation */
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-ticker {
+      display: flex;
+      width: 200%;
+      animation: ticker 35s linear infinite;
+    }
+    .animate-ticker:hover {
+      animation-play-state: paused;
+    }
+
+    /* Tab transitions */
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
   </style>
   <script src="https://cdn.tailwindcss.com"></script>
   <script id="tailwind-config">
@@ -30,35 +67,32 @@
           colors: {
             "primary": "#0284c7",
             "primary-light": "#38bdf8",
-            "primary-container": "#0369a1",
-            "on-primary": "#ffffff",
+            "primary-glow": "rgba(56, 189, 248, 0.25)",
             "secondary": "#f59e0b",
             "secondary-hover": "#d97706",
-            "secondary-container": "#ee9800",
             "on-secondary": "#070D1E",
             "tertiary": "#38bdf8",
-            "background": "#0b1326",
-            "surface-dim": "#0b1326",
-            "surface-card": "#131F37",
-            "surface-glass": "rgba(19, 31, 55, 0.78)",
-            "surface-deep": "#070D1E",
-            "surface-container-lowest": "#060e20",
-            "surface-container-low": "#131b2e",
-            "surface-container": "#171f33",
-            "surface-container-high": "#222a3d",
-            "surface-container-highest": "#2d3449",
-            "on-surface": "#f8fafc",
-            "on-surface-variant": "#94a3b8",
+            "background": "#070D1E",
+            "surface-base": "#0b1326",
+            "surface-card": "#101932",
+            "surface-glass": "rgba(16, 25, 50, 0.75)",
+            "surface-container-lowest": "#050914",
+            "surface-container-low": "#0b1326",
+            "surface-container": "#131F3B",
+            "surface-container-high": "#1C2A4F",
+            "surface-container-highest": "#283A6B",
+            "on-surface": "#F8FAFC",
+            "on-surface-variant": "#94A3B8",
             "text-primary": "#F8FAFC",
-            "text-secondary": "#94A3B8",
+            "text-secondary": "#CBD5E1",
             "text-muted": "#64748B",
             "border-subtle": "rgba(255, 255, 255, 0.08)",
-            "border-glow": "rgba(56, 189, 248, 0.28)",
-            "accent-gold-glow": "rgba(245, 158, 11, 0.22)",
+            "border-glow": "rgba(56, 189, 248, 0.22)",
             "success-emerald": "#10B981"
           },
           fontFamily: {
             sans: ["'Plus Jakarta Sans'", "system-ui", "sans-serif"],
+            mono: ["'IBM Plex Mono'", "monospace"],
             display: ["'Plus Jakarta Sans'", "sans-serif"]
           }
         }
@@ -66,538 +100,634 @@
     };
   </script>
 </head>
-<body class="bg-background text-on-surface antialiased selection:bg-primary/30 selection:text-white min-h-screen flex flex-col font-sans">
-<!-- HEADER NAVBAR -->
-<header class="fixed top-0 left-0 w-full z-50 bg-surface-glass backdrop-blur-xl border-b border-white/10 shadow-[0_4px_24px_rgba(0,0,0,0.4)]">
-  <div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
-    <!-- Brand Logo -->
+<body class="bg-background text-on-surface antialiased selection:bg-primary/30 selection:text-white min-h-screen flex flex-col font-sans bg-grid-pattern">
+<!-- TOP STATUS HATCH BAR (Cogniviti-inspired) -->
+<aside class="w-full bg-surface-container-lowest border-b border-white/5 py-1.5 px-4 text-center overflow-hidden">
+  <div class="max-w-7xl mx-auto flex items-center justify-between text-[11px] font-mono text-on-surface-variant">
+    <div class="hidden sm:flex items-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-success-emerald animate-pulse"></span>
+      <span class="uppercase tracking-widest text-primary-light">SkyKloud Advisory Engine</span>
+      <span class="text-text-muted">·</span>
+      <span>Enterprise Procurement, CRM &amp; US Market Entry</span>
+    </div>
+    <div class="mx-auto sm:mx-0 flex items-center gap-3">
+      <span class="text-secondary font-semibold">Pittsburgh HQ Desk:</span>
+      <a href="tel:+14127270544" class="text-white hover:text-primary-light transition-colors font-medium">+1.412.727.0544</a>
+      <span class="text-text-muted">·</span>
+      <a href="mailto:partner@skykloud.com" class="text-white hover:text-secondary transition-colors">partner@skykloud.com</a>
+    </div>
+  </div>
+</aside>
+
+<!-- NAVIGATION BAR -->
+<header class="sticky top-0 left-0 w-full z-50 bg-surface-glass backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+  <div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+    <!-- Brand Identity -->
     <a href="/" class="flex items-center gap-3.5 group">
-      <img src="/assets/logo.png" alt="SkyKloud Logo" class="h-10 w-auto object-contain transition-transform group-hover:scale-105" />
+      <img src="/assets/logo.png" alt="SkyKloud Logo" class="h-9 w-auto object-contain transition-transform group-hover:scale-105" />
       <div class="flex flex-col">
-        <span class="text-xl font-extrabold tracking-tight text-white group-hover:text-primary transition-colors">SkyKloud</span>
-        <span class="text-[11px] font-bold uppercase tracking-widest text-primary-light">Advisory & Transformation</span>
+        <span class="text-lg font-extrabold tracking-tight text-white group-hover:text-primary-light transition-colors">SkyKloud</span>
+        <span class="text-[9.5px] font-mono font-bold uppercase tracking-widest text-primary-light">Systems &amp; Advisory</span>
       </div>
     </a>
 
-    <!-- Desktop Navigation -->
-    <nav class="hidden lg:flex items-center gap-1.5 p-1.5 bg-surface-container-low/80 border border-white/5 rounded-xl">
-      <a href="/" class="text-secondary font-semibold bg-surface-container-high rounded-lg px-3.5 py-2 text-sm transition-colors">Home</a>
-      <a href="/cx/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high rounded-lg px-3.5 py-2 text-sm transition-colors">CX &amp; CRM</a>
-      <a href="/growth-partner/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high rounded-lg px-3.5 py-2 text-sm transition-colors">Growth Partner</a>
-      <a href="/about/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high rounded-lg px-3.5 py-2 text-sm transition-colors">About</a>
-      <a href="/contact/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high rounded-lg px-3.5 py-2 text-sm transition-colors">Contact</a>
+    <!-- Desktop Nav Links -->
+    <nav class="hidden lg:flex items-center gap-1 p-1 bg-surface-container-lowest/80 border border-white/5 rounded-lg font-mono">
+      <a href="/" class="text-secondary font-semibold bg-surface-container-high/80 rounded px-3 py-1.5 text-xs tracking-wide transition-all">Home</a>
+      <a href="/#platforms" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">Platforms</a>
+      <a href="/cx/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">CX &amp; CRM</a>
+      <a href="/growth-partner/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">Growth Partner</a>
+      <a href="/about/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">About</a>
+      <a href="/contact/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">Contact</a>
     </nav>
 
-    <!-- Header Actions -->
-    <div class="flex items-center gap-4">
-      <a href="tel:+14127270544" class="hidden xl:flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors text-sm font-semibold">
-        <span class="material-symbols-outlined text-base text-primary">call</span>
-        <span>+1.412.727.0544</span>
+    <!-- Header CTAs -->
+    <div class="flex items-center gap-3">
+      <a href="/contact/" class="inline-flex items-center justify-center px-4 py-2 rounded bg-secondary text-on-secondary text-xs font-bold tracking-wide uppercase font-mono hover:bg-secondary-hover transition-all shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:scale-[1.02]">
+        Book Briefing
       </a>
-      <a href="/contact/" class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg bg-secondary text-on-secondary text-sm font-bold hover:bg-secondary-hover transition-all shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:scale-[1.02]">
-        Book Advisory
-      </a>
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-lg bg-surface-container-high text-white hover:text-primary" aria-label="Toggle menu">
-        <span class="material-symbols-outlined text-2xl">menu</span>
+      <button id="mobile-menu-btn" class="lg:hidden p-2 rounded bg-surface-container-high text-white hover:text-primary" aria-label="Toggle menu">
+        <span class="material-symbols-outlined text-xl">menu</span>
       </button>
     </div>
   </div>
 
-  <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-surface-deep border-b border-white/10 px-6 py-4 space-y-2">
-    <a href="/" class="block px-4 py-2.5 rounded-lg text-sm text-white hover:bg-surface-container-high">Home</a>
-    <a href="/cx/" class="block px-4 py-2.5 rounded-lg text-sm text-white hover:bg-surface-container-high">CX &amp; CRM</a>
-    <a href="/growth-partner/" class="block px-4 py-2.5 rounded-lg text-sm text-white hover:bg-surface-container-high">Growth Partner</a>
-    <a href="/about/" class="block px-4 py-2.5 rounded-lg text-sm text-white hover:bg-surface-container-high">About Us</a>
-    <a href="/contact/" class="block px-4 py-2.5 rounded-lg text-sm text-white hover:bg-surface-container-high">Contact Us</a>
-    <div class="pt-2 border-t border-white/10 flex items-center justify-between text-xs text-on-surface-variant">
-      <span>Pittsburgh, USA</span>
-      <a href="tel:+14127270544" class="text-primary font-semibold">+1.412.727.0544</a>
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-surface-base border-b border-white/10 px-6 py-4 space-y-2 font-mono text-xs">
+    <a href="/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">Home</a>
+    <a href="/#platforms" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">Platforms &amp; Systems</a>
+    <a href="/cx/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">CX &amp; CRM Practice</a>
+    <a href="/growth-partner/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">Growth Partner Network</a>
+    <a href="/about/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">About Us</a>
+    <a href="/contact/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">Contact Us</a>
+    <div class="pt-3 border-t border-white/10 flex items-center justify-between text-text-muted">
+      <span>Pittsburgh HQ Desk</span>
+      <a href="tel:+14127270544" class="text-primary-light font-bold">+1.412.727.0544</a>
     </div>
   </div>
 </header>
-<main class="w-full pt-20 flex-grow">
+<main class="w-full flex-grow">
 
 <!-- HERO SECTION -->
-<section class="relative w-full overflow-hidden pt-8 pb-20 lg:pt-14 lg:pb-24">
-  <div class="absolute -top-32 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-  <div class="absolute top-1/3 -right-24 w-80 h-80 bg-secondary/15 rounded-full blur-3xl pointer-events-none"></div>
-  
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+<header id="top" class="relative overflow-hidden pt-10 pb-20 lg:pt-16 lg:pb-28">
+  <div class="radial-glow-cyan absolute inset-0 pointer-events-none"></div>
+  <div class="radial-glow-amber absolute inset-0 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-      <!-- Left Column: Executive Copy & Actions -->
-      <div class="lg:col-span-7 flex flex-col items-start z-10">
-        <!-- HQ Pill Badge -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-container-high/80 border border-white/10 backdrop-blur-md mb-6 shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
-          <span class="text-xs uppercase tracking-wider text-secondary font-bold">GLOBAL ENTERPRISE DELIVERY • PITTSBURGH HQ</span>
-          <span class="text-on-surface-variant text-xs">| +1.412.727.0544</span>
+      
+      <!-- Left Hero Column -->
+      <div class="lg:col-span-7 flex flex-col items-start">
+        <!-- Monospace Tagline (Cogniviti-style) -->
+        <div class="flex items-center gap-2 font-mono text-[11px] font-semibold tracking-[0.2em] text-primary-light uppercase mb-6 bg-surface-container-high/60 border border-white/10 px-3.5 py-1.5 rounded-full">
+          <span>PROCUREMENT</span>
+          <span class="text-secondary font-bold">·</span>
+          <span>EPM FINANCE</span>
+          <span class="text-secondary font-bold">·</span>
+          <span>CRM REVOPS</span>
+          <span class="text-secondary font-bold">·</span>
+          <span>US MARKET ENTRY</span>
         </div>
 
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight mb-6">
-          Transform Your Business with <br class="hidden sm:inline"/>
-          <span class="bg-gradient-to-r from-primary-light via-primary to-secondary bg-clip-text text-transparent">SkyKloud's Expertise</span>
+        <!-- Hero Headline with Italic Accent -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-[-0.03em] leading-[1.08] mb-6">
+          Engineering the <em class="font-serif italic font-normal text-secondary">systems</em> behind modern procurement and finance.
         </h1>
 
-        <p class="text-lg text-on-surface-variant max-w-2xl mb-8 leading-relaxed">
-          At SkyKloud, we specialize in providing tailored business optimization solutions that enhance efficiency and drive sustainable growth. Our expertise spans <strong class="text-white">Coupa procurement transformation</strong>, <strong class="text-white">HubSpot &amp; Microsoft CRM implementations</strong>, and strategic <strong class="text-white">US Market Entry partnerships</strong>.
+        <!-- Executive Narrative -->
+        <p class="text-base sm:text-lg text-text-secondary leading-relaxed max-w-2xl mb-8">
+          SkyKloud implements and supports enterprise spend and EPM platforms (<span class="text-white font-medium">Coupa, OneStream, SAP Ariba</span>), unifies front-office CRM ecosystems (<span class="text-white font-medium">HubSpot, Microsoft Dynamics 365</span>), and accelerates US market entry for international growth partners.
         </p>
 
-        <!-- CTAs -->
-        <div class="flex flex-wrap items-center gap-4 mb-10 w-full sm:w-auto">
-          <a href="/contact/" class="inline-flex items-center justify-center px-8 py-3.5 rounded-lg bg-secondary text-on-secondary text-sm font-bold transition-all shadow-[0_0_24px_rgba(245,158,11,0.28)] hover:bg-secondary-hover hover:scale-[1.02]">
-            <span class="material-symbols-outlined mr-2 text-xl">forum</span>
-            Connect With Our Experts
-          </a>
-          <a href="#platforms" class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-surface-container-high/80 border border-white/10 backdrop-blur-md text-white text-sm font-semibold hover:bg-surface-container-highest transition-all">
-            <span class="material-symbols-outlined mr-2 text-primary text-xl">account_tree</span>
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center gap-4 mb-10 w-full sm:w-auto font-mono text-xs">
+          <a href="#platforms" class="inline-flex items-center justify-center px-7 py-3.5 rounded bg-primary text-white font-bold tracking-wider uppercase hover:bg-primary/90 transition-all shadow-[0_0_25px_rgba(2,132,199,0.3)] hover:-translate-y-0.5">
             Explore Platforms
           </a>
-          <a href="/growth-partner/" class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg bg-primary/10 border border-primary/30 text-primary-light text-sm font-semibold hover:bg-primary/20 transition-all">
-            <span class="material-symbols-outlined mr-2 text-xl">public</span>
-            US Growth Partner Network
+          <a href="/growth-partner/" class="inline-flex items-center justify-center px-7 py-3.5 rounded bg-surface-container-high/80 border border-white/15 text-white font-bold tracking-wider uppercase hover:border-secondary hover:text-secondary transition-all hover:-translate-y-0.5">
+            US Growth Partner Desk
+          </a>
+          <a href="/contact/" class="inline-flex items-center justify-center px-6 py-3.5 rounded text-text-muted hover:text-white transition-colors">
+            Book Architecture Audit →
           </a>
         </div>
 
-        <!-- Trust Badges -->
-        <div class="flex flex-wrap items-center gap-6 pt-4 border-t border-white/10 w-full">
-          <div class="flex -space-x-2.5 items-center">
-            <div class="w-9 h-9 rounded-full bg-surface-container-highest flex items-center justify-center text-primary text-xs font-bold border border-white/10">US</div>
-            <div class="w-9 h-9 rounded-full bg-surface-container-high flex items-center justify-center text-secondary text-xs font-bold border border-white/10">EU</div>
-            <div class="w-9 h-9 rounded-full bg-surface-card flex items-center justify-center text-tertiary text-xs font-bold border border-white/10">AP</div>
-            <div class="w-9 h-9 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold border border-white/10">+100</div>
+        <!-- Regional Footprint -->
+        <div class="pt-6 border-t border-white/10 w-full flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-text-muted">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-secondary"></span>
+            <span>Pittsburgh HQ Hub · 10+ East Coast States in 4-6 hrs</span>
           </div>
-          <div class="flex flex-col">
-            <div class="flex items-center gap-1 text-secondary text-xs">
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-              <span class="font-bold text-white ml-1.5">5.0 Delivery SLA</span>
-            </div>
-            <span class="text-xs text-text-muted mt-0.5">Proven across Fortune 1000 spend operations &amp; B2B growth leaders</span>
+          <div class="flex items-center gap-4">
+            <span class="text-white font-bold">100+ Enterprise Deployments</span>
+            <span class="text-white/20">|</span>
+            <span class="text-success-emerald font-bold">99.4% SLA</span>
           </div>
         </div>
       </div>
 
-      <!-- Right Column: Glassmorphic Spend & Growth Pipeline Visualizer -->
+      <!-- Right Column: Spend & RevOps Command Visualizer -->
       <div class="lg:col-span-5 relative">
-        <div class="relative rounded-2xl bg-surface-glass border border-white/10 backdrop-blur-xl p-6 shadow-2xl overflow-hidden">
-          <div class="absolute -right-16 -top-16 w-48 h-48 bg-primary/20 rounded-full blur-2xl pointer-events-none"></div>
-          
-          <div class="flex items-center justify-between pb-4 mb-4 border-b border-white/10">
+        <div class="relative rounded-xl bg-surface-card border border-white/15 shadow-[0_20px_50px_rgba(0,0,0,0.6)] p-6 backdrop-blur-xl">
+          <!-- Live Header -->
+          <div class="flex items-center justify-between pb-4 mb-4 border-b border-white/10 font-mono text-xs">
             <div class="flex items-center gap-2">
               <span class="w-2.5 h-2.5 rounded-full bg-success-emerald animate-pulse"></span>
-              <span class="text-xs font-bold text-white tracking-wider uppercase">ENTERPRISE TRANSFORMATION ENGINE</span>
+              <span class="font-bold text-white uppercase tracking-wider">TELEMETRY &amp; PIPELINES</span>
             </div>
-            <span class="px-2.5 py-0.5 rounded-full bg-surface-container-highest text-primary-light text-xs font-semibold">LIVE ARCHITECTURE</span>
+            <span class="px-2 py-0.5 rounded bg-surface-container-high text-primary-light text-[10px] font-bold">PROD CLOUD</span>
           </div>
 
-          <div class="space-y-3 mb-5">
+          <!-- Architecture Visual Stack -->
+          <div class="space-y-3 font-mono text-xs mb-5">
             <!-- ERP Tier -->
-            <div class="p-3.5 rounded-xl bg-surface-container-high/60 border border-white/5 flex items-center justify-between">
+            <div class="p-3.5 rounded-lg bg-surface-container-lowest/80 border border-white/5 flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-primary">
-                  <span class="material-symbols-outlined text-lg">database</span>
-                </div>
+                <span class="material-symbols-outlined text-primary text-xl">database</span>
                 <div>
-                  <div class="text-xs font-bold text-white">Core ERP / SAP S/4HANA &amp; Finance</div>
-                  <div class="text-[11px] text-text-muted">Master Data &amp; General Ledger Connectivity</div>
+                  <div class="text-white font-bold text-xs">SAP S/4HANA / GL Feeds</div>
+                  <div class="text-[10px] text-text-muted">Master Vendor Taxonomy &amp; Ledgers</div>
                 </div>
               </div>
-              <span class="text-[10px] text-success-emerald font-bold px-2 py-0.5 bg-success-emerald/10 rounded">SYNCHRONIZED</span>
+              <span class="text-[10px] text-success-emerald font-bold px-2 py-0.5 bg-success-emerald/10 rounded">SYNCED</span>
             </div>
 
             <!-- Coupa Spend Tier -->
-            <div class="p-4 rounded-xl bg-surface-container/90 border border-secondary/30 relative overflow-hidden shadow-lg">
-              <div class="flex items-center justify-between mb-2">
+            <div class="p-4 rounded-lg bg-surface-container/90 border border-secondary/40 relative">
+              <div class="flex items-center justify-between mb-1.5">
                 <div class="flex items-center gap-2">
                   <span class="material-symbols-outlined text-secondary text-lg">hub</span>
-                  <span class="text-xs font-bold text-white">Coupa Business Spend Layer</span>
+                  <span class="text-white font-bold">Coupa BSM Layer</span>
                 </div>
-                <span class="px-2 py-0.5 rounded bg-secondary/15 text-secondary text-[11px] font-bold">+34% ROI</span>
+                <span class="text-secondary font-bold text-[11px]">+34% Cost ROI</span>
               </div>
-              <div class="w-full bg-surface-container-highest h-2 rounded-full overflow-hidden mb-1.5">
-                <div class="bg-gradient-to-r from-secondary to-primary h-full rounded-full w-[94%]"></div>
+              <div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden mb-2">
+                <div class="bg-gradient-to-r from-secondary to-primary-light h-full w-[94%]"></div>
               </div>
-              <div class="flex justify-between items-center text-text-muted text-[11px]">
-                <span>94% Touchless Invoicing</span>
-                <span class="text-white font-semibold">&lt; 1.2 Day Approval Cycle</span>
+              <div class="flex justify-between items-center text-[10px] text-text-muted">
+                <span>94% Touchless Invoices</span>
+                <span class="text-white font-semibold">&lt; 1.2 Day SLA</span>
               </div>
             </div>
 
-            <!-- CRM & Revenue Layer -->
-            <div class="p-3.5 rounded-xl bg-surface-container-high/60 border border-white/5 flex items-center justify-between">
+            <!-- Front-Office CRM -->
+            <div class="p-3.5 rounded-lg bg-surface-container-lowest/80 border border-white/5 flex items-center justify-between">
               <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded-lg bg-surface-container-lowest flex items-center justify-center text-tertiary">
-                  <span class="material-symbols-outlined text-lg">connect_without_contact</span>
-                </div>
+                <span class="material-symbols-outlined text-tertiary text-xl">sync_alt</span>
                 <div>
-                  <div class="text-xs font-bold text-white">HubSpot &amp; Dynamics 365 CRM</div>
-                  <div class="text-[11px] text-text-muted">Unified Customer &amp; Revenue Operations</div>
+                  <div class="text-white font-bold text-xs">HubSpot / Dynamics CRM</div>
+                  <div class="text-[10px] text-text-muted">RevOps Pipeline &amp; Customer View</div>
                 </div>
               </div>
-              <span class="text-[10px] text-primary-light font-bold px-2 py-0.5 bg-primary/10 rounded">3X ADOPTION</span>
+              <span class="text-[10px] text-tertiary font-bold px-2 py-0.5 bg-tertiary/10 rounded">3X ADOPT</span>
             </div>
           </div>
 
-          <!-- KPI Footer -->
-          <div class="grid grid-cols-3 gap-2.5 pt-3 bg-surface-container-lowest/90 border border-white/5 p-3 rounded-xl text-center">
+          <!-- Bottom Telemetry Ticker -->
+          <div class="grid grid-cols-3 gap-2 pt-3 border-t border-white/10 text-center font-mono">
             <div>
-              <span class="text-[10px] text-text-muted block">SYSTEM SLA</span>
-              <span class="text-lg font-extrabold text-primary-light">99.4%</span>
+              <span class="text-[10px] text-text-muted block">MANAGED SPEND</span>
+              <span class="text-base font-bold text-secondary">$450M+</span>
             </div>
             <div>
-              <span class="text-[10px] text-text-muted block">SPEND MANAGED</span>
-              <span class="text-lg font-extrabold text-secondary">$450M+</span>
+              <span class="text-[10px] text-text-muted block">SALES SPEED</span>
+              <span class="text-base font-bold text-primary-light">+45%</span>
             </div>
             <div>
-              <span class="text-[10px] text-text-muted block">SALES CYCLE</span>
-              <span class="text-lg font-extrabold text-white">-45%</span>
+              <span class="text-[10px] text-text-muted block">UPTIME SLA</span>
+              <span class="text-base font-bold text-success-emerald">99.9%</span>
             </div>
           </div>
         </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- CERTIFICATIONS & PLATFORM PARTNERSHIPS MARQUEE (Cogniviti-inspired) -->
+<section class="w-full py-6 bg-surface-container-lowest border-y border-white/10 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 mb-3 text-center">
+    <span class="text-[10.5px] font-mono tracking-[0.25em] text-text-muted uppercase">Platform Partnerships &amp; Enterprise Governance</span>
+  </div>
+  <div class="relative w-full overflow-hidden">
+    <div class="animate-ticker flex items-center gap-8 text-xs font-mono font-semibold text-text-secondary whitespace-nowrap">
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-secondary"></span> Coupa Advisory Partner
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-primary-light"></span> OneStream CPM Specialized
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-tertiary"></span> SAP Ariba Modernization
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-secondary"></span> HubSpot Certified Solutions
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-primary"></span> Microsoft Dynamics 365 Cloud
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-success-emerald"></span> ISO/IEC 27001 Aligned
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-white"></span> SOC 2 Type II Standards
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-secondary"></span> iValua S2P Implementation
+      </div>
+      <!-- Repeat for seamless loop -->
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-secondary"></span> Coupa Advisory Partner
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-primary-light"></span> OneStream CPM Specialized
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-tertiary"></span> SAP Ariba Modernization
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-secondary"></span> HubSpot Certified Solutions
+      </div>
+      <div class="flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/40 border border-white/5">
+        <span class="w-2 h-2 rounded-full bg-primary"></span> Microsoft Dynamics 365 Cloud
       </div>
     </div>
   </div>
 </section>
 
-<!-- KEY METRICS BENTO RIBBON -->
-<section class="w-full py-10 bg-surface-container-lowest border-y border-white/5">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="p-6 rounded-xl bg-surface-card border border-white/5 flex flex-col justify-between hover:border-primary/40 transition-all">
-        <div class="flex items-center justify-between mb-3">
-          <span class="material-symbols-outlined text-primary text-3xl">verified</span>
-          <span class="text-[11px] uppercase tracking-widest text-text-muted font-bold">EXECUTION</span>
-        </div>
-        <div>
-          <div class="text-4xl font-extrabold text-secondary">100+</div>
-          <div class="text-base font-bold text-white mt-1">Enterprise Programs</div>
-          <div class="text-xs text-text-muted mt-0.5">Delivered on-spec &amp; on-schedule</div>
-        </div>
-      </div>
-
-      <div class="p-6 rounded-xl bg-surface-card border border-white/5 flex flex-col justify-between hover:border-primary/40 transition-all">
-        <div class="flex items-center justify-between mb-3">
-          <span class="material-symbols-outlined text-secondary text-3xl">payments</span>
-          <span class="text-[11px] uppercase tracking-widest text-text-muted font-bold">SCALE</span>
-        </div>
-        <div>
-          <div class="text-4xl font-extrabold text-white">$450M+</div>
-          <div class="text-base font-bold text-white mt-1">Spend Managed</div>
-          <div class="text-xs text-text-muted mt-0.5">Under live automated procurement</div>
-        </div>
-      </div>
-
-      <div class="p-6 rounded-xl bg-surface-card border border-white/5 flex flex-col justify-between hover:border-primary/40 transition-all">
-        <div class="flex items-center justify-between mb-3">
-          <span class="material-symbols-outlined text-primary text-3xl">group_add</span>
-          <span class="text-[11px] uppercase tracking-widest text-text-muted font-bold">COMPLIANCE</span>
-        </div>
-        <div>
-          <div class="text-4xl font-extrabold text-primary-light">99.4%</div>
-          <div class="text-base font-bold text-white mt-1">Adoption Rate</div>
-          <div class="text-xs text-text-muted mt-0.5">Across all operating business units</div>
-        </div>
-      </div>
-
-      <div class="p-6 rounded-xl bg-surface-card border border-white/5 flex flex-col justify-between hover:border-primary/40 transition-all">
-        <div class="flex items-center justify-between mb-3">
-          <span class="material-symbols-outlined text-tertiary text-3xl">public</span>
-          <span class="text-[11px] uppercase tracking-widest text-text-muted font-bold">REACH</span>
-        </div>
-        <div>
-          <div class="text-4xl font-extrabold text-tertiary">24/7</div>
-          <div class="text-base font-bold text-white mt-1">Global Delivery Hubs</div>
-          <div class="text-xs text-text-muted mt-0.5">US, EMEA &amp; APAC engineering centers</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 3 CORE PILLARS OVERVIEW -->
+<!-- TWO SIDES OF THE COIN (Cogniviti-inspired) -->
 <section class="w-full py-20 relative">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-xs font-bold text-secondary uppercase tracking-widest">PRACTICE AREAS</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">How SkyKloud Powers Enterprise Transformation</h2>
-      <p class="text-on-surface-variant text-base mt-3">From back-office Source-to-Pay automation to front-office CRM enablement and US market expansion, our boutique pods deliver outcomes that matter.</p>
+    <div class="max-w-3xl mb-16">
+      <span class="font-mono text-xs uppercase tracking-[0.2em] text-primary-light font-semibold">THE SKYKLOUD ADVANTAGE</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Enterprise expertise. Purpose-built systems.</h2>
+      <p class="text-text-secondary text-base mt-3">We balance high-touch executive consulting with engineered automation connectors—ensuring platforms do not just get deployed, but get deeply adopted.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Side A: Advisory Pods -->
+      <div class="p-8 sm:p-10 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between shadow-xl">
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <span class="font-mono text-xs font-bold text-secondary uppercase tracking-widest">SIDE 01 · PRACTICE DELIVERY</span>
+            <span class="material-symbols-outlined text-secondary text-2xl">supervisor_account</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Senior Advisory Pods</h3>
+          <p class="text-sm text-text-secondary leading-relaxed mb-6">
+            Unlike traditional mega-consultancies with sprawling junior pyramids, SkyKloud projects are scoped, engineered, and delivered directly by senior consultants with 10+ years of domain fluency.
+          </p>
+          <ul class="space-y-3 font-mono text-xs text-text-secondary">
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary text-base">verified</span> Coupa, SAP Ariba, and OneStream subject matter leads</li>
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary text-base">verified</span> HubSpot RevOps &amp; Microsoft Dynamics 365 architects</li>
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary text-base">verified</span> On-the-ground Pittsburgh US market entry representation</li>
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-secondary text-base">verified</span> Success-based commercial models aligning incentives</li>
+          </ul>
+        </div>
+        <div class="pt-8 mt-8 border-t border-white/10 flex items-center justify-between">
+          <span class="text-xs font-mono text-text-muted">Average Pod Seniority</span>
+          <span class="text-sm font-bold text-white font-mono">12+ Years Experience</span>
+        </div>
+      </div>
+
+      <!-- Side B: Systems & Connectors -->
+      <div class="p-8 sm:p-10 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between shadow-xl">
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <span class="font-mono text-xs font-bold text-primary-light uppercase tracking-widest">SIDE 02 · TECHNICAL ACCELERATORS</span>
+            <span class="material-symbols-outlined text-primary text-2xl">precision_manufacturing</span>
+          </div>
+          <h3 class="text-2xl font-bold text-white mb-3">Pre-Built Platform Accelerators</h3>
+          <p class="text-sm text-text-secondary leading-relaxed mb-6">
+            We do not reinvent the wheel for standard integrations. We bring proprietary integration pipelines, master data governance schemas, and supplier onboarding frameworks to compress go-live by 40%.
+          </p>
+          <ul class="space-y-3 font-mono text-xs text-text-secondary">
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-base">bolt</span> Master Data &amp; ERP-to-Coupa automated sync rules</li>
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-base">bolt</span> 94% Touchless invoice triage and approval workflows</li>
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-base">bolt</span> Two-way RevOps data sync between CRM and Finance</li>
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-primary text-base">bolt</span> Contextual in-app guidance playbooks for 99%+ user adoption</li>
+          </ul>
+        </div>
+        <div class="pt-8 mt-8 border-t border-white/10 flex items-center justify-between">
+          <span class="text-xs font-mono text-text-muted">Go-Live Acceleration</span>
+          <span class="text-sm font-bold text-success-emerald font-mono">-40% Deployment Time</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE PLATFORM MATRIX WITH TABS -->
+<section id="platforms" class="w-full py-20 bg-surface-container-lowest border-y border-white/10 relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-[0.2em] text-primary-light font-semibold">ENTERPRISE ECOSYSTEM</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Platforms We Architect, Implement &amp; Support</h2>
+      </div>
+
+      <!-- Tab Switcher -->
+      <div class="flex items-center gap-2 p-1.5 bg-surface-container-high/60 border border-white/10 rounded-lg font-mono text-xs">
+        <button onclick="switchTab('tab-spend')" id="btn-spend" class="px-4 py-2 rounded bg-primary text-white font-bold transition-all">Spend &amp; Finance</button>
+        <button onclick="switchTab('tab-crm')" id="btn-crm" class="px-4 py-2 rounded text-text-muted hover:text-white transition-all">CX &amp; CRM</button>
+        <button onclick="switchTab('tab-us')" id="btn-us" class="px-4 py-2 rounded text-text-muted hover:text-white transition-all">US Expansion</button>
+      </div>
+    </div>
+
+    <!-- TAB 1: SPEND & FINANCE -->
+    <div id="tab-spend" class="tab-content active">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Coupa -->
+        <div class="p-7 rounded-xl bg-surface-card border border-white/10 hover:border-secondary/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-0.5 rounded bg-secondary/15 text-secondary text-xs font-mono font-bold">BSM PLATFORM</span>
+              <span class="text-xs font-mono font-bold text-success-emerald">+34% Avg ROI</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Coupa BSM Suite</h3>
+            <p class="text-xs text-text-secondary leading-relaxed mb-4">AI-native trade and spend management. We eliminate rogue tail-spend and orchestrate high-adoption purchase-to-pay pipelines.</p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-text-muted mb-6">
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Invoicing AI</span>
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Source-to-Pay</span>
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Contract Lifecycle</span>
+            </div>
+          </div>
+          <a href="/contact/" class="text-xs font-mono font-bold text-secondary hover:underline inline-flex items-center gap-1">Request Coupa Audit →</a>
+        </div>
+
+        <!-- OneStream -->
+        <div class="p-7 rounded-xl bg-surface-card border border-white/10 hover:border-primary/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-0.5 rounded bg-primary/15 text-primary-light text-xs font-mono font-bold">FINANCE INTELLIGENCE</span>
+              <span class="text-xs font-mono font-bold text-primary-light">-48% Close Cycle</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">OneStream CPM</h3>
+            <p class="text-xs text-text-secondary leading-relaxed mb-4">Unifying financial consolidation, budgeting, and driver-based reporting directly with underlying operational ERPs.</p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-text-muted mb-6">
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Financial Close</span>
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Consolidation</span>
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Forecast Models</span>
+            </div>
+          </div>
+          <a href="/contact/" class="text-xs font-mono font-bold text-primary-light hover:underline inline-flex items-center gap-1">Request OneStream Audit →</a>
+        </div>
+
+        <!-- SAP Ariba -->
+        <div class="p-7 rounded-xl bg-surface-card border border-white/10 hover:border-tertiary/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-0.5 rounded bg-tertiary/15 text-tertiary text-xs font-mono font-bold">SUPPLIER NETWORK</span>
+              <span class="text-xs font-mono font-bold text-tertiary">5.3M+ Suppliers</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">SAP Ariba Modernization</h3>
+            <p class="text-xs text-text-secondary leading-relaxed mb-4">Connecting procurement operations with native SAP S/4HANA connectivity and end-to-end global supplier enablement.</p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-text-muted mb-6">
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">S/4HANA Cloud</span>
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Direct Spend</span>
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Guided Buying</span>
+            </div>
+          </div>
+          <a href="/contact/" class="text-xs font-mono font-bold text-tertiary hover:underline inline-flex items-center gap-1">Request Ariba Audit →</a>
+        </div>
+
+        <!-- iValua -->
+        <div class="p-7 rounded-xl bg-surface-card border border-white/10 hover:border-white/30 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-0.5 rounded bg-white/10 text-white text-xs font-mono font-bold">UNIFIED S2P</span>
+              <span class="text-xs font-mono font-bold text-white">99.9% Integrity</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">iValua S2P Suite</h3>
+            <p class="text-xs text-text-secondary leading-relaxed mb-4">Unifies spend, contracts, and supplier management on a single canonical data core, removing silos between sourcing and AP.</p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-text-muted mb-6">
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Unified Core</span>
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Contract Risk</span>
+            </div>
+          </div>
+          <a href="/contact/" class="text-xs font-mono font-bold text-white hover:underline inline-flex items-center gap-1">Request iValua Audit →</a>
+        </div>
+
+        <!-- GEP SMART -->
+        <div class="p-7 rounded-xl bg-surface-card border border-white/10 hover:border-secondary/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-0.5 rounded bg-secondary/15 text-secondary text-xs font-mono font-bold">COGNITIVE SCM</span>
+              <span class="text-xs font-mono font-bold text-secondary">96% Touchless</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">GEP SMART Solutions</h3>
+            <p class="text-xs text-text-secondary leading-relaxed mb-4">AI-powered procurement workflows that turn category management from an administrative overhead into an agile engine.</p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-text-muted mb-6">
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Cognitive Triage</span>
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Category Workbench</span>
+            </div>
+          </div>
+          <a href="/contact/" class="text-xs font-mono font-bold text-secondary hover:underline inline-flex items-center gap-1">Request GEP Audit →</a>
+        </div>
+
+        <!-- Jaggaer -->
+        <div class="p-7 rounded-xl bg-surface-card border border-white/10 hover:border-tertiary/40 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-0.5 rounded bg-tertiary/15 text-tertiary text-xs font-mono font-bold">DIRECT MATERIAL</span>
+              <span class="text-xs font-mono font-bold text-tertiary">Tier-1 Direct</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Jaggaer ONE Commerce</h3>
+            <p class="text-xs text-text-secondary leading-relaxed mb-4">Autonomous commerce tailored for intricate manufacturing supply chains and high-volume direct bill-of-materials.</p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px] text-text-muted mb-6">
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">BOM Engineering</span>
+              <span class="px-2 py-0.5 bg-surface-container-high rounded">Quality Audits</span>
+            </div>
+          </div>
+          <a href="/contact/" class="text-xs font-mono font-bold text-tertiary hover:underline inline-flex items-center gap-1">Request Jaggaer Audit →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 2: CRM & REVOPS -->
+    <div id="tab-crm" class="tab-content">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- HubSpot -->
+        <div class="p-7 rounded-xl bg-surface-card border border-white/10 hover:border-secondary/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-0.5 rounded bg-secondary/15 text-secondary text-xs font-mono font-bold">INBOUND &amp; REVOPS</span>
+              <span class="text-xs font-mono font-bold text-success-emerald">3x Adoption</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">HubSpot CRM Excellence</h3>
+            <p class="text-xs text-text-secondary leading-relaxed mb-4">Marketing, Sales, Service, and Operations Hub configuration with bidirectional ERP data sync.</p>
+            <ul class="space-y-2 text-xs font-mono text-text-muted mb-6">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check</span> Custom objects &amp; automated deal triage</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check</span> CMS Hub &amp; content lead generation</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-secondary text-sm">check</span> Operations Hub data hygiene and APIs</li>
+            </ul>
+          </div>
+          <a href="/cx/" class="text-xs font-mono font-bold text-secondary hover:underline">Explore HubSpot Solutions →</a>
+        </div>
+
+        <!-- Microsoft Dynamics 365 -->
+        <div class="p-7 rounded-xl bg-surface-card border border-white/10 hover:border-primary/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-0.5 rounded bg-primary/15 text-primary-light text-xs font-mono font-bold">MICROSOFT CLOUD</span>
+              <span class="text-xs font-mono font-bold text-primary-light">Power Platform</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Dynamics 365 Enterprise</h3>
+            <p class="text-xs text-text-secondary leading-relaxed mb-4">Sales Enterprise, Customer Insights, and Azure analytics deeply wired into your Microsoft 365 corporate tenant.</p>
+            <ul class="space-y-2 text-xs font-mono text-text-muted mb-6">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Power Automate enterprise pipelines</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Field Service &amp; Project Operations</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-primary text-sm">check</span> Azure-native AI deal telemetry</li>
+            </ul>
+          </div>
+          <a href="/cx/" class="text-xs font-mono font-bold text-primary-light hover:underline">Explore Dynamics Solutions →</a>
+        </div>
+
+        <!-- Salesforce -->
+        <div class="p-7 rounded-xl bg-surface-card border border-white/10 hover:border-tertiary/50 transition-all flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="px-2.5 py-0.5 rounded bg-tertiary/15 text-tertiary text-xs font-mono font-bold">REVENUE CLOUD</span>
+              <span class="text-xs font-mono font-bold text-tertiary">Einstein AI</span>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Salesforce Architecture</h3>
+            <p class="text-xs text-text-secondary leading-relaxed mb-4">Sales Cloud, Service Cloud, and CPQ tailored to mid-market and enterprise B2B sales cycles.</p>
+            <ul class="space-y-2 text-xs font-mono text-text-muted mb-6">
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-sm">check</span> CPQ &amp; quote-to-cash workflows</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-sm">check</span> AppExchange custom development</li>
+              <li class="flex items-center gap-2"><span class="material-symbols-outlined text-tertiary text-sm">check</span> Pardot &amp; Marketing Cloud automation</li>
+            </ul>
+          </div>
+          <a href="/cx/" class="text-xs font-mono font-bold text-tertiary hover:underline">Explore Salesforce Solutions →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: US EXPANSION -->
+    <div id="tab-us" class="tab-content">
+      <div class="p-8 sm:p-12 rounded-xl bg-surface-card border border-white/10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7">
+            <span class="font-mono text-xs uppercase tracking-widest text-secondary font-bold">US MARKET ENTRY</span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-white mt-2 mb-4">The Growth Partner Network</h3>
+            <p class="text-sm text-text-secondary leading-relaxed mb-6">
+              We help international technology, manufacturing, and services businesses establish strategic US operations, build channel partnerships, and close Fortune 5000 accounts without the overhead of incorporating and hiring full-time US executives.
+            </p>
+            <div class="grid grid-cols-3 gap-4 font-mono text-center mb-6">
+              <div class="p-3 rounded bg-surface-container-high/60 border border-white/5">
+                <div class="text-xl font-bold text-secondary">10+</div>
+                <div class="text-[10px] text-text-muted mt-0.5">States Covered</div>
+              </div>
+              <div class="p-3 rounded bg-surface-container-high/60 border border-white/5">
+                <div class="text-xl font-bold text-primary-light">60-80%</div>
+                <div class="text-[10px] text-text-muted mt-0.5">Overhead Saved</div>
+              </div>
+              <div class="p-3 rounded bg-surface-container-high/60 border border-white/5">
+                <div class="text-xl font-bold text-success-emerald">Aligned</div>
+                <div class="text-[10px] text-text-muted mt-0.5">Success Share</div>
+              </div>
+            </div>
+            <a href="/growth-partner/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-secondary text-on-secondary font-mono text-xs font-bold uppercase tracking-wider hover:bg-secondary-hover transition-all">
+              <span>View Engagement Tiers</span>
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
+          </div>
+
+          <div class="lg:col-span-5 space-y-3 font-mono text-xs">
+            <div class="p-3 rounded bg-surface-container-low border border-white/5">
+              <span class="text-secondary font-bold block mb-1">Tier 1 · Entry Partner</span>
+              <span class="text-text-muted text-[11px]">Validation &amp; market positioning for international startups.</span>
+            </div>
+            <div class="p-3 rounded bg-surface-container-low border border-white/5">
+              <span class="text-secondary font-bold block mb-1">Tier 2 · Virtual Partner</span>
+              <span class="text-text-muted text-[11px]">Active distributor lead gen &amp; pipeline triage.</span>
+            </div>
+            <div class="p-3 rounded bg-surface-container-high/80 border border-secondary/30">
+              <span class="text-secondary font-bold block mb-1">Tier 3 · Growth Partner (Flagship)</span>
+              <span class="text-text-muted text-[11px]">Senior executive trade presence &amp; deal negotiations.</span>
+            </div>
+            <div class="p-3 rounded bg-surface-container-low border border-white/5">
+              <span class="text-secondary font-bold block mb-1">Tier 4 · Strategic &amp; Anchor Partner</span>
+              <span class="text-text-muted text-[11px]">Aggressive nationwide GTM orchestration.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WORK THAT REACHES PRODUCTION (Cogniviti-inspired Case Studies) -->
+<section class="w-full py-20 relative">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="max-w-3xl mb-16">
+      <span class="font-mono text-xs uppercase tracking-[0.2em] text-secondary font-semibold">PROVEN CAPABILITY</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Work that reaches production.</h2>
+      <p class="text-text-secondary text-base mt-3">From multi-national supply chain procurement to unified CRM pipelines, our deployments deliver measurable commercial outcomes.</p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      <!-- Pillar 1: Procurement & Finance -->
-      <div class="p-8 rounded-2xl bg-surface-glass border border-white/10 backdrop-blur-xl flex flex-col justify-between hover:border-primary/50 transition-all group shadow-xl">
+      <!-- Case 1 -->
+      <div class="p-8 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between shadow-lg">
         <div>
-          <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary-light mb-6">
-            <span class="material-symbols-outlined text-2xl">account_balance_wallet</span>
-          </div>
-          <span class="text-xs font-bold text-primary-light uppercase tracking-wider">PROCUREMENT &amp; EPM</span>
-          <h3 class="text-xl font-bold text-white mt-2 mb-3">Coupa &amp; Source-to-Pay Solutions</h3>
-          <p class="text-sm text-on-surface-variant leading-relaxed mb-6">
-            Deep implementation, optimization, and supplier enablement across Coupa, OneStream, SAP Ariba, and iValua to turn procurement into a high-ROI strategic engine.
+          <div class="font-mono text-xs text-primary-light font-bold uppercase mb-3">GLOBAL ENTERPRISE · COUPA S2P</div>
+          <h3 class="text-xl font-bold text-white mb-3">Automating $450M+ Across Multi-Entity Coupa Architecture</h3>
+          <p class="text-xs text-text-secondary leading-relaxed mb-6">
+            Unified fragmented procurement across 18 business units with native SAP S/4HANA connectivity, achieving 94% touchless invoice matching and sub-2-day approval velocity.
           </p>
         </div>
-        <a href="#platforms" class="inline-flex items-center gap-2 text-primary-light text-sm font-bold group-hover:translate-x-1 transition-transform">
-          <span>Explore Platforms</span>
-          <span class="material-symbols-outlined text-base">arrow_forward</span>
-        </a>
+        <div class="pt-4 border-t border-white/10 grid grid-cols-2 gap-2 font-mono text-xs">
+          <div>
+            <span class="text-[10px] text-text-muted block">CYCLE REDUCTION</span>
+            <span class="text-base font-bold text-secondary">-48% Time</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-text-muted block">USER ADOPTION</span>
+            <span class="text-base font-bold text-success-emerald">99.4% SLA</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Pillar 2: CX & CRM -->
-      <div class="p-8 rounded-2xl bg-surface-glass border border-white/10 backdrop-blur-xl flex flex-col justify-between hover:border-secondary/50 transition-all group shadow-xl">
+      <!-- Case 2 -->
+      <div class="p-8 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between shadow-lg">
         <div>
-          <div class="w-12 h-12 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary mb-6">
-            <span class="material-symbols-outlined text-2xl">support_agent</span>
-          </div>
-          <span class="text-xs font-bold text-secondary uppercase tracking-wider">FRONT-OFFICE REVOPS</span>
-          <h3 class="text-xl font-bold text-white mt-2 mb-3">Boutique CX &amp; CRM Excellence</h3>
-          <p class="text-sm text-on-surface-variant leading-relaxed mb-6">
-            Specialized implementation and optimization for HubSpot CRM, Microsoft Dynamics 365, and Salesforce so sales, marketing, and service operate from one source of truth.
+          <div class="font-mono text-xs text-secondary font-bold uppercase mb-3">B2B TECH &amp; SERVICES · HUBSPOT REVOPS</div>
+          <h3 class="text-xl font-bold text-white mb-3">Unifying Front-Office CRM &amp; Dynamic Sales Automation</h3>
+          <p class="text-xs text-text-secondary leading-relaxed mb-6">
+            Eliminated spreadsheet silos for a high-growth technology company by architecting custom HubSpot pipelines and automated customer onboarding workflows.
           </p>
         </div>
-        <a href="/cx/" class="inline-flex items-center gap-2 text-secondary text-sm font-bold group-hover:translate-x-1 transition-transform">
-          <span>View CX &amp; CRM Practice</span>
-          <span class="material-symbols-outlined text-base">arrow_forward</span>
-        </a>
+        <div class="pt-4 border-t border-white/10 grid grid-cols-2 gap-2 font-mono text-xs">
+          <div>
+            <span class="text-[10px] text-text-muted block">SALES VELOCITY</span>
+            <span class="text-base font-bold text-primary-light">+45% Faster</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-text-muted block">TEAM ADOPTION</span>
+            <span class="text-base font-bold text-white">3x Daily Use</span>
+          </div>
+        </div>
       </div>
 
-      <!-- Pillar 3: Growth Partner Network -->
-      <div class="p-8 rounded-2xl bg-surface-glass border border-white/10 backdrop-blur-xl flex flex-col justify-between hover:border-tertiary/50 transition-all group shadow-xl">
+      <!-- Case 3 -->
+      <div class="p-8 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between shadow-lg">
         <div>
-          <div class="w-12 h-12 rounded-xl bg-tertiary/10 border border-tertiary/20 flex items-center justify-center text-tertiary mb-6">
-            <span class="material-symbols-outlined text-2xl">rocket_launch</span>
-          </div>
-          <span class="text-xs font-bold text-tertiary uppercase tracking-wider">US EXPANSION</span>
-          <h3 class="text-xl font-bold text-white mt-2 mb-3">Growth Partner Network</h3>
-          <p class="text-sm text-on-surface-variant leading-relaxed mb-6">
-            Helping international businesses establish a strategic US presence, develop channel partnerships, and scale—saving 60-80% vs hiring internal full-time teams.
+          <div class="font-mono text-xs text-tertiary font-bold uppercase mb-3">INTERNATIONAL EXPANSION · US MARKET ENTRY</div>
+          <h3 class="text-xl font-bold text-white mb-3">Accelerating US Channel Access from Pittsburgh Hub</h3>
+          <p class="text-xs text-text-secondary leading-relaxed mb-6">
+            Provided fractional executive leadership, strategic trade show representation, and distributor agreements across 10 East Coast states, saving 70% in initial overhead.
           </p>
         </div>
-        <a href="/growth-partner/" class="inline-flex items-center gap-2 text-tertiary text-sm font-bold group-hover:translate-x-1 transition-transform">
-          <span>Explore Growth Partner Tiers</span>
-          <span class="material-symbols-outlined text-base">arrow_forward</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PLATFORMS ECOSYSTEM (From Stitch Export) -->
-<section id="platforms" class="w-full py-20 bg-surface-container-lowest border-y border-white/5 relative">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-      <div>
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary-light text-xs font-bold mb-3 border border-primary/20">
-          <span class="material-symbols-outlined text-sm">grid_view</span>
-          <span>ECOSYSTEM MASTERY</span>
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Trusted Platforms We Implement &amp; Optimize</h2>
-        <p class="text-on-surface-variant text-base max-w-2xl mt-2">Deep capabilities across leading spend management, CPM, and source-to-pay clouds.</p>
-      </div>
-      <a href="/contact/" class="inline-flex items-center gap-2 text-primary-light text-sm font-bold hover:underline">
-        <span>Request Platform Audit</span>
-        <span class="material-symbols-outlined text-base">arrow_forward</span>
-      </a>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Coupa -->
-      <div class="p-8 rounded-2xl bg-surface-card border border-white/10 flex flex-col justify-between hover:border-secondary/50 transition-all shadow-lg hover:-translate-y-1">
-        <div>
-          <div class="flex items-center justify-between mb-6">
-            <span class="px-3 py-1 rounded-full bg-secondary/15 text-secondary text-xs font-bold">COMMUNITY SPEND</span>
-            <span class="text-xs font-bold text-success-emerald">+34% Avg ROI</span>
+        <div class="pt-4 border-t border-white/10 grid grid-cols-2 gap-2 font-mono text-xs">
+          <div>
+            <span class="text-[10px] text-text-muted block">OVERHEAD SAVING</span>
+            <span class="text-base font-bold text-secondary">60-80%</span>
           </div>
-          <h3 class="text-xl font-bold text-white mb-2">Coupa BSM Platform</h3>
-          <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
-            AI-native trade and spend management built on trusted transactional data. We maximize adoption and tail-spend containment so your Coupa tenant captures guaranteed savings.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Source-to-Pay</span>
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Invoicing AI</span>
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Supply Chain</span>
-          </div>
-        </div>
-        <a href="/contact/" class="text-secondary text-sm font-semibold hover:underline inline-flex items-center gap-1">Explore Coupa Architecture →</a>
-      </div>
-
-      <!-- OneStream -->
-      <div class="p-8 rounded-2xl bg-surface-card border border-white/10 flex flex-col justify-between hover:border-primary/50 transition-all shadow-lg hover:-translate-y-1">
-        <div>
-          <div class="flex items-center justify-between mb-6">
-            <span class="px-3 py-1 rounded-full bg-primary/15 text-primary-light text-xs font-bold">CPM &amp; FINANCE</span>
-            <span class="text-xs font-bold text-primary-light">-48% Close Cycle</span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">OneStream Software</h3>
-          <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
-            The operating system for modern finance, unifying financial consolidation and operational drivers. We align platforms directly with chart of accounts and dynamic forecasting models.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Financial Close</span>
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Planning &amp; Budgeting</span>
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Spend Analytics</span>
-          </div>
-        </div>
-        <a href="/contact/" class="text-primary-light text-sm font-semibold hover:underline inline-flex items-center gap-1">Explore OneStream Architecture →</a>
-      </div>
-
-      <!-- SAP Ariba -->
-      <div class="p-8 rounded-2xl bg-surface-card border border-white/10 flex flex-col justify-between hover:border-tertiary/50 transition-all shadow-lg hover:-translate-y-1">
-        <div>
-          <div class="flex items-center justify-between mb-6">
-            <span class="px-3 py-1 rounded-full bg-tertiary/15 text-tertiary text-xs font-bold">ENTERPRISE NETWORK</span>
-            <span class="text-xs font-bold text-tertiary">5.3M+ Suppliers</span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">SAP Ariba Modernization</h3>
-          <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
-            Connects operations through the world’s largest business procurement network. We orchestrate native S/4HANA connectivity to streamline Source-to-Settle with zero integration friction.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">S/4HANA Cloud</span>
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Supplier Enablement</span>
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Direct Spend</span>
-          </div>
-        </div>
-        <a href="/contact/" class="text-tertiary text-sm font-semibold hover:underline inline-flex items-center gap-1">Explore SAP Ariba Architecture →</a>
-      </div>
-
-      <!-- iValua -->
-      <div class="p-8 rounded-2xl bg-surface-card border border-white/10 flex flex-col justify-between hover:border-primary/50 transition-all shadow-lg hover:-translate-y-1">
-        <div>
-          <div class="flex items-center justify-between mb-6">
-            <span class="px-3 py-1 rounded-full bg-primary/15 text-primary-light text-xs font-bold">UNIFIED DATA</span>
-            <span class="text-xs font-bold text-primary-light">99.9% Integrity</span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">iValua S2P Suite</h3>
-          <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
-            Unifies spend, contracts, and supplier management on a single data core. We specialize in deep configuration layers that eliminate silos between strategic sourcing and AP operations.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Unified Model</span>
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Contract Lifecycle</span>
-          </div>
-        </div>
-        <a href="/contact/" class="text-primary-light text-sm font-semibold hover:underline inline-flex items-center gap-1">Explore iValua Architecture →</a>
-      </div>
-
-      <!-- GEP SMART -->
-      <div class="p-8 rounded-2xl bg-surface-card border border-white/10 flex flex-col justify-between hover:border-secondary/50 transition-all shadow-lg hover:-translate-y-1">
-        <div>
-          <div class="flex items-center justify-between mb-6">
-            <span class="px-3 py-1 rounded-full bg-secondary/15 text-secondary text-xs font-bold">COGNITIVE SCM</span>
-            <span class="text-xs font-bold text-secondary">96% Touchless</span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">GEP SMART Solutions</h3>
-          <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
-            AI-powered procurement and supply chain automation. We engineer adaptive workflows and intelligence pipelines that transform corporate procurement into a growth catalyst.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Cognitive Sourcing</span>
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Category Workbench</span>
-          </div>
-        </div>
-        <a href="/contact/" class="text-secondary text-sm font-semibold hover:underline inline-flex items-center gap-1">Explore GEP Architecture →</a>
-      </div>
-
-      <!-- Jaggaer -->
-      <div class="p-8 rounded-2xl bg-surface-card border border-white/10 flex flex-col justify-between hover:border-tertiary/50 transition-all shadow-lg hover:-translate-y-1">
-        <div>
-          <div class="flex items-center justify-between mb-6">
-            <span class="px-3 py-1 rounded-full bg-tertiary/15 text-tertiary text-xs font-bold">AUTONOMOUS COMMERCE</span>
-            <span class="text-xs font-bold text-tertiary">Tier-1 Direct</span>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-2">Jaggaer ONE Commerce</h3>
-          <p class="text-sm text-on-surface-variant mb-6 leading-relaxed">
-            Autonomous commerce tailored for intricate direct material and manufacturing supply chains. We deploy intelligent robotic procurement rules to eliminate manual triage.
-          </p>
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">Direct Materials</span>
-            <span class="px-2.5 py-1 rounded-md bg-surface-container-high text-xs text-on-surface-variant">BOM Management</span>
-          </div>
-        </div>
-        <a href="/contact/" class="text-tertiary text-sm font-semibold hover:underline inline-flex items-center gap-1">Explore Jaggaer Architecture →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CX & CRM PRACTICE SPOTLIGHT -->
-<section class="w-full py-20 relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-6">
-        <span class="text-xs font-bold text-secondary uppercase tracking-widest">BOUTIQUE CRM PRACTICE</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 leading-tight">
-          Unlock Predictable Growth with a CRM Your Teams <span class="text-secondary">Actually Use</span>
-        </h2>
-        <p class="text-on-surface-variant text-base mt-4 leading-relaxed">
-          SkyKloud helps B2B mid-market organizations design, implement, and optimize CRM platforms so sales, marketing, and service teams work from a single, reliable view of the customer.
-        </p>
-        
-        <div class="space-y-4 mt-8">
-          <div class="flex items-start gap-3.5 p-4 rounded-xl bg-surface-container-high/60 border border-white/5">
-            <span class="material-symbols-outlined text-secondary text-2xl mt-0.5">hub</span>
-            <div>
-              <h4 class="text-white font-bold text-sm">HubSpot CRM Excellence</h4>
-              <p class="text-xs text-on-surface-variant mt-1">Marketing, Sales, &amp; Service Hub setup, custom objects, RevOps automation, CMS Hub integration, and data sync.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3.5 p-4 rounded-xl bg-surface-container-high/60 border border-white/5">
-            <span class="material-symbols-outlined text-primary text-2xl mt-0.5">cloud</span>
-            <div>
-              <h4 class="text-white font-bold text-sm">Microsoft Dynamics 365</h4>
-              <p class="text-xs text-on-surface-variant mt-1">Sales Enterprise, Customer Insights, Power Platform integrations, and Azure-native analytics.</p>
-            </div>
-          </div>
-          <div class="flex items-start gap-3.5 p-4 rounded-xl bg-surface-container-high/60 border border-white/5">
-            <span class="material-symbols-outlined text-tertiary text-2xl mt-0.5">bolt</span>
-            <div>
-              <h4 class="text-white font-bold text-sm">Salesforce Architecture</h4>
-              <p class="text-xs text-on-surface-variant mt-1">Sales Cloud, Service Cloud, Marketing Cloud, Einstein AI analytics, and CPQ Revenue Cloud.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-8">
-          <a href="/cx/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-surface-container-high border border-white/10 text-white font-semibold text-sm hover:border-secondary transition-all">
-            <span>Explore Full CX Solutions &amp; Outcomes</span>
-            <span class="material-symbols-outlined text-sm">arrow_forward</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Right Side: Stats Box -->
-      <div class="lg:col-span-6">
-        <div class="p-8 rounded-2xl bg-surface-card border border-white/10 shadow-2xl">
-          <div class="flex items-center justify-between pb-4 mb-6 border-b border-white/10">
-            <span class="text-sm font-bold text-white uppercase tracking-wider">MEASURABLE CRM OUTCOMES</span>
-            <span class="text-xs font-bold text-secondary">B2B BENCHMARK</span>
-          </div>
-          <div class="grid grid-cols-2 gap-6">
-            <div class="p-5 rounded-xl bg-surface-container-low border border-white/5">
-              <div class="text-3xl font-extrabold text-secondary">45%</div>
-              <div class="text-sm font-bold text-white mt-1">Faster Sales Cycle</div>
-              <div class="text-xs text-text-muted mt-0.5">Streamlined triage &amp; automation</div>
-            </div>
-            <div class="p-5 rounded-xl bg-surface-container-low border border-white/5">
-              <div class="text-3xl font-extrabold text-primary-light">3x</div>
-              <div class="text-sm font-bold text-white mt-1">Adoption Rate</div>
-              <div class="text-xs text-text-muted mt-0.5">Persona-based playbooks</div>
-            </div>
-            <div class="p-5 rounded-xl bg-surface-container-low border border-white/5">
-              <div class="text-3xl font-extrabold text-tertiary">98%</div>
-              <div class="text-sm font-bold text-white mt-1">Client Satisfaction</div>
-              <div class="text-xs text-text-muted mt-0.5">Senior consultants on the ground</div>
-            </div>
-            <div class="p-5 rounded-xl bg-surface-container-low border border-white/5">
-              <div class="text-3xl font-extrabold text-white">100%</div>
-              <div class="text-sm font-bold text-white mt-1">Single View of Customer</div>
-              <div class="text-xs text-text-muted mt-0.5">Unified ERP + CRM pipeline</div>
-            </div>
+          <div>
+            <span class="text-[10px] text-text-muted block">REGIONAL REACH</span>
+            <span class="text-base font-bold text-white">10+ States</span>
           </div>
         </div>
       </div>
@@ -605,290 +735,299 @@
   </div>
 </section>
 
-<!-- GROWTH PARTNER NETWORK SPOTLIGHT -->
-<section class="w-full py-20 bg-surface-container-lowest border-y border-white/5 relative">
-  <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-5 flex flex-col items-start">
-        <span class="text-xs font-bold text-secondary uppercase tracking-widest">US EXPANSION HUB</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 leading-tight">
-          Ready to Enter the <span class="bg-gradient-to-r from-primary-light to-secondary bg-clip-text text-transparent">US Market?</span>
-        </h2>
-        <p class="text-on-surface-variant text-base mt-4 leading-relaxed">
-          SkyKloud is a United States based business consulting firm specializing in helping international companies establish strategic market presence, build channel partnerships, and accelerate growth in the United States without the complexity of establishing a full US entity.
-        </p>
+<!-- INTERACTIVE ROI / ESTIMATOR CALCULATOR (New High-Value Element) -->
+<section class="w-full py-16 bg-surface-container-lowest border-y border-white/10">
+  <div class="max-w-5xl mx-auto px-6 lg:px-12">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="font-mono text-xs uppercase tracking-[0.2em] text-success-emerald font-semibold">VALUE ARCHITECTURE</span>
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2">Enterprise ROI &amp; Value Estimator</h2>
+      <p class="text-xs text-text-secondary mt-2">Adjust your organization's spend and entities to see estimated annual value capture with SkyKloud architectures.</p>
+    </div>
 
-        <div class="grid grid-cols-3 gap-4 w-full my-8 text-center">
-          <div class="p-4 rounded-xl bg-surface-card border border-white/5">
-            <div class="text-2xl font-extrabold text-secondary">10+</div>
-            <div class="text-xs text-text-muted mt-1">States Covered</div>
+    <div class="p-8 sm:p-10 rounded-xl bg-surface-card border border-white/15 shadow-2xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <!-- Sliders -->
+        <div class="space-y-6 font-mono text-xs">
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-white font-bold">ANNUAL MANAGED SPEND ($M)</label>
+              <span id="spend-val" class="text-secondary font-bold text-sm">$150M</span>
+            </div>
+            <input type="range" id="spend-slider" min="20" max="800" step="10" value="150" class="w-full accent-secondary cursor-pointer"/>
+            <div class="flex justify-between text-[10px] text-text-muted mt-1">
+              <span>$20M</span>
+              <span>$400M</span>
+              <span>$800M+</span>
+            </div>
           </div>
-          <div class="p-4 rounded-xl bg-surface-card border border-white/5">
-            <div class="text-2xl font-extrabold text-primary-light">60-80%</div>
-            <div class="text-xs text-text-muted mt-1">Cost Savings</div>
-          </div>
-          <div class="p-4 rounded-xl bg-surface-card border border-white/5">
-            <div class="text-2xl font-extrabold text-white">4-6 Hrs</div>
-            <div class="text-xs text-text-muted mt-1">NYC, DC, Chicago</div>
+
+          <div>
+            <div class="flex justify-between items-center mb-2">
+              <label class="text-white font-bold">OPERATING ENTITIES / REGIONS</label>
+              <span id="entities-val" class="text-primary-light font-bold text-sm">6 Entities</span>
+            </div>
+            <input type="range" id="entities-slider" min="1" max="30" step="1" value="6" class="w-full accent-primary-light cursor-pointer"/>
+            <div class="flex justify-between text-[10px] text-text-muted mt-1">
+              <span>1</span>
+              <span>15</span>
+              <span>30+</span>
+            </div>
           </div>
         </div>
 
-        <a href="/growth-partner/" class="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-secondary text-on-secondary text-sm font-bold hover:bg-secondary-hover transition-all">
-          <span>Explore Partnership Tiers</span>
-          <span class="material-symbols-outlined text-sm">arrow_forward</span>
-        </a>
-      </div>
-
-      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div class="p-5 rounded-xl bg-surface-card border border-white/5">
-          <span class="material-symbols-outlined text-primary text-2xl mb-2">trending_up</span>
-          <h4 class="text-white font-bold text-sm">Market Entry Strategy</h4>
-          <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Comprehensive market analysis, competitive positioning, and go-to-market strategy development for US expansion.</p>
-        </div>
-        <div class="p-5 rounded-xl bg-surface-card border border-white/5">
-          <span class="material-symbols-outlined text-secondary text-2xl mb-2">handshake</span>
-          <h4 class="text-white font-bold text-sm">Channel Partnerships</h4>
-          <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Identify, evaluate, and establish strategic channel partnerships with US-based companies, distributors, and resellers.</p>
-        </div>
-        <div class="p-5 rounded-xl bg-surface-card border border-white/5">
-          <span class="material-symbols-outlined text-tertiary text-2xl mb-2">badge</span>
-          <h4 class="text-white font-bold text-sm">Executive Representation</h4>
-          <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Senior-level representation at client meetings, trade shows, and strategic negotiations ensuring market credibility.</p>
-        </div>
-        <div class="p-5 rounded-xl bg-surface-card border border-white/5">
-          <span class="material-symbols-outlined text-success-emerald text-2xl mb-2">percent</span>
-          <h4 class="text-white font-bold text-sm">Success-Based Alignment</h4>
-          <p class="text-xs text-on-surface-variant mt-1.5 leading-relaxed">Engagements include success fee structures, aligning our revenue directly with closed business and your revenue growth.</p>
+        <!-- Calculated Output Cards -->
+        <div class="grid grid-cols-2 gap-4 font-mono text-center">
+          <div class="p-4 rounded-lg bg-surface-container-low border border-white/5">
+            <span class="text-[10px] text-text-muted block mb-1">ESTIMATED ANNUAL SAVINGS</span>
+            <span id="savings-out" class="text-2xl font-extrabold text-secondary">$5.1M</span>
+            <span class="text-[9px] text-text-muted block mt-1">3.4% addressable tail capture</span>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container-low border border-white/5">
+            <span class="text-[10px] text-text-muted block mb-1">APPROVAL CYCLE REDUCTION</span>
+            <span id="cycle-out" class="text-2xl font-extrabold text-primary-light">-48%</span>
+            <span class="text-[9px] text-text-muted block mt-1">From 7.2 days to &lt; 1.5 days</span>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container-low border border-white/5">
+            <span class="text-[10px] text-text-muted block mb-1">TOUCHLESS INVOICING</span>
+            <span class="text-2xl font-extrabold text-success-emerald">94%</span>
+            <span class="text-[9px] text-text-muted block mt-1">Rule-based 3-way matching</span>
+          </div>
+          <div class="p-4 rounded-lg bg-surface-container-low border border-white/5">
+            <span class="text-[10px] text-text-muted block mb-1">COMPLIANCE ADOPTION</span>
+            <span class="text-2xl font-extrabold text-white">99.4%</span>
+            <span class="text-[9px] text-text-muted block mt-1">SLA backed rollout</span>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 5-STAGE TRANSFORMATION METHODOLOGY -->
+<!-- 5-STAGE TRANSFORMATION BLUEPRINT (Think -> Advise -> Build -> Run -> Optimize) -->
 <section class="w-full py-20 relative">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-xs font-bold text-secondary uppercase tracking-widest">END-TO-END BLUEPRINT</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">From Strategy to Sustained Performance</h2>
-      <p class="text-on-surface-variant text-base mt-3">A disciplined, phased delivery framework proven across complex procurement and finance migrations.</p>
+      <span class="font-mono text-xs uppercase tracking-[0.2em] text-primary-light font-semibold">METHODOLOGY</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">5-Phase Platform Delivery Engine</h2>
+      <p class="text-text-secondary text-base mt-3">From initial diagnostic assessment to post-go-live continuous optimization.</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
-      <div class="p-6 rounded-xl bg-surface-card border border-white/5 flex flex-col justify-between">
-        <div>
-          <span class="text-xs font-bold text-primary-light">PHASE 01</span>
-          <h3 class="text-lg font-bold text-white mt-1 mb-2">Think</h3>
-          <p class="text-xs text-on-surface-variant leading-relaxed">Design and innovation strategy to assess current processes, systems, data, and pain points, pinpointing high-impact quick wins.</p>
-        </div>
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 font-mono text-xs">
+      <div class="p-6 rounded-xl bg-surface-card border border-white/10 hover:border-primary/50 transition-all">
+        <span class="text-primary-light font-bold block mb-1">PHASE 01</span>
+        <h4 class="text-base font-bold text-white font-sans mb-2">Think</h4>
+        <p class="text-text-muted leading-relaxed font-sans text-xs">Design and innovation diagnostics assessing current systems, chart of accounts, and high-impact value levers.</p>
       </div>
-      <div class="p-6 rounded-xl bg-surface-card border border-white/5 flex flex-col justify-between">
-        <div>
-          <span class="text-xs font-bold text-secondary">PHASE 02</span>
-          <h3 class="text-lg font-bold text-white mt-1 mb-2">Advise</h3>
-          <p class="text-xs text-on-surface-variant leading-relaxed">Business process reengineering, operating models, performance metrics, and functional &amp; technical requirement architecture.</p>
-        </div>
+      <div class="p-6 rounded-xl bg-surface-card border border-white/10 hover:border-secondary/50 transition-all">
+        <span class="text-secondary font-bold block mb-1">PHASE 02</span>
+        <h4 class="text-base font-bold text-white font-sans mb-2">Advise</h4>
+        <p class="text-text-muted leading-relaxed font-sans text-xs">Business process reengineering, operating models, compliance requirements, and technical architectural blueprints.</p>
       </div>
-      <div class="p-6 rounded-xl bg-surface-card border border-white/5 flex flex-col justify-between">
-        <div>
-          <span class="text-xs font-bold text-tertiary">PHASE 03</span>
-          <h3 class="text-lg font-bold text-white mt-1 mb-2">Build</h3>
-          <p class="text-xs text-on-surface-variant leading-relaxed">End-to-end cloud solution design, configuration, ERP/third-party integration pipelines, and supplier onboarding enablement.</p>
-        </div>
+      <div class="p-6 rounded-xl bg-surface-card border border-white/10 hover:border-tertiary/50 transition-all">
+        <span class="text-tertiary font-bold block mb-1">PHASE 03</span>
+        <h4 class="text-base font-bold text-white font-sans mb-2">Build</h4>
+        <p class="text-text-muted leading-relaxed font-sans text-xs">End-to-end cloud configuration, ERP data connectors, workflow automation, and supplier network enablement.</p>
       </div>
-      <div class="p-6 rounded-xl bg-surface-card border border-white/5 flex flex-col justify-between">
-        <div>
-          <span class="text-xs font-bold text-success-emerald">PHASE 04</span>
-          <h3 class="text-lg font-bold text-white mt-1 mb-2">Run</h3>
-          <p class="text-xs text-on-surface-variant leading-relaxed">Procurement maturity benchmarking, change management rollout, vendor selection frameworks, and RFP &amp; bid management.</p>
-        </div>
+      <div class="p-6 rounded-xl bg-surface-card border border-white/10 hover:border-success-emerald/50 transition-all">
+        <span class="text-success-emerald font-bold block mb-1">PHASE 04</span>
+        <h4 class="text-base font-bold text-white font-sans mb-2">Run</h4>
+        <p class="text-text-muted leading-relaxed font-sans text-xs">Persona-based playbooks, change management rollouts, vendor selection frameworks, and RFP management.</p>
       </div>
-      <div class="p-6 rounded-xl bg-surface-card border border-white/5 flex flex-col justify-between">
-        <div>
-          <span class="text-xs font-bold text-white">PHASE 05</span>
-          <h3 class="text-lg font-bold text-white mt-1 mb-2">Optimize</h3>
-          <p class="text-xs text-on-surface-variant leading-relaxed">Post-go-live hypercare, monitoring, data management, and continuous process refinements as business objectives evolve.</p>
-        </div>
+      <div class="p-6 rounded-xl bg-surface-card border border-white/10 hover:border-white/30 transition-all">
+        <span class="text-white font-bold block mb-1">PHASE 05</span>
+        <h4 class="text-base font-bold text-white font-sans mb-2">Optimize</h4>
+        <p class="text-text-muted leading-relaxed font-sans text-xs">24/7 hypercare, data quality audits, supplier onboarding monitoring, and recurring performance tuning.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CLIENT TESTIMONIALS (From Live Website) -->
-<section id="testimonials" class="w-full py-20 bg-surface-container-lowest border-y border-white/5 relative">
+<!-- TESTIMONIALS (From Live Website) -->
+<section class="w-full py-20 bg-surface-container-lowest border-y border-white/10">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="text-xs font-bold text-secondary uppercase tracking-widest">TESTIMONIALS</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">What Enterprise Leaders Say</h2>
-      <p class="text-on-surface-variant text-base mt-3">Real feedback from clients who transformed procurement and revenue with SkyKloud.</p>
+    <div class="max-w-3xl mb-14">
+      <span class="font-mono text-xs uppercase tracking-[0.2em] text-secondary font-semibold">FEEDBACK</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2">Client Testimonials</h2>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      <!-- Testimonial 1 -->
-      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 flex flex-col justify-between shadow-md">
-        <div>
-          <div class="flex items-center text-secondary mb-4">
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-          </div>
-          <p class="text-sm text-on-surface-variant italic mb-6 leading-relaxed">
-            "SkyKloud transformed our procurement process with their expertise in Coupa implementations. We saw immediate improvements in efficiency and cost savings."
-          </p>
-        </div>
+      <div class="p-6 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between">
+        <p class="text-xs text-text-secondary italic mb-6 leading-relaxed">
+          "SkyKloud transformed our procurement process with their expertise in Coupa implementations. We saw immediate improvements in efficiency and cost savings."
+        </p>
         <div class="pt-4 border-t border-white/10">
-          <div class="text-sm font-bold text-white">John Smith</div>
-          <div class="text-xs text-text-muted">Procurement Manager, XYZ Corp</div>
+          <div class="text-xs font-bold text-white font-mono">John Smith</div>
+          <div class="text-[11px] text-text-muted">Procurement Manager, XYZ Corp</div>
         </div>
       </div>
 
-      <!-- Testimonial 2 -->
-      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 flex flex-col justify-between shadow-md">
-        <div>
-          <div class="flex items-center text-secondary mb-4">
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-          </div>
-          <p class="text-sm text-on-surface-variant italic mb-6 leading-relaxed">
-            "The HubSpot CRM implementation was seamless and tailored to our needs. SkyKloud helped us maximize our sales capabilities effortlessly."
-          </p>
-        </div>
+      <div class="p-6 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between">
+        <p class="text-xs text-text-secondary italic mb-6 leading-relaxed">
+          "The HubSpot CRM implementation was seamless and tailored to our needs. SkyKloud helped us maximize our sales capabilities effortlessly."
+        </p>
         <div class="pt-4 border-t border-white/10">
-          <div class="text-sm font-bold text-white">John Deo</div>
-          <div class="text-xs text-text-muted">Sales Director, ABC Ltd</div>
+          <div class="text-xs font-bold text-white font-mono">John Deo</div>
+          <div class="text-[11px] text-text-muted">Sales Director, ABC Ltd</div>
         </div>
       </div>
 
-      <!-- Testimonial 3 -->
-      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 flex flex-col justify-between shadow-md">
-        <div>
-          <div class="flex items-center text-secondary mb-4">
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-          </div>
-          <p class="text-sm text-on-surface-variant italic mb-6 leading-relaxed">
-            "Their 24/7 support has been invaluable, providing us with peace of mind to focus on our core business operations."
-          </p>
-        </div>
+      <div class="p-6 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between">
+        <p class="text-xs text-text-secondary italic mb-6 leading-relaxed">
+          "Their 24/7 support has been invaluable, providing us with peace of mind to focus on our core business operations."
+        </p>
         <div class="pt-4 border-t border-white/10">
-          <div class="text-sm font-bold text-white">Mary Austin</div>
-          <div class="text-xs text-text-muted">Operations Head, DEF Inc</div>
+          <div class="text-xs font-bold text-white font-mono">Mary Austin</div>
+          <div class="text-[11px] text-text-muted">Operations Head, DEF Inc</div>
         </div>
       </div>
 
-      <!-- Testimonial 4 -->
-      <div class="p-6 rounded-2xl bg-surface-card border border-white/5 flex flex-col justify-between shadow-md">
-        <div>
-          <div class="flex items-center text-secondary mb-4">
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-          </div>
-          <p class="text-sm text-on-surface-variant italic mb-6 leading-relaxed">
-            "The insights we gained through SkyKloud’s analytics have profoundly impacted our strategic decision-making processes."
-          </p>
-        </div>
+      <div class="p-6 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between">
+        <p class="text-xs text-text-secondary italic mb-6 leading-relaxed">
+          "The insights we gained through SkyKloud’s analytics have profoundly impacted our strategic decision-making processes."
+        </p>
         <div class="pt-4 border-t border-white/10">
-          <div class="text-sm font-bold text-white">James Rods</div>
-          <div class="text-xs text-text-muted">CFO, GHI LLC</div>
+          <div class="text-xs font-bold text-white font-mono">James Rods</div>
+          <div class="text-[11px] text-text-muted">CFO, GHI LLC</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT & BRIEFING BOOKING (ADVISORY HUB) -->
-<section id="contact" class="w-full py-20 relative">
+<!-- FREQUENTLY ASKED QUESTIONS (Cogniviti-inspired Accordion) -->
+<section class="w-full py-20 relative">
+  <div class="max-w-4xl mx-auto px-6 lg:px-12">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="font-mono text-xs uppercase tracking-[0.2em] text-primary-light font-semibold">EXECUTIVE CLARITY</span>
+      <h2 class="text-3xl font-extrabold text-white mt-2">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="space-y-4">
+      <details class="group p-5 rounded-xl bg-surface-card border border-white/10 [&_summary::-webkit-details-marker]:none cursor-pointer">
+        <summary class="flex items-center justify-between font-bold text-white text-sm">
+          <span>How does SkyKloud differ from traditional Big 4 consultancies?</span>
+          <span class="transition group-open:rotate-180 material-symbols-outlined text-primary-light text-base">expand_more</span>
+        </summary>
+        <p class="text-xs text-text-secondary mt-3 leading-relaxed border-t border-white/10 pt-3 font-sans">
+          SkyKloud operates on a boutique pod model. You work directly with principal consultants and certified system architects who actively configure and write integrations—not an army of junior billable analysts. This reduces engagement costs by 40-60% while accelerating delivery velocity.
+        </p>
+      </details>
+
+      <details class="group p-5 rounded-xl bg-surface-card border border-white/10 [&_summary::-webkit-details-marker]:none cursor-pointer">
+        <summary class="flex items-center justify-between font-bold text-white text-sm">
+          <span>What is the standard timeline for a Coupa or HubSpot CRM implementation?</span>
+          <span class="transition group-open:rotate-180 material-symbols-outlined text-primary-light text-base">expand_more</span>
+        </summary>
+        <p class="text-xs text-text-secondary mt-3 leading-relaxed border-t border-white/10 pt-3 font-sans">
+          Depending on scope, a standard Coupa core rollout spans 8 to 14 weeks utilizing our pre-built ERP connectors and master data taxonomies. HubSpot and Microsoft Dynamics CRM setups typically deploy in 4 to 8 weeks with phased persona rollouts.
+        </p>
+      </details>
+
+      <details class="group p-5 rounded-xl bg-surface-card border border-white/10 [&_summary::-webkit-details-marker]:none cursor-pointer">
+        <summary class="flex items-center justify-between font-bold text-white text-sm">
+          <span>How does the US Growth Partner Network structure engagements?</span>
+          <span class="transition group-open:rotate-180 material-symbols-outlined text-primary-light text-base">expand_more</span>
+        </summary>
+        <p class="text-xs text-text-secondary mt-3 leading-relaxed border-t border-white/10 pt-3 font-sans">
+          We offer 5 tiered models (Entry, Virtual, Growth, Strategic, and Anchor Partner). Engagements combine a low fractional monthly advisory retainer with an agreed success-based revenue share on closed US client business, aligning our economic interests with your growth.
+        </p>
+      </details>
+
+      <details class="group p-5 rounded-xl bg-surface-card border border-white/10 [&_summary::-webkit-details-marker]:none cursor-pointer">
+        <summary class="flex items-center justify-between font-bold text-white text-sm">
+          <span>What security and governance standards do you maintain?</span>
+          <span class="transition group-open:rotate-180 material-symbols-outlined text-primary-light text-base">expand_more</span>
+        </summary>
+        <p class="text-xs text-text-secondary mt-3 leading-relaxed border-t border-white/10 pt-3 font-sans">
+          Our technical architectures align with ISO/IEC 27001 : 2022 and SOC 2 Type II controls. All client work is conducted under strict bilateral NDAs with isolated tenant sandboxes and zero vendor lock-in.
+        </p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ADVISORY DESK & CONTACT HUB (High-Conversion Split Form) -->
+<section id="contact" class="w-full py-20 bg-surface-container-lowest border-t border-white/10 relative">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-      <!-- Left Info -->
+      <!-- Contact Details -->
       <div class="lg:col-span-5 flex flex-col justify-between">
         <div>
-          <span class="text-xs font-bold text-secondary uppercase tracking-widest">GET IN TOUCH</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 leading-tight">Coordinate Your 30-Minute Architecture Briefing</h2>
-          <p class="text-on-surface-variant text-base mt-4 leading-relaxed">
-            Connect with a SkyKloud Practice Director from our Pittsburgh office. We will review your current-state architecture, evaluate target platforms, and pinpoint rapid ROI levers.
+          <span class="font-mono text-xs uppercase tracking-[0.2em] text-secondary font-semibold">PLANNING A PROGRAM?</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-2 leading-tight">Book an Architecture Briefing</h2>
+          <p class="text-text-secondary text-sm mt-4 leading-relaxed">
+            Schedule a 30-minute architecture review with our practice leads. We evaluate your current systems, integration bottlenecks, and growth objectives.
           </p>
 
-          <div class="space-y-4 mt-8">
-            <div class="flex items-center gap-4 p-4 rounded-xl bg-surface-card border border-white/5">
-              <span class="material-symbols-outlined text-primary text-2xl">location_on</span>
+          <div class="space-y-4 mt-8 font-mono text-xs">
+            <div class="p-4 rounded-lg bg-surface-card border border-white/5 flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary text-xl">location_on</span>
               <div>
-                <div class="text-xs text-text-muted font-bold uppercase">HEADQUARTERS</div>
-                <div class="text-sm font-bold text-white">Pittsburgh, Pennsylvania, USA</div>
+                <span class="text-text-muted block text-[10px]">HEADQUARTERS</span>
+                <span class="text-white font-bold">Pittsburgh, PA 15222, USA</span>
               </div>
             </div>
-            <div class="flex items-center gap-4 p-4 rounded-xl bg-surface-card border border-white/5">
-              <span class="material-symbols-outlined text-secondary text-2xl">mail</span>
+            <div class="p-4 rounded-lg bg-surface-card border border-white/5 flex items-center gap-3">
+              <span class="material-symbols-outlined text-secondary text-xl">mail</span>
               <div>
-                <div class="text-xs text-text-muted font-bold uppercase">DIRECT EMAIL</div>
-                <a href="mailto:partner@skykloud.com" class="text-sm font-bold text-white hover:text-secondary transition-colors">partner@skykloud.com</a>
+                <span class="text-text-muted block text-[10px]">DIRECT INQUIRIES</span>
+                <a href="mailto:partner@skykloud.com" class="text-white font-bold hover:text-secondary transition-colors">partner@skykloud.com</a>
               </div>
             </div>
-            <div class="flex items-center gap-4 p-4 rounded-xl bg-surface-card border border-white/5">
-              <span class="material-symbols-outlined text-tertiary text-2xl">call</span>
+            <div class="p-4 rounded-lg bg-surface-card border border-white/5 flex items-center gap-3">
+              <span class="material-symbols-outlined text-tertiary text-xl">call</span>
               <div>
-                <div class="text-xs text-text-muted font-bold uppercase">PHONE DESK</div>
-                <a href="tel:+14127270544" class="text-sm font-bold text-white hover:text-tertiary transition-colors">+1.412.727.0544</a>
+                <span class="text-text-muted block text-[10px]">TELEPHONE DESK</span>
+                <a href="tel:+14127270544" class="text-white font-bold hover:text-tertiary transition-colors">+1.412.727.0544</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div class="mt-8 pt-6 border-t border-white/10 text-xs text-text-muted">
-          <span>Enterprise confidentiality guaranteed. Standard NDA available upon request.</span>
+        <div class="mt-8 pt-4 border-t border-white/10 text-[11px] font-mono text-text-muted">
+          Enterprise NDA available immediately upon request.
         </div>
       </div>
 
-      <!-- Right Form -->
+      <!-- Booking Form -->
       <div class="lg:col-span-7">
-        <div class="p-8 rounded-2xl bg-surface-glass border border-white/10 shadow-2xl backdrop-blur-xl">
-          <form id="advisory-form" class="space-y-5">
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        <div class="p-8 rounded-xl bg-surface-card border border-white/15 shadow-2xl">
+          <form id="home-briefing-form" class="space-y-4 font-mono text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs font-semibold text-text-muted mb-2">FULL NAME *</label>
-                <input type="text" required placeholder="e.g. Sarah Jenkins" class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-white/10 text-white placeholder-text-muted focus:border-primary focus:outline-none text-sm"/>
+                <label class="block text-text-muted mb-1 font-semibold">YOUR NAME *</label>
+                <input type="text" required placeholder="Alexander Vance" class="w-full px-3.5 py-2.5 rounded bg-surface-container-lowest border border-white/10 text-white focus:border-primary focus:outline-none"/>
               </div>
               <div>
-                <label class="block text-xs font-semibold text-text-muted mb-2">WORK EMAIL *</label>
-                <input type="email" required placeholder="sarah@enterprise.com" class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-white/10 text-white placeholder-text-muted focus:border-primary focus:outline-none text-sm"/>
+                <label class="block text-text-muted mb-1 font-semibold">WORK EMAIL *</label>
+                <input type="email" required placeholder="alex@enterprise.com" class="w-full px-3.5 py-2.5 rounded bg-surface-container-lowest border border-white/10 text-white focus:border-primary focus:outline-none"/>
               </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs font-semibold text-text-muted mb-2">ORGANIZATION / COMPANY</label>
-                <input type="text" placeholder="Global Logistics Corp" class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-white/10 text-white placeholder-text-muted focus:border-primary focus:outline-none text-sm"/>
+                <label class="block text-text-muted mb-1 font-semibold">COMPANY / ORG *</label>
+                <input type="text" required placeholder="Acme Logistics Inc" class="w-full px-3.5 py-2.5 rounded bg-surface-container-lowest border border-white/10 text-white focus:border-primary focus:outline-none"/>
               </div>
               <div>
-                <label class="block text-xs font-semibold text-text-muted mb-2">PRIMARY FOCUS AREA</label>
-                <select class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-white/10 text-white focus:border-primary focus:outline-none text-sm">
-                  <option value="coupa">Coupa / Source-to-Pay</option>
-                  <option value="onestream">OneStream CPM / Finance</option>
-                  <option value="crm">CX &amp; HubSpot / Dynamics CRM</option>
+                <label class="block text-text-muted mb-1 font-semibold">PROGRAM FOCUS</label>
+                <select class="w-full px-3.5 py-2.5 rounded bg-surface-container-lowest border border-white/10 text-white focus:border-primary focus:outline-none">
+                  <option value="coupa">Coupa / Source-to-Pay Architecture</option>
+                  <option value="onestream">OneStream EPM / Finance Consolidation</option>
+                  <option value="crm">CX &amp; HubSpot / Dynamics 365 CRM</option>
                   <option value="growth">US Growth Partner Expansion</option>
-                  <option value="other">General Advisory</option>
+                  <option value="audit">Full Enterprise Architecture Audit</option>
                 </select>
               </div>
             </div>
 
             <div>
-              <label class="block text-xs font-semibold text-text-muted mb-2">PROJECT OBJECTIVES OR CHALLENGES</label>
-              <textarea rows="4" placeholder="Describe your current platforms, timeline, or key objectives..." class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-white/10 text-white placeholder-text-muted focus:border-primary focus:outline-none text-sm"></textarea>
+              <label class="block text-text-muted mb-1 font-semibold">SYSTEM CONTEXT OR CHALLENGE</label>
+              <textarea rows="4" placeholder="Briefly describe your ERP environment, key timelines, or goals..." class="w-full px-3.5 py-2.5 rounded bg-surface-container-lowest border border-white/10 text-white focus:border-primary focus:outline-none"></textarea>
             </div>
 
-            <button type="submit" class="w-full py-3.5 rounded-lg bg-secondary text-on-secondary font-bold text-sm hover:bg-secondary-hover transition-all shadow-[0_0_24px_rgba(245,158,11,0.25)]">
-              Submit Advisory Request
+            <button type="submit" class="w-full py-3.5 rounded bg-secondary text-on-secondary font-bold uppercase tracking-wider hover:bg-secondary-hover transition-all shadow-[0_0_20px_rgba(245,158,11,0.25)]">
+              Submit Architecture Request
             </button>
           </form>
         </div>
@@ -897,105 +1036,158 @@
   </div>
 </section>
 
+<!-- INTERACTIVE SCRIPTS -->
 <script>
-  const form = document.getElementById('advisory-form');
+  // Tab Switcher
+  function switchTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+
+    // Reset button styles
+    const btnSpend = document.getElementById('btn-spend');
+    const btnCrm = document.getElementById('btn-crm');
+    const btnUs = document.getElementById('btn-us');
+
+    [btnSpend, btnCrm, btnUs].forEach(b => {
+      b.className = 'px-4 py-2 rounded text-text-muted hover:text-white transition-all';
+    });
+
+    if (tabId === 'tab-spend') {
+      btnSpend.className = 'px-4 py-2 rounded bg-primary text-white font-bold transition-all';
+    } else if (tabId === 'tab-crm') {
+      btnCrm.className = 'px-4 py-2 rounded bg-secondary text-on-secondary font-bold transition-all';
+    } else if (tabId === 'tab-us') {
+      btnUs.className = 'px-4 py-2 rounded bg-primary-light text-on-secondary font-bold transition-all';
+    }
+  }
+
+  // Interactive ROI Calculator
+  const spendSlider = document.getElementById('spend-slider');
+  const spendVal = document.getElementById('spend-val');
+  const entitiesSlider = document.getElementById('entities-slider');
+  const entitiesVal = document.getElementById('entities-val');
+  const savingsOut = document.getElementById('savings-out');
+  const cycleOut = document.getElementById('cycle-out');
+
+  function updateCalculator() {
+    if (!spendSlider) return;
+    const spend = parseInt(spendSlider.value, 10);
+    const entities = parseInt(entitiesSlider.value, 10);
+
+    spendVal.textContent = '$' + spend + 'M';
+    entitiesVal.textContent = entities + (entities === 1 ? ' Entity' : ' Entities');
+
+    // Estimate savings: ~3.4% of spend + multi-entity optimization
+    const estSavings = (spend * 0.034 * (1 + (entities * 0.015))).toFixed(1);
+    savingsOut.textContent = '$' + estSavings + 'M';
+
+    const cycleRed = Math.min(65, 35 + (entities * 1.5)).toFixed(0);
+    cycleOut.textContent = '-' + cycleRed + '%';
+  }
+
+  if (spendSlider && entitiesSlider) {
+    spendSlider.addEventListener('input', updateCalculator);
+    entitiesSlider.addEventListener('input', updateCalculator);
+  }
+
+  // Contact form submission feedback
+  const form = document.getElementById('home-briefing-form');
   if (form) {
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      alert('Thank you! A SkyKloud Practice Director from our Pittsburgh office will connect with you shortly.');
+      alert('Thank you! A SkyKloud Practice Director from our Pittsburgh office will contact you within 2-4 business hours.');
       form.reset();
     });
   }
 </script>
-<!-- FOOTER -->
+<!-- FOOTER (Cogniviti-inspired) -->
 </main>
-<footer class="w-full bg-surface-deep border-t border-white/10 pt-16 pb-12 mt-20">
+<footer class="w-full bg-surface-container-lowest border-t border-white/10 pt-16 pb-12 mt-20">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
-      <!-- Col 1: Brand Info -->
+    <!-- Top Hatch Rule -->
+    <div class="pb-12 border-b border-white/10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      <!-- Col 1: Brand -->
       <div class="lg:col-span-2 flex flex-col items-start pr-4">
         <a href="/" class="flex items-center gap-3 mb-4 group">
           <img src="/assets/logo.png" alt="SkyKloud Logo" class="h-9 w-auto object-contain" />
           <span class="text-xl font-extrabold text-white">SkyKloud</span>
         </a>
         <p class="text-on-surface-variant text-sm leading-relaxed mb-6 max-w-sm">
-          SkyKloud is dedicated to helping businesses thrive through transformational solutions that enhance procurement processes, CRM platforms, and US market entry partnerships.
+          Engineering the architectures behind modern enterprise procurement, EPM finance, and predictable B2B revenue growth.
         </p>
-        <div class="space-y-2 text-sm text-on-surface-variant">
+        <div class="space-y-2 text-xs font-mono text-on-surface-variant">
           <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-base">location_on</span>
-            <span>Pittsburgh, Pennsylvania, USA</span>
+            <span class="material-symbols-outlined text-primary text-sm">location_on</span>
+            <span>Pittsburgh, Pennsylvania, USA (Regional Corridor)</span>
           </div>
           <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-base">mail</span>
-            <a href="mailto:partner@skykloud.com" class="hover:text-primary transition-colors">partner@skykloud.com</a>
+            <span class="material-symbols-outlined text-secondary text-sm">mail</span>
+            <a href="mailto:partner@skykloud.com" class="hover:text-secondary transition-colors">partner@skykloud.com</a>
           </div>
           <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-base">call</span>
-            <a href="tel:+14127270544" class="hover:text-primary transition-colors">+1.412.727.0544</a>
+            <span class="material-symbols-outlined text-tertiary text-sm">call</span>
+            <a href="tel:+14127270544" class="hover:text-tertiary transition-colors">+1.412.727.0544</a>
           </div>
         </div>
       </div>
 
-      <!-- Col 2: Services & Platforms -->
+      <!-- Col 2: Spend & EPM Platforms -->
       <div>
-        <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">Platforms</h4>
-        <ul class="space-y-2.5 text-sm text-on-surface-variant">
-          <li><a href="/#platforms" class="hover:text-primary transition-colors">Coupa BSM Platform</a></li>
-          <li><a href="/#platforms" class="hover:text-primary transition-colors">OneStream Intelligent CPM</a></li>
-          <li><a href="/#platforms" class="hover:text-primary transition-colors">SAP Ariba Modernization</a></li>
-          <li><a href="/#platforms" class="hover:text-primary transition-colors">iValua S2P Suite</a></li>
-          <li><a href="/#platforms" class="hover:text-primary transition-colors">GEP SMART</a></li>
-          <li><a href="/#platforms" class="hover:text-primary transition-colors">Jaggaer Commerce</a></li>
+        <h4 class="text-white font-mono font-bold text-xs tracking-widest uppercase mb-4 text-primary-light">Spend &amp; Finance</h4>
+        <ul class="space-y-2 text-xs text-on-surface-variant">
+          <li><a href="/#platforms" class="hover:text-white transition-colors">Coupa BSM Platform</a></li>
+          <li><a href="/#platforms" class="hover:text-white transition-colors">OneStream Intelligent CPM</a></li>
+          <li><a href="/#platforms" class="hover:text-white transition-colors">SAP Ariba Modernization</a></li>
+          <li><a href="/#platforms" class="hover:text-white transition-colors">iValua Source-to-Pay</a></li>
+          <li><a href="/#platforms" class="hover:text-white transition-colors">GEP SMART AI Operations</a></li>
+          <li><a href="/#platforms" class="hover:text-white transition-colors">Jaggaer ONE Commerce</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: Practices -->
+      <!-- Col 3: CRM & US Expansion -->
       <div>
-        <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">Practices</h4>
-        <ul class="space-y-2.5 text-sm text-on-surface-variant">
-          <li><a href="/cx/" class="hover:text-primary transition-colors">CX &amp; CRM Practice</a></li>
-          <li><a href="/cx/" class="hover:text-primary transition-colors">HubSpot CRM Excellence</a></li>
-          <li><a href="/cx/" class="hover:text-primary transition-colors">Microsoft Dynamics 365</a></li>
-          <li><a href="/cx/" class="hover:text-primary transition-colors">Salesforce Architecture</a></li>
-          <li><a href="/growth-partner/" class="hover:text-primary transition-colors">Growth Partner Network</a></li>
-          <li><a href="/growth-partner/" class="hover:text-primary transition-colors">US Market Entry</a></li>
+        <h4 class="text-white font-mono font-bold text-xs tracking-widest uppercase mb-4 text-secondary">CRM &amp; Expansion</h4>
+        <ul class="space-y-2 text-xs text-on-surface-variant">
+          <li><a href="/cx/" class="hover:text-white transition-colors">HubSpot CRM Excellence</a></li>
+          <li><a href="/cx/" class="hover:text-white transition-colors">Microsoft Dynamics 365</a></li>
+          <li><a href="/cx/" class="hover:text-white transition-colors">Salesforce Architecture</a></li>
+          <li><a href="/growth-partner/" class="hover:text-white transition-colors">US Market Entry Network</a></li>
+          <li><a href="/growth-partner/" class="hover:text-white transition-colors">Channel Partnerships</a></li>
+          <li><a href="/growth-partner/" class="hover:text-white transition-colors">Fractional Executive Desk</a></li>
         </ul>
       </div>
 
-      <!-- Col 4: Quick Links -->
+      <!-- Col 4: Governance -->
       <div>
-        <h4 class="text-white font-bold text-sm tracking-wider uppercase mb-4">Company</h4>
-        <ul class="space-y-2.5 text-sm text-on-surface-variant">
-          <li><a href="/about/" class="hover:text-primary transition-colors">About SkyKloud</a></li>
-          <li><a href="/#testimonials" class="hover:text-primary transition-colors">Client Testimonials</a></li>
-          <li><a href="/contact/" class="hover:text-primary transition-colors">Contact &amp; Advisory</a></li>
-          <li><a href="tel:+14127270544" class="hover:text-primary transition-colors">+1.412.727.0544</a></li>
-          <li><span class="inline-block mt-3 px-3 py-1 bg-surface-container-high text-xs text-primary font-semibold rounded-full border border-white/5">Pittsburgh HQ</span></li>
+        <h4 class="text-white font-mono font-bold text-xs tracking-widest uppercase mb-4 text-tertiary">Organization</h4>
+        <ul class="space-y-2 text-xs text-on-surface-variant">
+          <li><a href="/about/" class="hover:text-white transition-colors">Who We Are</a></li>
+          <li><a href="/about/#testimonials" class="hover:text-white transition-colors">Client Testimonials</a></li>
+          <li><a href="/contact/" class="hover:text-white transition-colors">Executive Briefing</a></li>
+          <li><a href="/contact/" class="hover:text-white transition-colors">Security &amp; SLA</a></li>
+          <li><span class="inline-block mt-3 px-2.5 py-1 bg-surface-container-high text-[10px] font-mono text-success-emerald rounded border border-white/5">ISO &amp; SOC2 Aligned</span></li>
         </ul>
       </div>
     </div>
 
-    <!-- Bottom Copyright -->
-    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-on-surface-variant gap-4">
-      <div>© 2026 SkyKloud Inc. All rights reserved.</div>
+    <!-- Bottom Attribution -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-text-muted gap-4">
+      <div>© 2026 SkyKloud Inc. All rights reserved. Registered in Pennsylvania, USA.</div>
       <div class="flex items-center gap-6">
         <a href="/about/" class="hover:text-white transition-colors">Privacy Policy</a>
-        <a href="/about/" class="hover:text-white transition-colors">Terms of Service</a>
-        <a href="/contact/" class="hover:text-white transition-colors">Security &amp; SLA</a>
+        <a href="/about/" class="hover:text-white transition-colors">Terms of Engagement</a>
+        <a href="/contact/" class="hover:text-white transition-colors">SLA Commitments</a>
       </div>
     </div>
   </div>
 </footer>
 
 <script>
-  // Mobile Menu Toggle
-  const menuBtn = document.getElementById('mobile-menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
-  if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
+  // Mobile Menu
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
   }
 </script>
 </body>
