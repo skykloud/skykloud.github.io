@@ -315,73 +315,128 @@
 </header>
 
 <!-- CERTIFICATIONS & PLATFORM PARTNERSHIPS MARQUEE (Cogniviti-inspired) -->
-<section class="w-full py-6 bg-surface-container-lowest border-y border-white/10 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 mb-3 text-center">
+<section class="w-full py-8 bg-surface-container-lowest border-y border-white/10 overflow-hidden relative">
+  <div class="max-w-7xl mx-auto px-6 mb-4 text-center">
     <span class="text-[10.5px] font-mono tracking-[0.25em] text-text-muted uppercase">Platform Partnerships &amp; Enterprise Governance</span>
   </div>
   <div class="relative w-full overflow-hidden">
-    <div class="animate-ticker flex items-center gap-6 text-xs font-mono font-semibold text-text-secondary whitespace-nowrap">
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-secondary/40 transition-colors">
-        <img src="/assets/logos/coupa.svg" alt="Coupa" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">Advisory Partner</span>
-      </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-primary/40 transition-colors">
-        <img src="/assets/logos/onestream-full.svg" alt="OneStream" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">CPM Specialized</span>
-      </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-tertiary/40 transition-colors">
-        <img src="/assets/logos/sap.svg" alt="SAP" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">Ariba Modernization</span>
-      </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-white/20 transition-colors">
-        <img src="/assets/logos/ivalua.svg" alt="iValua" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">S2P Implementation</span>
-      </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-secondary/40 transition-colors">
-        <img src="/assets/logos/gep.svg" alt="GEP" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">AI Operations</span>
-      </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-red-400/40 transition-colors">
-        <img src="/assets/logos/jaggaer.svg" alt="Jaggaer" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">ONE Commerce</span>
-      </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-orange-400/40 transition-colors">
-        <img src="/assets/logos/hubspot.svg" alt="HubSpot" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">Certified Solutions</span>
-      </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-primary-light/40 transition-colors">
-        <img src="/assets/logos/microsoft.svg" alt="Microsoft" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">Dynamics 365 Cloud</span>
-      </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-blue-400/40 transition-colors">
-        <img src="/assets/logos/salesforce.svg" alt="Salesforce" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">Revenue Cloud</span>
+    <!-- Gradient Edge Fade Masks -->
+    <div class="absolute left-0 top-0 bottom-0 w-28 bg-gradient-to-r from-surface-container-lowest to-transparent z-10 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-28 bg-gradient-to-l from-surface-container-lowest to-transparent z-10 pointer-events-none"></div>
+    
+    <div class="animate-ticker flex items-center gap-5 whitespace-nowrap">
+      <!-- Coupa -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-secondary/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/coupa.svg" alt="Coupa" class="h-6 w-auto max-h-6 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
       </div>
 
-      <!-- Repeat Loop -->
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-secondary/40 transition-colors">
-        <img src="/assets/logos/coupa.svg" alt="Coupa" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">Advisory Partner</span>
+      <!-- OneStream -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-primary/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/onestream-full.svg" alt="OneStream" class="h-6 w-auto max-h-6 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
       </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-primary/40 transition-colors">
-        <img src="/assets/logos/onestream-full.svg" alt="OneStream" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">CPM Specialized</span>
+
+      <!-- SAP -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-tertiary/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/sap.svg" alt="SAP" class="h-6.5 w-auto max-h-6.5 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
       </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-tertiary/40 transition-colors">
-        <img src="/assets/logos/sap.svg" alt="SAP" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">Ariba Modernization</span>
+
+      <!-- iValua -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-white/30 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/ivalua.svg" alt="iValua" class="h-6 w-auto max-h-6 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
       </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-white/20 transition-colors">
-        <img src="/assets/logos/ivalua.svg" alt="iValua" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">S2P Implementation</span>
+
+      <!-- GEP -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-secondary/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/gep.svg" alt="GEP" class="h-6 w-auto max-h-6 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
       </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-secondary/40 transition-colors">
-        <img src="/assets/logos/gep.svg" alt="GEP" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">AI Operations</span>
+
+      <!-- Jaggaer -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-red-400/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/jaggaer.svg" alt="Jaggaer" class="h-6 w-auto max-h-6 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
       </div>
-      <div class="flex items-center gap-3 px-4 py-2.5 rounded-lg bg-surface-container-high/50 border border-white/10 hover:border-orange-400/40 transition-colors">
-        <img src="/assets/logos/hubspot.svg" alt="HubSpot" class="h-5 w-auto object-contain" />
-        <span class="text-[11px] text-text-muted">Certified Solutions</span>
+
+      <!-- HubSpot -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-orange-400/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/hubspot.svg" alt="HubSpot" class="h-6 w-auto max-h-6 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      <!-- Microsoft -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-primary-light/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/microsoft.svg" alt="Microsoft" class="h-5.5 w-auto max-h-5.5 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      <!-- Salesforce -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-blue-400/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/salesforce.svg" alt="Salesforce" class="h-7 w-auto max-h-7 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      <!-- SOC 2 Badge -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-emerald-400/40 hover:bg-surface-card transition-all flex items-center justify-center gap-2 group flex-shrink-0 font-mono text-xs font-bold text-white">
+        <span class="material-symbols-outlined text-success-emerald text-base">verified_user</span>
+        <span>SOC 2 Type II</span>
+      </div>
+
+      <!-- ISO Badge -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-emerald-400/40 hover:bg-surface-card transition-all flex items-center justify-center gap-2 group flex-shrink-0 font-mono text-xs font-bold text-white">
+        <span class="material-symbols-outlined text-success-emerald text-base">verified</span>
+        <span>ISO/IEC 27001</span>
+      </div>
+      <!-- Repeat Loop for seamless continuous animation -->
+      <!-- Coupa -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-secondary/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/coupa.svg" alt="Coupa" class="h-6 w-auto max-h-6 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      <!-- OneStream -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-primary/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/onestream-full.svg" alt="OneStream" class="h-6 w-auto max-h-6 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      <!-- SAP -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-tertiary/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/sap.svg" alt="SAP" class="h-6.5 w-auto max-h-6.5 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      <!-- iValua -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-white/30 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/ivalua.svg" alt="iValua" class="h-6 w-auto max-h-6 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      <!-- GEP -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-secondary/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/gep.svg" alt="GEP" class="h-6 w-auto max-h-6 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      <!-- Jaggaer -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-red-400/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/jaggaer.svg" alt="Jaggaer" class="h-6 w-auto max-h-6 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      <!-- HubSpot -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-orange-400/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/hubspot.svg" alt="HubSpot" class="h-6 w-auto max-h-6 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      <!-- Microsoft -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-primary-light/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/microsoft.svg" alt="Microsoft" class="h-5.5 w-auto max-h-5.5 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      <!-- Salesforce -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-blue-400/40 hover:bg-surface-card transition-all flex items-center justify-center group flex-shrink-0">
+        <img src="/assets/logos/salesforce.svg" alt="Salesforce" class="h-7 w-auto max-h-7 max-w-[110px] object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
+      </div>
+
+      <!-- SOC 2 Badge -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-emerald-400/40 hover:bg-surface-card transition-all flex items-center justify-center gap-2 group flex-shrink-0 font-mono text-xs font-bold text-white">
+        <span class="material-symbols-outlined text-success-emerald text-base">verified_user</span>
+        <span>SOC 2 Type II</span>
+      </div>
+
+      <!-- ISO Badge -->
+      <div class="h-12 min-w-[150px] px-6 rounded-xl bg-surface-card/60 border border-white/10 hover:border-emerald-400/40 hover:bg-surface-card transition-all flex items-center justify-center gap-2 group flex-shrink-0 font-mono text-xs font-bold text-white">
+        <span class="material-symbols-outlined text-success-emerald text-base">verified</span>
+        <span>ISO/IEC 27001</span>
       </div>
     </div>
   </div>
