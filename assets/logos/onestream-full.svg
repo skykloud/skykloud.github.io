@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" width="100%" height="100%" fill="none">
+  <!-- OneStream Icon Mark (Stream loop in cyan) -->
+  <g transform="translate(6, 10) scale(1.2)" fill="#38BDF8">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 18c-3.314 0-6-2.686-6-6s2.686-6 6-6 6 2.686 6 6-2.686 6-6 6z"/>
+    <circle cx="12" cy="12" r="3" fill="#FFFFFF"/>
+  </g>
+  <!-- OneStream Wordmark -->
+  <text x="46" y="32" font-family="'Plus Jakarta Sans', system-ui, -apple-system, sans-serif" font-size="22" font-weight="800" letter-spacing="-0.5" fill="#FFFFFF">
+    OneStream
+  </text>
+</svg>
