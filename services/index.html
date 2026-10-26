@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>Platform & Consulting Services | SkyKloud</title>
+  <meta name="description" content="SkyKloud delivers enterprise consulting, platform implementation, core ERP integrations, and Customer Experience (CX) architecture across Coupa, OneStream, and leading CRM ecosystems."/>
+  <link rel="canonical" href="https://skykloud.com/services/"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet"/>
+  <style>
+    @layer base {
+      html, body { margin:0; padding:0; }
+      html { scroll-behavior: smooth; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+
+    /* Subtle grid background */
+    .bg-grid-pattern {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+
+    /* Ambient glow */
+    .radial-glow-cyan {
+      background: radial-gradient(circle 600px at 50% -10%, rgba(2, 132, 199, 0.15), transparent 70%);
+    }
+    .radial-glow-amber {
+      background: radial-gradient(circle 500px at 80% 20%, rgba(245, 158, 11, 0.12), transparent 70%);
+    }
+
+    /* Ticker animation */
+    @keyframes ticker {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-ticker {
+      display: flex;
+      width: 200%;
+      animation: ticker 35s linear infinite;
+    }
+    .animate-ticker:hover {
+      animation-play-state: paused;
+    }
+
+    /* Tab transitions */
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    /* Standardized, optically balanced platform logos */
+    .platform-logo-img {
+      height: 26px;
+      width: auto;
+      max-width: 125px;
+      object-fit: contain;
+      object-position: left;
+    }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#0284c7",
+            "primary-light": "#38bdf8",
+            "primary-glow": "rgba(56, 189, 248, 0.25)",
+            "secondary": "#f59e0b",
+            "secondary-hover": "#d97706",
+            "on-secondary": "#070D1E",
+            "tertiary": "#38bdf8",
+            "background": "#070D1E",
+            "surface-base": "#0b1326",
+            "surface-card": "#101932",
+            "surface-glass": "rgba(16, 25, 50, 0.75)",
+            "surface-container-lowest": "#050914",
+            "surface-container-low": "#0b1326",
+            "surface-container": "#131F3B",
+            "surface-container-high": "#1C2A4F",
+            "surface-container-highest": "#283A6B",
+            "on-surface": "#F8FAFC",
+            "on-surface-variant": "#94A3B8",
+            "text-primary": "#F8FAFC",
+            "text-secondary": "#CBD5E1",
+            "text-muted": "#64748B",
+            "border-subtle": "rgba(255, 255, 255, 0.08)",
+            "border-glow": "rgba(56, 189, 248, 0.22)",
+            "success-emerald": "#10B981"
+          },
+          fontFamily: {
+            sans: ["'Plus Jakarta Sans'", "system-ui", "sans-serif"],
+            mono: ["'IBM Plex Mono'", "monospace"],
+            display: ["'Plus Jakarta Sans'", "sans-serif"]
+          }
+        }
+      }
+    };
+  </script>
+</head>
+<body class="bg-background text-on-surface antialiased selection:bg-primary/30 selection:text-white min-h-screen flex flex-col font-sans bg-grid-pattern">
+<!-- TOP STATUS HATCH BAR (Cogniviti-inspired) -->
+<aside class="w-full bg-surface-container-lowest border-b border-white/5 py-1.5 px-4 text-center overflow-hidden">
+  <div class="max-w-7xl mx-auto flex items-center justify-between text-[11px] font-mono text-on-surface-variant">
+    <div class="hidden sm:flex items-center gap-2">
+      <span class="inline-block w-2 h-2 rounded-full bg-success-emerald animate-pulse"></span>
+      <span class="uppercase tracking-widest text-primary-light">SkyKloud Advisory Engine</span>
+      <span class="text-text-muted">·</span>
+      <span>Enterprise Procurement, EPM &amp; Customer Experience</span>
+    </div>
+    <div class="mx-auto sm:mx-0 flex items-center gap-3">
+      <span class="text-secondary font-semibold">Pittsburgh HQ Desk:</span>
+      <a href="tel:+14127270544" class="text-white hover:text-primary-light transition-colors font-medium">+1.412.727.0544</a>
+      <span class="text-text-muted">·</span>
+      <a href="mailto:partner@skykloud.com" class="text-white hover:text-secondary transition-colors">partner@skykloud.com</a>
+    </div>
+  </div>
+</aside>
+
+<!-- NAVIGATION BAR -->
+<header class="sticky top-0 left-0 w-full z-50 bg-surface-glass backdrop-blur-xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+  <div class="h-16 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between">
+    <!-- Brand Identity -->
+    <a href="/" class="flex items-center group py-1">
+      <img src="/assets/logo.svg" alt="SkyKloud Logo" class="h-10 w-auto object-contain transition-transform group-hover:scale-105 drop-shadow-[0_2px_12px_rgba(56,189,248,0.2)]" />
+    </a>
+
+    <!-- Desktop Nav Links -->
+    <nav class="hidden lg:flex items-center gap-1 p-1 bg-surface-container-lowest/80 border border-white/5 rounded-lg font-mono">
+      <a href="/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">Home</a>
+      <a href="/#platforms" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">Platforms</a>
+
+      <!-- Services Dropdown (Consulting, Implementation, Customer Experience) -->
+      <div class="relative group">
+        <a href="/services/" class="flex items-center gap-1.5 rounded px-3 py-1.5 text-xs tracking-wide transition-all text-secondary font-semibold bg-surface-container-high/80">
+          <span>Services</span>
+          <span class="material-symbols-outlined text-xs transition-transform duration-200 group-hover:rotate-180">expand_more</span>
+        </a>
+        <div class="absolute top-full left-0 pt-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div class="p-2 rounded-xl bg-surface-card/95 backdrop-blur-xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.7)] space-y-1">
+            <a href="/services/#consulting" class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-white/5 transition-colors group/item">
+              <div class="w-8 h-8 rounded-lg bg-secondary/15 flex items-center justify-center flex-shrink-0 text-secondary mt-0.5">
+                <span class="material-symbols-outlined text-base">psychology</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white group-hover/item:text-secondary transition-colors">Consulting</div>
+                <div class="text-[10.5px] text-text-muted mt-0.5">Advisory, process design &amp; ROI roadmap</div>
+              </div>
+            </a>
+            <a href="/services/#implementation" class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-white/5 transition-colors group/item">
+              <div class="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center flex-shrink-0 text-primary-light mt-0.5">
+                <span class="material-symbols-outlined text-base">terminal</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white group-hover/item:text-primary-light transition-colors">Implementation</div>
+                <div class="text-[10.5px] text-text-muted mt-0.5">Platform deployment &amp; ERP integrations</div>
+              </div>
+            </a>
+            <a href="/cx/" class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-white/5 transition-colors group/item">
+              <div class="w-8 h-8 rounded-lg bg-tertiary/15 flex items-center justify-center flex-shrink-0 text-tertiary mt-0.5">
+                <span class="material-symbols-outlined text-base">handshake</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white group-hover/item:text-tertiary transition-colors">Customer Experience (CX)</div>
+                <div class="text-[10.5px] text-text-muted mt-0.5">Unified customer view &amp; RevOps CRM</div>
+              </div>
+            </a>
+            <div class="pt-2 border-t border-white/5 px-2.5 pb-1 flex items-center justify-between">
+              <a href="/services/" class="text-[11px] font-mono text-primary-light hover:underline flex items-center gap-1">
+                <span>All Services Overview</span>
+                <span class="material-symbols-outlined text-xs">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="/growth-partner/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">Growth Partner</a>
+      <a href="/about/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">About</a>
+      <a href="/contact/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">Contact</a>
+    </nav>
+
+    <!-- Header CTAs -->
+    <div class="flex items-center gap-3">
+      <a href="/contact/" class="inline-flex items-center justify-center px-4 py-2 rounded bg-secondary text-on-secondary text-xs font-bold tracking-wide uppercase font-mono hover:bg-secondary-hover transition-all shadow-[0_0_20px_rgba(245,158,11,0.25)] hover:scale-[1.02]">
+        Book Briefing
+      </a>
+      <button id="mobile-menu-btn" class="lg:hidden p-2 rounded bg-surface-container-high text-white hover:text-primary" aria-label="Toggle menu">
+        <span class="material-symbols-outlined text-xl">menu</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" class="hidden lg:hidden bg-surface-base border-b border-white/10 px-6 py-4 space-y-2 font-mono text-xs">
+    <a href="/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">Home</a>
+    <a href="/#platforms" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">Platforms &amp; Systems</a>
+    
+    <!-- Mobile Services Section -->
+    <div class="pt-1 pb-1 space-y-1">
+      <a href="/services/" class="block px-3 py-2 rounded bg-surface-container-high text-primary-light font-bold">Services Overview</a>
+      <div class="pl-4 space-y-1">
+        <a href="/services/#consulting" class="block px-3 py-1.5 rounded text-text-muted hover:text-white">↳ Consulting</a>
+        <a href="/services/#implementation" class="block px-3 py-1.5 rounded text-text-muted hover:text-white">↳ Implementation</a>
+        <a href="/cx/" class="block px-3 py-1.5 rounded text-text-muted hover:text-white">↳ Customer Experience (CX)</a>
+      </div>
+    </div>
+
+    <a href="/growth-partner/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">Growth Partner Network</a>
+    <a href="/about/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">About Us</a>
+    <a href="/contact/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">Contact Us</a>
+    <div class="pt-3 border-t border-white/10 flex items-center justify-between text-text-muted">
+      <span>Pittsburgh HQ Desk</span>
+      <a href="tel:+14127270544" class="text-primary-light font-bold">+1.412.727.0544</a>
+    </div>
+  </div>
+</header>
+<main class="w-full flex-grow">
+
+<!-- HERO SECTION (Cogniviti-inspired) -->
+<section class="relative pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-white/10 overflow-hidden">
+  <div class="radial-glow-cyan absolute inset-0 pointer-events-none"></div>
+  <div class="radial-glow-amber absolute inset-0 pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="mb-6">
+      <ol class="flex items-center gap-2 font-mono text-[11px] tracking-widest text-text-muted uppercase">
+        <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+        <li class="text-white/20">/</li>
+        <li class="text-secondary font-semibold">Services</li>
+      </ol>
+    </nav>
+
+    <!-- Monospace Category Kicker -->
+    <div class="inline-flex items-center gap-2 font-mono text-[11px] font-semibold tracking-[0.2em] text-primary-light uppercase mb-6 bg-surface-container-high/60 border border-white/10 px-3.5 py-1.5 rounded-full">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary-light animate-pulse"></span>
+      <span>PLATFORM &amp; CONSULTING SERVICES</span>
+    </div>
+
+    <!-- Hero Title -->
+    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] max-w-4xl mb-6">
+      Enterprise platform <em class="font-serif italic font-normal text-secondary">consulting</em> and implementation services.
+    </h1>
+
+    <!-- Narrative Intro -->
+    <p class="text-base sm:text-lg text-text-secondary leading-relaxed max-w-3xl mb-8">
+      SkyKloud delivers boutique advisory, turnkey platform implementation, core ERP data integration, and continuous adoption support. We help procurement, finance, and commercial leaders deploy Coupa, OneStream, SAP Ariba, iValua, GEP SMART, and unified Customer Experience (CX) ecosystems.
+    </p>
+
+    <!-- Quick Jumper Badges -->
+    <div class="flex flex-wrap items-center gap-3 pt-2 font-mono text-xs">
+      <a href="#consulting" class="inline-flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/80 border border-white/10 text-white hover:border-secondary hover:text-secondary transition-all">
+        <span class="material-symbols-outlined text-sm text-secondary">psychology</span>
+        <span>01. Consulting &amp; Advisory</span>
+      </a>
+      <a href="#implementation" class="inline-flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/80 border border-white/10 text-white hover:border-primary-light hover:text-primary-light transition-all">
+        <span class="material-symbols-outlined text-sm text-primary-light">terminal</span>
+        <span>02. Platform Implementation</span>
+      </a>
+      <a href="#cx" class="inline-flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/80 border border-white/10 text-white hover:border-tertiary hover:text-tertiary transition-all">
+        <span class="material-symbols-outlined text-sm text-tertiary">handshake</span>
+        <span>03. Customer Experience (CX)</span>
+      </a>
+      <a href="#lifecycle" class="inline-flex items-center gap-2 px-4 py-2 rounded bg-surface-container-high/80 border border-white/10 text-white hover:border-white hover:text-white transition-all">
+        <span class="material-symbols-outlined text-sm text-text-muted">timeline</span>
+        <span>04. Delivery Lifecycle</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM ECOSYSTEM SELECTOR (Cogniviti-inspired Grid) -->
+<section class="py-16 border-b border-white/10 bg-surface-container-lowest">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-white/10 gap-4">
+      <div>
+        <div class="font-mono text-[11px] font-semibold tracking-widest text-primary-light uppercase mb-2">Supported Technologies</div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">Proven Expertise Across Enterprise Suites</h2>
+      </div>
+      <p class="text-xs sm:text-sm text-text-muted max-w-md font-mono">
+        Configured and integrated with SAP S/4HANA, Oracle ERP Cloud, Microsoft Dynamics, and NetSuite.
+      </p>
+    </div>
+
+    <!-- Platform Cards Grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+      <!-- Coupa -->
+      <div class="p-4 rounded-xl bg-surface-card border border-white/10 hover:border-primary/40 transition-all flex flex-col justify-between h-32 group">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-[10px] text-text-muted">BSM</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-success-emerald"></span>
+        </div>
+        <div class="h-8 flex items-center">
+          <img src="/assets/logos/coupa.svg" alt="Coupa" class="platform-logo-img" />
+        </div>
+        <span class="text-[11px] font-mono text-primary-light group-hover:underline">Explore Suite →</span>
+      </div>
+
+      <!-- OneStream -->
+      <div class="p-4 rounded-xl bg-surface-card border border-white/10 hover:border-primary/40 transition-all flex flex-col justify-between h-32 group">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-[10px] text-text-muted">EPM / CPM</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-success-emerald"></span>
+        </div>
+        <div class="h-8 flex items-center">
+          <img src="/assets/logos/onestream.svg" alt="OneStream" class="platform-logo-img" />
+        </div>
+        <span class="text-[11px] font-mono text-primary-light group-hover:underline">Explore Suite →</span>
+      </div>
+
+      <!-- SAP Ariba -->
+      <div class="p-4 rounded-xl bg-surface-card border border-white/10 hover:border-primary/40 transition-all flex flex-col justify-between h-32 group">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-[10px] text-text-muted">S2P</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-success-emerald"></span>
+        </div>
+        <div class="h-8 flex items-center">
+          <img src="/assets/logos/sap.svg" alt="SAP Ariba" class="platform-logo-img" />
+        </div>
+        <span class="text-[11px] font-mono text-primary-light group-hover:underline">Explore Suite →</span>
+      </div>
+
+      <!-- iValua -->
+      <div class="p-4 rounded-xl bg-surface-card border border-white/10 hover:border-primary/40 transition-all flex flex-col justify-between h-32 group">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-[10px] text-text-muted">Spend Ops</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-success-emerald"></span>
+        </div>
+        <div class="h-8 flex items-center">
+          <img src="/assets/logos/ivalua.svg" alt="iValua" class="platform-logo-img" />
+        </div>
+        <span class="text-[11px] font-mono text-primary-light group-hover:underline">Explore Suite →</span>
+      </div>
+
+      <!-- GEP SMART -->
+      <div class="p-4 rounded-xl bg-surface-card border border-white/10 hover:border-primary/40 transition-all flex flex-col justify-between h-32 group">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-[10px] text-text-muted">AI Sourcing</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-success-emerald"></span>
+        </div>
+        <div class="h-8 flex items-center">
+          <img src="/assets/logos/gep.svg" alt="GEP" class="platform-logo-img" />
+        </div>
+        <span class="text-[11px] font-mono text-primary-light group-hover:underline">Explore Suite →</span>
+      </div>
+
+      <!-- HubSpot / CX -->
+      <div class="p-4 rounded-xl bg-surface-card border border-white/10 hover:border-primary/40 transition-all flex flex-col justify-between h-32 group">
+        <div class="flex items-center justify-between">
+          <span class="font-mono text-[10px] text-text-muted">Customer Experience (CX)</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-success-emerald"></span>
+        </div>
+        <div class="h-8 flex items-center">
+          <img src="/assets/logos/hubspot.svg" alt="HubSpot" class="platform-logo-img" />
+        </div>
+        <span class="text-[11px] font-mono text-primary-light group-hover:underline">Explore Suite →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR 1: CONSULTING & ADVISORY -->
+<section id="consulting" class="py-20 lg:py-28 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Header -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+      <div class="lg:col-span-5">
+        <div class="inline-flex items-center gap-2 font-mono text-xs font-semibold tracking-widest text-secondary uppercase mb-3">
+          <span class="material-symbols-outlined text-sm">psychology</span>
+          <span>PILLAR 01: ADVISORY &amp; PROCESS DESIGN</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          Strategic Consulting &amp; Operating Model Architecture
+        </h2>
+      </div>
+      <div class="lg:col-span-7">
+        <p class="text-base sm:text-lg text-text-secondary leading-relaxed mb-4">
+          Before committing millions in software licensing, organizations need clear architecture roadmaps, quantified ROI frameworks, and harmonized operating models.
+        </p>
+        <p class="text-sm text-text-muted leading-relaxed">
+          SkyKloud acts as an objective strategic advisor, evaluating business requirements, designing future-state procurement workflows, rationalizing ERP touchpoints, and preparing cross-functional leadership for seamless digital change.
+        </p>
+      </div>
+    </div>
+
+    <!-- Capabilities Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/10 hover:border-secondary/40 transition-all group">
+        <div class="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center text-secondary mb-5">
+          <span class="material-symbols-outlined">account_tree</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-secondary transition-colors">Target Operating Model (TOM)</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Design resilient governance hierarchies, approval matrices, delegation limits, and shared services structures aligned with corporate financial policy.
+        </p>
+        <ul class="space-y-1.5 text-xs font-mono text-on-surface-variant">
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Shared services blueprinting
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Spend compliance policy design
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Category management alignment
+          </li>
+        </ul>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/10 hover:border-secondary/40 transition-all group">
+        <div class="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center text-secondary mb-5">
+          <span class="material-symbols-outlined">tune</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-secondary transition-colors">Platform Selection &amp; Architecture</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Objective evaluation of BSM and EPM platforms based on functional fit, licensing TCO, ERP connectivity, and long-term organizational maturity.
+        </p>
+        <ul class="space-y-1.5 text-xs font-mono text-on-surface-variant">
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Functional fit-gap matrix
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> S2P vs Best-of-Breed analysis
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Licensing &amp; infrastructure TCO
+          </li>
+        </ul>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/10 hover:border-secondary/40 transition-all group">
+        <div class="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center text-secondary mb-5">
+          <span class="material-symbols-outlined">trending_up</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-secondary transition-colors">ROI &amp; Value Realization Roadmap</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Establish baseline spend analytics, identify maverick purchasing leakages, and project quantifiable 3-year cash flow improvements.
+        </p>
+        <ul class="space-y-1.5 text-xs font-mono text-on-surface-variant">
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Early payment discount capture
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Sourcing cycle-time reduction
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Working capital optimization
+          </li>
+        </ul>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/10 hover:border-secondary/40 transition-all group">
+        <div class="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center text-secondary mb-5">
+          <span class="material-symbols-outlined">schema</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-secondary transition-colors">Process Harmonization</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Standardize requisition-to-PO, contract lifecycle, invoice matching (2-way / 3-way), and supplier onboarding across business divisions.
+        </p>
+        <ul class="space-y-1.5 text-xs font-mono text-on-surface-variant">
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> PO &amp; non-PO invoice pathways
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Automated dynamic approval rules
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Dispute management protocols
+          </li>
+        </ul>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/10 hover:border-secondary/40 transition-all group">
+        <div class="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center text-secondary mb-5">
+          <span class="material-symbols-outlined">groups</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-secondary transition-colors">Organizational Change Enablement</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Overcome user friction with persona-based training curriculums, communication cadences, executive change sponsorship, and adoption metrics.
+        </p>
+        <ul class="space-y-1.5 text-xs font-mono text-on-surface-variant">
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Role-specific learning modules
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Change champion network build
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Weekly user adoption KPI dashboards
+          </li>
+        </ul>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/10 hover:border-secondary/40 transition-all group">
+        <div class="w-10 h-10 rounded-xl bg-secondary/15 flex items-center justify-center text-secondary mb-5">
+          <span class="material-symbols-outlined">dataset</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-secondary transition-colors">Taxonomy &amp; Master Data Strategy</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Cleanse fragmented vendor databases, design standard UNSPSC product classification trees, and eliminate duplicate supplier records.
+        </p>
+        <ul class="space-y-1.5 text-xs font-mono text-on-surface-variant">
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> UNSPSC category classification
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Vendor de-duplication engines
+          </li>
+          <li class="flex items-center gap-2">
+            <span class="text-secondary font-bold">›</span> Multi-ERP chart of accounts mapping
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR 2: PLATFORM IMPLEMENTATION -->
+<section id="implementation" class="py-20 lg:py-28 border-b border-white/10 bg-surface-container-lowest">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Header -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+      <div class="lg:col-span-5">
+        <div class="inline-flex items-center gap-2 font-mono text-xs font-semibold tracking-widest text-primary-light uppercase mb-3">
+          <span class="material-symbols-outlined text-sm">terminal</span>
+          <span>PILLAR 02: TECHNICAL EXECUTION</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          Turnkey Implementation &amp; Core ERP Integrations
+        </h2>
+      </div>
+      <div class="lg:col-span-7">
+        <p class="text-base sm:text-lg text-text-secondary leading-relaxed mb-4">
+          Smooth go-lives require rigorous configuration, zero-data-loss migration, and bi-directional synchronisation with enterprise backbones like SAP, Oracle, and Microsoft.
+        </p>
+        <p class="text-sm text-text-muted leading-relaxed">
+          SkyKloud's engineering practice builds production-grade tenant architectures, configures custom automated workflows, deploys enterprise API pipelines, and provides 90-day post-launch hypercare.
+        </p>
+      </div>
+    </div>
+
+    <!-- Implementation Modules Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Item 1 -->
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/10 hover:border-primary/40 transition-all group">
+        <div class="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary-light mb-5">
+          <span class="material-symbols-outlined">settings_suggest</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-primary-light transition-colors">Tenant Setup &amp; Configuration</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Complete tenant provisioning, business unit segmentation, approval workflows, custom fields, and role-based permissions across Coupa, OneStream, and iValua.
+        </p>
+        <div class="pt-3 border-t border-white/5 font-mono text-[11px] text-primary-light">
+          Deliverable: Production Tenant Blueprint
+        </div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/10 hover:border-primary/40 transition-all group">
+        <div class="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary-light mb-5">
+          <span class="material-symbols-outlined">hub</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-primary-light transition-colors">ERP Middleware &amp; API Connectors</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Automated batch and real-time event streaming between cloud platforms and core ledgers (SAP S/4HANA, Oracle ERP Cloud, NetSuite, Dynamics 365).
+        </p>
+        <div class="pt-3 border-t border-white/5 font-mono text-[11px] text-primary-light">
+          Deliverable: Bi-Directional Sync Pipelines
+        </div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/10 hover:border-primary/40 transition-all group">
+        <div class="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary-light mb-5">
+          <span class="material-symbols-outlined">upload_file</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-primary-light transition-colors">Data Migration &amp; Reconciliation</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Cleansing, transformation, and staged loading of active purchase orders, historical invoices, open contracts, and supplier master records with automated reconciliation.
+        </p>
+        <div class="pt-3 border-t border-white/5 font-mono text-[11px] text-primary-light">
+          Deliverable: Zero-Discrepancy Signoff
+        </div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/10 hover:border-primary/40 transition-all group">
+        <div class="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary-light mb-5">
+          <span class="material-symbols-outlined">public</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-primary-light transition-colors">Multi-Country Global Rollouts</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Tailoring configurations for international subsidiaries, covering local statutory tax rules, e-invoicing compliance (Peppol, SDI, CFDI), and multi-currency ledgers.
+        </p>
+        <div class="pt-3 border-t border-white/5 font-mono text-[11px] text-primary-light">
+          Deliverable: Global Template Model
+        </div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/10 hover:border-primary/40 transition-all group">
+        <div class="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary-light mb-5">
+          <span class="material-symbols-outlined">verified</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-primary-light transition-colors">Testing &amp; User Acceptance (UAT)</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Comprehensive test execution across Unit Testing, System Integration Testing (SIT), and guided User Acceptance Testing with scripted enterprise business scenarios.
+        </p>
+        <div class="pt-3 border-t border-white/5 font-mono text-[11px] text-primary-light">
+          Deliverable: 100% Pass UAT Verification
+        </div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="p-6 rounded-2xl bg-surface-card border border-white/10 hover:border-primary/40 transition-all group">
+        <div class="w-10 h-10 rounded-xl bg-primary/15 flex items-center justify-center text-primary-light mb-5">
+          <span class="material-symbols-outlined">headset_mic</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-primary-light transition-colors">90-Day Hypercare &amp; Admin Handover</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Dedicated post-cutover stabilization desk, error log triage, system performance monitoring, and hands-on operational handover to internal system administrators.
+        </p>
+        <div class="pt-3 border-t border-white/5 font-mono text-[11px] text-primary-light">
+          Deliverable: Stable Production Run
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLAR 3: CUSTOMER EXPERIENCE (CX) -->
+<section id="cx" class="py-20 lg:py-28 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Header -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-16">
+      <div class="lg:col-span-5">
+        <div class="inline-flex items-center gap-2 font-mono text-xs font-semibold tracking-widest text-tertiary uppercase mb-3">
+          <span class="material-symbols-outlined text-sm">handshake</span>
+          <span>PILLAR 03: COMMERCIAL EXCELLENCE</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          Customer Experience (CX) &amp; Unified CRM Architecture
+        </h2>
+      </div>
+      <div class="lg:col-span-7">
+        <p class="text-base sm:text-lg text-text-secondary leading-relaxed mb-4">
+          Procurement and finance systems only tell half the operational story. True commercial acceleration occurs when front-office revenue teams operate from the same verified customer data as back-office fulfillment and ERP.
+        </p>
+        <p class="text-sm text-text-muted leading-relaxed mb-6">
+          Our Customer Experience (CX) practice architects, integrates, and customizes CRM platforms across HubSpot, Microsoft Dynamics 365, and Salesforce, aligning marketing, sales pipeline, and customer success around unified customer data.
+        </p>
+        <a href="/cx/" class="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-surface-container-high border border-tertiary/30 text-tertiary hover:bg-tertiary/10 transition-all font-mono text-xs font-bold">
+          <span>Explore Dedicated CX Practice Page</span>
+          <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 3 CX Focus Areas -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Area 1 -->
+      <div class="p-8 rounded-2xl bg-surface-card border border-white/10 hover:border-tertiary/40 transition-all">
+        <div class="h-10 w-28 flex items-center mb-6">
+          <img src="/assets/logos/hubspot.svg" alt="HubSpot" class="platform-logo-img" />
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">HubSpot Inbound &amp; RevOps</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Marketing Hub, Sales Hub, and Service Hub deployments configured with automated lead scoring, attribution modeling, and automated pipeline progression.
+        </p>
+        <ul class="space-y-1.5 text-xs font-mono text-on-surface-variant">
+          <li>› Pipeline &amp; deal stage hygiene</li>
+          <li>› Automated lifecycle routing</li>
+          <li>› Cross-department KPI reporting</li>
+        </ul>
+      </div>
+
+      <!-- Area 2 -->
+      <div class="p-8 rounded-2xl bg-surface-card border border-white/10 hover:border-tertiary/40 transition-all">
+        <div class="h-10 w-28 flex items-center mb-6">
+          <img src="/assets/logos/microsoft.svg" alt="Microsoft Dynamics" class="platform-logo-img" />
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">Microsoft Dynamics 365</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Enterprise Customer Engagement architecture deeply tied into Microsoft 365, Power Platform, and backend Azure infrastructure for high-volume accounts.
+        </p>
+        <ul class="space-y-1.5 text-xs font-mono text-on-surface-variant">
+          <li>› Power Automate custom triggers</li>
+          <li>› Account-based sales sequences</li>
+          <li>› Dynamics Finance &amp; Ops bridge</li>
+        </ul>
+      </div>
+
+      <!-- Area 3 -->
+      <div class="p-8 rounded-2xl bg-surface-card border border-white/10 hover:border-tertiary/40 transition-all">
+        <div class="h-10 w-28 flex items-center mb-6">
+          <img src="/assets/logos/salesforce.svg" alt="Salesforce" class="platform-logo-img" />
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">Salesforce Cloud Operations</h3>
+        <p class="text-xs sm:text-sm text-text-muted leading-relaxed mb-4">
+          Sales Cloud, Service Cloud, and CPQ configuration designed to eliminate quote sprawl, standardize discount policies, and sync customer contracts.
+        </p>
+        <ul class="space-y-1.5 text-xs font-mono text-on-surface-variant">
+          <li>› CPQ product bundle rules</li>
+          <li>› Contract lifecycle sync</li>
+          <li>› ERP invoice status visibility</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5-PHASE LIFECYCLE BLUEPRINT (Cogniviti-inspired) -->
+<section id="lifecycle" class="py-20 lg:py-28 border-b border-white/10 bg-surface-container-lowest">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="font-mono text-xs font-semibold tracking-widest text-primary-light uppercase mb-2">Delivery Methodology</div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white">The SkyKloud 5-Phase Delivery Lifecycle</h2>
+      <p class="text-sm text-text-muted mt-3">From preliminary scoping to 24/7 post-go-live managed stabilization.</p>
+    </div>
+
+    <!-- Timeline Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-4">
+      <!-- Step 1 -->
+      <div class="p-5 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between">
+        <div>
+          <div class="font-mono text-xs text-secondary font-bold mb-2">PHASE 01</div>
+          <h3 class="text-base font-bold text-white mb-2">Discover &amp; Benchmark</h3>
+          <p class="text-xs text-text-muted leading-relaxed">
+            Audit existing ERP connections, analyze transaction volumes, interview business owners, and document target milestones.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/5 text-[10.5px] font-mono text-primary-light">
+          Weeks 1 – 3
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="p-5 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between">
+        <div>
+          <div class="font-mono text-xs text-secondary font-bold mb-2">PHASE 02</div>
+          <h3 class="text-base font-bold text-white mb-2">Architect &amp; Design</h3>
+          <p class="text-xs text-text-muted leading-relaxed">
+            Produce functional specification documents (FSD), data integration schemas, approval workflows, and data security models.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/5 text-[10.5px] font-mono text-primary-light">
+          Weeks 4 – 6
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="p-5 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between">
+        <div>
+          <div class="font-mono text-xs text-secondary font-bold mb-2">PHASE 03</div>
+          <h3 class="text-base font-bold text-white mb-2">Build &amp; Integrate</h3>
+          <p class="text-xs text-text-muted leading-relaxed">
+            Configure tenant environments, construct API pipelines to backend ERPs, and run test batches of supplier and purchase order data.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/5 text-[10.5px] font-mono text-primary-light">
+          Weeks 7 – 12
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="p-5 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between">
+        <div>
+          <div class="font-mono text-xs text-secondary font-bold mb-2">PHASE 04</div>
+          <h3 class="text-base font-bold text-white mb-2">Validate &amp; Train</h3>
+          <p class="text-xs text-text-muted leading-relaxed">
+            Execute end-to-end UAT cycles, run role-based user enablement sessions, and certify change champion champions.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/5 text-[10.5px] font-mono text-primary-light">
+          Weeks 13 – 16
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="p-5 rounded-xl bg-surface-card border border-white/10 flex flex-col justify-between">
+        <div>
+          <div class="font-mono text-xs text-secondary font-bold mb-2">PHASE 05</div>
+          <h3 class="text-base font-bold text-white mb-2">Cutover &amp; Hypercare</h3>
+          <p class="text-xs text-text-muted leading-relaxed">
+            Execute production cutover, monitor real-time transaction processing, and deliver 90 days of dedicated triage and optimization.
+          </p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-white/5 text-[10.5px] font-mono text-primary-light">
+          Weeks 17 – 20+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALL TO ACTION (Cogniviti-inspired) -->
+<section class="py-20 lg:py-28 relative overflow-hidden bg-surface-card text-center">
+  <div class="max-w-4xl mx-auto px-6 lg:px-12 relative z-10">
+    <div class="font-mono text-xs font-semibold tracking-widest text-primary-light uppercase mb-4">
+      START WITH YOUR REQUIREMENTS
+    </div>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight mb-6">
+      Plan your next enterprise platform initiative.
+    </h2>
+    <p class="text-base sm:text-lg text-text-secondary leading-relaxed max-w-2xl mx-auto mb-10">
+      Talk with our practice leads in Pittsburgh about platform assessment, implementation roadmap, core ERP integration, or optimizing an existing production deployment.
+    </p>
+    <div class="flex flex-wrap items-center justify-center gap-4 font-mono text-xs">
+      <a href="/contact/" class="inline-flex items-center justify-center px-8 py-4 rounded bg-secondary text-on-secondary font-bold tracking-wider uppercase hover:bg-secondary-hover transition-all shadow-[0_0_25px_rgba(245,158,11,0.3)] hover:-translate-y-0.5">
+        Discuss Your Initiative
+      </a>
+      <a href="tel:+14127270544" class="inline-flex items-center justify-center px-8 py-4 rounded bg-surface-container-high border border-white/15 text-white font-bold tracking-wider uppercase hover:border-white transition-all hover:-translate-y-0.5">
+        Call Practice Desk: +1.412.727.0544
+      </a>
+    </div>
+  </div>
+</section>
+<!-- FOOTER (Cogniviti-inspired) -->
+</main>
+<footer class="w-full bg-surface-container-lowest border-t border-white/10 pt-16 pb-12 mt-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12">
+    <!-- Top Hatch Rule -->
+    <div class="pb-12 border-b border-white/10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      <!-- Col 1: Brand -->
+      <div class="lg:col-span-2 flex flex-col items-start pr-4">
+        <a href="/" class="flex items-center mb-4 group">
+          <img src="/assets/logo.svg" alt="SkyKloud Logo" class="h-11 w-auto object-contain drop-shadow-[0_2px_12px_rgba(245,158,11,0.2)]" />
+        </a>
+        <p class="text-on-surface-variant text-sm leading-relaxed mb-6 max-w-sm">
+          Engineering the architectures behind modern enterprise procurement, EPM finance, and customer experience.
+        </p>
+        <div class="space-y-2 text-xs font-mono text-on-surface-variant">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-sm">location_on</span>
+            <span>Pittsburgh, Pennsylvania, USA (Regional Corridor)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary text-sm">mail</span>
+            <a href="mailto:partner@skykloud.com" class="hover:text-secondary transition-colors">partner@skykloud.com</a>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-tertiary text-sm">call</span>
+            <a href="tel:+14127270544" class="hover:text-tertiary transition-colors">+1.412.727.0544</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Col 2: Spend & EPM Platforms -->
+      <div>
+        <h4 class="text-white font-mono font-bold text-xs tracking-widest uppercase mb-4 text-primary-light">Platforms</h4>
+        <ul class="space-y-2 text-xs text-on-surface-variant">
+          <li><a href="/#platforms" class="hover:text-white transition-colors">Coupa BSM Platform</a></li>
+          <li><a href="/#platforms" class="hover:text-white transition-colors">OneStream Intelligent CPM</a></li>
+          <li><a href="/#platforms" class="hover:text-white transition-colors">SAP Ariba Modernization</a></li>
+          <li><a href="/#platforms" class="hover:text-white transition-colors">iValua Source-to-Pay</a></li>
+          <li><a href="/#platforms" class="hover:text-white transition-colors">GEP SMART Operations</a></li>
+          <li><a href="/#platforms" class="hover:text-white transition-colors">Jaggaer ONE Commerce</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 3: Services -->
+      <div>
+        <h4 class="text-white font-mono font-bold text-xs tracking-widest uppercase mb-4 text-secondary">Services</h4>
+        <ul class="space-y-2 text-xs text-on-surface-variant">
+          <li><a href="/services/#consulting" class="hover:text-white transition-colors">Consulting &amp; Advisory</a></li>
+          <li><a href="/services/#implementation" class="hover:text-white transition-colors">Platform Implementation</a></li>
+          <li><a href="/cx/" class="hover:text-white transition-colors">Customer Experience (CX)</a></li>
+          <li><a href="/services/#integration" class="hover:text-white transition-colors">ERP Data Connectors</a></li>
+          <li><a href="/growth-partner/" class="hover:text-white transition-colors">Growth Partner Network</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 4: Organization -->
+      <div>
+        <h4 class="text-white font-mono font-bold text-xs tracking-widest uppercase mb-4 text-tertiary">Organization</h4>
+        <ul class="space-y-2 text-xs text-on-surface-variant">
+          <li><a href="/about/" class="hover:text-white transition-colors">Who We Are</a></li>
+          <li><a href="/about/#testimonials" class="hover:text-white transition-colors">Client Testimonials</a></li>
+          <li><a href="/contact/" class="hover:text-white transition-colors">Executive Briefing</a></li>
+          <li><a href="/contact/" class="hover:text-white transition-colors">Contact Practice Desk</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Attribution -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-text-muted gap-4">
+      <div>© 2026 SkyKloud Inc. All rights reserved. Registered in Pennsylvania, USA.</div>
+      <div class="flex items-center gap-6">
+        <a href="/about/" class="hover:text-white transition-colors">Privacy Policy</a>
+        <a href="/about/" class="hover:text-white transition-colors">Terms of Engagement</a>
+        <a href="/contact/" class="hover:text-white transition-colors">SLA Commitments</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu toggle
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  }
+</script>
+</body>
+</html>

@@ -116,7 +116,7 @@
       <span class="inline-block w-2 h-2 rounded-full bg-success-emerald animate-pulse"></span>
       <span class="uppercase tracking-widest text-primary-light">SkyKloud Advisory Engine</span>
       <span class="text-text-muted">·</span>
-      <span>Enterprise Procurement, CRM &amp; US Market Entry</span>
+      <span>Enterprise Procurement, EPM &amp; Customer Experience</span>
     </div>
     <div class="mx-auto sm:mx-0 flex items-center gap-3">
       <span class="text-secondary font-semibold">Pittsburgh HQ Desk:</span>
@@ -139,7 +139,52 @@
     <nav class="hidden lg:flex items-center gap-1 p-1 bg-surface-container-lowest/80 border border-white/5 rounded-lg font-mono">
       <a href="/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">Home</a>
       <a href="/#platforms" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">Platforms</a>
-      <a href="/cx/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">CX &amp; CRM</a>
+
+      <!-- Services Dropdown (Consulting, Implementation, Customer Experience) -->
+      <div class="relative group">
+        <a href="/services/" class="flex items-center gap-1.5 rounded px-3 py-1.5 text-xs tracking-wide transition-all text-on-surface-variant hover:text-white hover:bg-surface-container-high/40">
+          <span>Services</span>
+          <span class="material-symbols-outlined text-xs transition-transform duration-200 group-hover:rotate-180">expand_more</span>
+        </a>
+        <div class="absolute top-full left-0 pt-2 w-72 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+          <div class="p-2 rounded-xl bg-surface-card/95 backdrop-blur-xl border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.7)] space-y-1">
+            <a href="/services/#consulting" class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-white/5 transition-colors group/item">
+              <div class="w-8 h-8 rounded-lg bg-secondary/15 flex items-center justify-center flex-shrink-0 text-secondary mt-0.5">
+                <span class="material-symbols-outlined text-base">psychology</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white group-hover/item:text-secondary transition-colors">Consulting</div>
+                <div class="text-[10.5px] text-text-muted mt-0.5">Advisory, process design &amp; ROI roadmap</div>
+              </div>
+            </a>
+            <a href="/services/#implementation" class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-white/5 transition-colors group/item">
+              <div class="w-8 h-8 rounded-lg bg-primary/15 flex items-center justify-center flex-shrink-0 text-primary-light mt-0.5">
+                <span class="material-symbols-outlined text-base">terminal</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white group-hover/item:text-primary-light transition-colors">Implementation</div>
+                <div class="text-[10.5px] text-text-muted mt-0.5">Platform deployment &amp; ERP integrations</div>
+              </div>
+            </a>
+            <a href="/cx/" class="flex items-start gap-3 p-2.5 rounded-lg hover:bg-white/5 transition-colors group/item">
+              <div class="w-8 h-8 rounded-lg bg-tertiary/15 flex items-center justify-center flex-shrink-0 text-tertiary mt-0.5">
+                <span class="material-symbols-outlined text-base">handshake</span>
+              </div>
+              <div>
+                <div class="text-xs font-bold text-white group-hover/item:text-tertiary transition-colors">Customer Experience (CX)</div>
+                <div class="text-[10.5px] text-text-muted mt-0.5">Unified customer view &amp; RevOps CRM</div>
+              </div>
+            </a>
+            <div class="pt-2 border-t border-white/5 px-2.5 pb-1 flex items-center justify-between">
+              <a href="/services/" class="text-[11px] font-mono text-primary-light hover:underline flex items-center gap-1">
+                <span>All Services Overview</span>
+                <span class="material-symbols-outlined text-xs">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <a href="/growth-partner/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">Growth Partner</a>
       <a href="/about/" class="text-on-surface-variant hover:text-white hover:bg-surface-container-high/40 rounded px-3 py-1.5 text-xs tracking-wide transition-all">About</a>
       <a href="/contact/" class="text-secondary font-semibold bg-surface-container-high/80 rounded px-3 py-1.5 text-xs tracking-wide transition-all">Contact</a>
@@ -160,7 +205,17 @@
   <div id="mobile-menu" class="hidden lg:hidden bg-surface-base border-b border-white/10 px-6 py-4 space-y-2 font-mono text-xs">
     <a href="/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">Home</a>
     <a href="/#platforms" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">Platforms &amp; Systems</a>
-    <a href="/cx/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">CX &amp; CRM Practice</a>
+    
+    <!-- Mobile Services Section -->
+    <div class="pt-1 pb-1 space-y-1">
+      <a href="/services/" class="block px-3 py-2 rounded bg-surface-container-high text-primary-light font-bold">Services Overview</a>
+      <div class="pl-4 space-y-1">
+        <a href="/services/#consulting" class="block px-3 py-1.5 rounded text-text-muted hover:text-white">↳ Consulting</a>
+        <a href="/services/#implementation" class="block px-3 py-1.5 rounded text-text-muted hover:text-white">↳ Implementation</a>
+        <a href="/cx/" class="block px-3 py-1.5 rounded text-text-muted hover:text-white">↳ Customer Experience (CX)</a>
+      </div>
+    </div>
+
     <a href="/growth-partner/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">Growth Partner Network</a>
     <a href="/about/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">About Us</a>
     <a href="/contact/" class="block px-3 py-2 rounded text-white hover:bg-surface-container-high">Contact Us</a>
@@ -171,6 +226,7 @@
   </div>
 </header>
 <main class="w-full flex-grow">
+
 
 
 
@@ -295,6 +351,7 @@
 <!-- FOOTER (Cogniviti-inspired) -->
 <!-- FOOTER (Cogniviti-inspired) -->
 <!-- FOOTER (Cogniviti-inspired) -->
+<!-- FOOTER (Cogniviti-inspired) -->
 </main>
 <footer class="w-full bg-surface-container-lowest border-t border-white/10 pt-16 pb-12 mt-20">
   <div class="max-w-7xl mx-auto px-6 lg:px-12">
@@ -306,7 +363,7 @@
           <img src="/assets/logo.svg" alt="SkyKloud Logo" class="h-11 w-auto object-contain drop-shadow-[0_2px_12px_rgba(245,158,11,0.2)]" />
         </a>
         <p class="text-on-surface-variant text-sm leading-relaxed mb-6 max-w-sm">
-          Engineering the architectures behind modern enterprise procurement, EPM finance, and predictable B2B revenue growth.
+          Engineering the architectures behind modern enterprise procurement, EPM finance, and customer experience.
         </p>
         <div class="space-y-2 text-xs font-mono text-on-surface-variant">
           <div class="flex items-center gap-2">
@@ -326,39 +383,37 @@
 
       <!-- Col 2: Spend & EPM Platforms -->
       <div>
-        <h4 class="text-white font-mono font-bold text-xs tracking-widest uppercase mb-4 text-primary-light">Spend &amp; Finance</h4>
+        <h4 class="text-white font-mono font-bold text-xs tracking-widest uppercase mb-4 text-primary-light">Platforms</h4>
         <ul class="space-y-2 text-xs text-on-surface-variant">
           <li><a href="/#platforms" class="hover:text-white transition-colors">Coupa BSM Platform</a></li>
           <li><a href="/#platforms" class="hover:text-white transition-colors">OneStream Intelligent CPM</a></li>
           <li><a href="/#platforms" class="hover:text-white transition-colors">SAP Ariba Modernization</a></li>
           <li><a href="/#platforms" class="hover:text-white transition-colors">iValua Source-to-Pay</a></li>
-          <li><a href="/#platforms" class="hover:text-white transition-colors">GEP SMART AI Operations</a></li>
+          <li><a href="/#platforms" class="hover:text-white transition-colors">GEP SMART Operations</a></li>
           <li><a href="/#platforms" class="hover:text-white transition-colors">Jaggaer ONE Commerce</a></li>
         </ul>
       </div>
 
-      <!-- Col 3: CRM & Growth Partner -->
+      <!-- Col 3: Services -->
       <div>
-        <h4 class="text-white font-mono font-bold text-xs tracking-widest uppercase mb-4 text-secondary">CRM &amp; Growth Partner</h4>
+        <h4 class="text-white font-mono font-bold text-xs tracking-widest uppercase mb-4 text-secondary">Services</h4>
         <ul class="space-y-2 text-xs text-on-surface-variant">
-          <li><a href="/cx/" class="hover:text-white transition-colors">HubSpot CRM Excellence</a></li>
-          <li><a href="/cx/" class="hover:text-white transition-colors">Microsoft Dynamics 365</a></li>
-          <li><a href="/cx/" class="hover:text-white transition-colors">Salesforce Architecture</a></li>
+          <li><a href="/services/#consulting" class="hover:text-white transition-colors">Consulting &amp; Advisory</a></li>
+          <li><a href="/services/#implementation" class="hover:text-white transition-colors">Platform Implementation</a></li>
+          <li><a href="/cx/" class="hover:text-white transition-colors">Customer Experience (CX)</a></li>
+          <li><a href="/services/#integration" class="hover:text-white transition-colors">ERP Data Connectors</a></li>
           <li><a href="/growth-partner/" class="hover:text-white transition-colors">Growth Partner Network</a></li>
-          <li><a href="/growth-partner/" class="hover:text-white transition-colors">Channel Partnerships</a></li>
-          <li><a href="/growth-partner/" class="hover:text-white transition-colors">Fractional Executive Desk</a></li>
         </ul>
       </div>
 
-      <!-- Col 4: Governance -->
+      <!-- Col 4: Organization -->
       <div>
         <h4 class="text-white font-mono font-bold text-xs tracking-widest uppercase mb-4 text-tertiary">Organization</h4>
         <ul class="space-y-2 text-xs text-on-surface-variant">
           <li><a href="/about/" class="hover:text-white transition-colors">Who We Are</a></li>
           <li><a href="/about/#testimonials" class="hover:text-white transition-colors">Client Testimonials</a></li>
           <li><a href="/contact/" class="hover:text-white transition-colors">Executive Briefing</a></li>
-          <li><a href="/contact/" class="hover:text-white transition-colors">Security &amp; SLA</a></li>
-          
+          <li><a href="/contact/" class="hover:text-white transition-colors">Contact Practice Desk</a></li>
         </ul>
       </div>
     </div>
@@ -376,11 +431,13 @@
 </footer>
 
 <script>
-  // Mobile Menu
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  if (btn && menu) {
-    btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+  // Mobile menu toggle
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
   }
 </script>
 </body>
