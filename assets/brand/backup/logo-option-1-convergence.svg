@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Primary Cyan Gradient (Left Cloud) -->
+    <linearGradient id="c1Cyan" x1="15%" y1="10%" x2="85%" y2="95%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="55%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0369A1" />
+    </linearGradient>
+    <!-- Highlight Rim for Cyan Cloud -->
+    <linearGradient id="c1CyanRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BAE6FD" stop-opacity="0.85" />
+      <stop offset="50%" stop-color="#38BDF8" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0" />
+    </linearGradient>
+    <!-- Secondary Amber Gradient (Right Cloud) -->
+    <linearGradient id="c1Amber" x1="15%" y1="5%" x2="90%" y2="95%">
+      <stop offset="0%" stop-color="#FDE68A" />
+      <stop offset="35%" stop-color="#FBBF24" />
+      <stop offset="75%" stop-color="#F59E0B" />
+      <stop offset="100%" stop-color="#B45309" />
+    </linearGradient>
+    <!-- Wordmark Gradients -->
+    <linearGradient id="wCyan" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7DD3FC" />
+      <stop offset="50%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="wAmber" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FCD34D" />
+      <stop offset="50%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <filter id="dropGlow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#000000" flood-opacity="0.35" />
+    </filter>
+  </defs>
+
+  <!-- EMBLEM: Refined Dual-Cloud Convergence (Recreating & elevating logo-horizontal.png) -->
+  <g transform="translate(14, 12)" filter="url(#dropGlow)">
+    <!-- Rear Amber Cloud with precision negative-space cutout & server tracks -->
+    <path d="M 88 20
+             C 104 6, 130 4, 150 16
+             C 166 26, 175 43, 175 61
+             C 194 63, 210 78, 210 98
+             C 210 116, 195 126, 175 126
+             L 124 126
+             C 134 119, 140 108, 140 96
+             C 140 78, 126 64, 108 63
+             L 106 63
+             C 106 43, 99 29, 88 20 Z"
+          fill="url(#c1Amber)" />
+
+    <!-- Recessed Dark Server Track Channels inside Amber Cloud -->
+    <g stroke="#070D1E" stroke-width="5.5" stroke-linecap="round">
+      <line x1="134" y1="78" x2="174" y2="78" />
+      <line x1="140" y1="93" x2="174" y2="93" />
+      <line x1="136" y1="108" x2="174" y2="108" />
+    </g>
+    <!-- Luminous Amber/White Data Traces & Terminus Nodes -->
+    <g stroke="#FEF3C7" stroke-width="2" stroke-linecap="round">
+      <line x1="134" y1="78" x2="171" y2="78" />
+      <circle cx="175" cy="78" r="3.5" fill="#FBBF24" stroke="#070D1E" stroke-width="2" />
+      <line x1="140" y1="93" x2="171" y2="93" />
+      <circle cx="175" cy="93" r="3.5" fill="#FBBF24" stroke="#070D1E" stroke-width="2" />
+      <line x1="136" y1="108" x2="171" y2="108" />
+      <circle cx="175" cy="108" r="3.5" fill="#FBBF24" stroke="#070D1E" stroke-width="2" />
+    </g>
+
+    <!-- Front Cyan Cloud with Sinuous Crest -->
+    <path d="M 80 24
+             C 94 35, 100 50, 100 68
+             L 106 68
+             C 122 68, 134 80, 134 97
+             C 134 113, 121 126, 104 126
+             L 40 126
+             C 18 126, 4 110, 4 88
+             C 4 65, 22 48, 44 48
+             C 53 48, 61 52, 66 58
+             C 66 44, 71 32, 80 24 Z"
+          fill="url(#c1Cyan)"
+          stroke="url(#c1CyanRim)"
+          stroke-width="1.5" />
+
+    <!-- Subtle Gloss Arc on Cyan Cloud -->
+    <path d="M 14 78 C 14 59, 29 52, 46 53 C 62 54, 76 34, 81 28 C 91 38, 95 52, 95 68 C 72 86, 40 92, 14 78 Z"
+          fill="#BAE6FD" opacity="0.16" />
+
+    <!-- Precision Circuit Tree inside Cyan Cloud -->
+    <g stroke="#E0F2FE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95">
+      <!-- Center Trunk -->
+      <path d="M 65 125 L 65 65" />
+      <!-- Inner Left Branch -->
+      <path d="M 65 104 L 52 91 L 52 77" />
+      <!-- Outer Left Branch -->
+      <path d="M 57 125 L 57 112 L 42 98 L 42 73" />
+      <!-- Inner Right Branch -->
+      <path d="M 65 100 L 77 88 L 77 76" />
+      <!-- Outer Right Branch -->
+      <path d="M 73 125 L 73 110 L 87 96 L 87 71" />
+    </g>
+    <!-- Glowing Circuit Nodes -->
+    <g fill="#FFFFFF">
+      <circle cx="65" cy="63" r="3.6" />
+      <circle cx="52" cy="75" r="3.2" />
+      <circle cx="42" cy="71" r="3.5" />
+      <circle cx="77" cy="74" r="3.2" />
+      <circle cx="87" cy="69" r="3.5" />
+    </g>
+  </g>
+
+  <!-- WORDMARK -->
+  <text x="242" y="94" font-family="'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif" font-size="66" font-weight="800" letter-spacing="-1.8">
+    <tspan fill="url(#wCyan)">Sky</tspan><tspan fill="url(#wAmber)">Kloud</tspan>
+  </text>
+  <!-- SUBTITLE -->
+  <text x="246" y="120" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.2" fill="#94A3B8">
+    ADVISORY &amp; TRANSFORMATION
+  </text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="c3Cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="c3Amber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="c3Shield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#172542" />
+      <stop offset="100%" stop-color="#091124" />
+    </linearGradient>
+    <linearGradient id="c3FacetL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E3A5F" stop-opacity="0.45" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.15" />
+    </linearGradient>
+  </defs>
+
+  <!-- EMBLEM: Option 3 - Precision Isometric 'SK' Monogram Prism -->
+  <g transform="translate(24, 11)">
+    <!-- Outer Isometric Hexagon Shield -->
+    <polygon points="70,4 130,38 130,98 70,124 10,98 10,38"
+             fill="url(#c3Shield)" stroke="#38BDF8" stroke-width="2.2" stroke-opacity="0.55" stroke-linejoin="round" />
+
+    <!-- Subtle 3D Isometric Inner Cube Facets -->
+    <polygon points="70,8 126,40 70,66 14,40" fill="#38BDF8" fill-opacity="0.08" />
+    <polygon points="14,40 70,66 70,120 14,95" fill="url(#c3FacetL)" />
+    <line x1="70" y1="66" x2="70" y2="120" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1.5" />
+    <line x1="70" y1="66" x2="14" y2="40" stroke="#38BDF8" stroke-opacity="0.14" stroke-width="1.2" />
+    <line x1="70" y1="66" x2="126" y2="40" stroke="#F59E0B" stroke-opacity="0.14" stroke-width="1.2" />
+
+    <!-- Top Keystone Diamond (Cloud Apex) -->
+    <polygon points="70,14 82,21 70,28 58,21" fill="#38BDF8" />
+
+    <!-- Left Isometric 'S' Ribbon (True Parallel Isometric Angles, Zero Self-Intersection) -->
+    <path d="M 60 28 L 26 46 L 26 63 L 60 80 L 60 100 L 26 83"
+          fill="none" stroke="url(#c3Cyan)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Right Isometric 'K' Monogram (Vertical Spine + Isometric Chevron Arms) -->
+    <path d="M 80 30 L 80 100"
+          fill="none" stroke="url(#c3Amber)" stroke-width="11" stroke-linecap="round" />
+    <path d="M 114 45 L 84 65 L 114 88"
+          fill="none" stroke="url(#c3Amber)" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- WORDMARK -->
+  <text x="192" y="92" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+    <tspan fill="#0284C7">Sky</tspan><tspan fill="#F59E0B">Kloud</tspan>
+  </text>
+  <text x="196" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.5" fill="#94A3B8">
+    STRATEGIC ADVISORY PARTNERS
+  </text>
+</svg>

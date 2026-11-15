@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="c4Cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="c4Amber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+  </defs>
+
+  <!-- EMBLEM: Option 4 - Stratosphere Data Mesh & Cloud Constellation -->
+  <g transform="translate(18, 18)">
+    <!-- Outer Geometric Cloud Perimeter -->
+    <path d="M 42 104
+             L 148 104
+             C 168 104, 182 90, 182 72
+             C 182 55, 169 42, 152 40
+             C 145 18, 124 4, 98 4
+             C 71 4, 49 20, 43 44
+             C 24 46, 10 61, 10 80
+             C 10 94, 24 104, 42 104 Z"
+          fill="#0B1326" stroke="url(#c4Cyan)" stroke-width="4" stroke-linejoin="round" />
+
+    <!-- Internal Constellation / ERP-CRM-EPM Mesh Lines -->
+    <g stroke="#38BDF8" stroke-width="2" opacity="0.65">
+      <line x1="42" y1="78" x2="74" y2="48" />
+      <line x1="74" y1="48" x2="102" y2="28" />
+      <line x1="74" y1="48" x2="106" y2="74" />
+      <line x1="42" y1="78" x2="106" y2="74" />
+      <line x1="102" y1="28" x2="142" y2="56" />
+      <line x1="106" y1="74" x2="142" y2="56" />
+      <line x1="106" y1="74" x2="152" y2="82" />
+      <line x1="142" y1="56" x2="152" y2="82" />
+    </g>
+
+    <!-- Cyan Nodes -->
+    <circle cx="42" cy="78" r="6" fill="url(#c4Cyan)" />
+    <circle cx="74" cy="48" r="6.5" fill="url(#c4Cyan)" />
+    <circle cx="106" cy="74" r="7" fill="url(#c4Cyan)" />
+    <circle cx="152" cy="82" r="5.5" fill="url(#c4Cyan)" />
+
+    <!-- Amber North-Star / ROI Apex Nodes -->
+    <circle cx="102" cy="28" r="8" fill="url(#c4Amber)" />
+    <circle cx="142" cy="56" r="7" fill="url(#c4Amber)" />
+    <circle cx="102" cy="28" r="3" fill="#FFFFFF" />
+  </g>
+
+  <!-- WORDMARK -->
+  <text x="225" y="92" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+    <tspan fill="url(#c4Cyan)">Sky</tspan><tspan fill="url(#c4Amber)">Kloud</tspan>
+  </text>
+  <text x="229" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.2" fill="#94A3B8">
+    CONNECTED ENTERPRISE SYSTEMS
+  </text>
+</svg>

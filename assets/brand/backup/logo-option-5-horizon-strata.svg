@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="c5Cyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="c5Amber" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#F59E0B" />
+    </linearGradient>
+  </defs>
+
+  <!-- EMBLEM: Option 5 - Horizon Ascent (Layered Cloud Strata & Upward Trajectory) -->
+  <g transform="translate(18, 20)">
+    <!-- Upper Amber Sun / Cloud Crest -->
+    <path d="M 62 46
+             C 70 20, 94 4, 122 4
+             C 152 4, 176 26, 180 54
+             C 162 40, 138 34, 112 36
+             C 92 37, 75 41, 62 46 Z"
+          fill="url(#c5Amber)" />
+
+    <!-- Middle Cyan Cloud Wing -->
+    <path d="M 22 72
+             C 30 46, 56 28, 88 28
+             C 124 28, 156 44, 184 72
+             C 156 58, 124 52, 88 54
+             C 60 56, 38 62, 22 72 Z"
+          fill="url(#c5Cyan)" />
+
+    <!-- Lower Precision Stratum Bar 1 -->
+    <path d="M 8 92
+             C 42 74, 86 68, 134 72
+             C 156 74, 174 80, 188 88
+             L 172 96
+             C 142 84, 104 80, 64 84
+             C 42 86, 22 90, 8 92 Z"
+          fill="#38BDF8" />
+
+    <!-- Base Foundation Stratum Bar 2 (Amber Accent) -->
+    <rect x="28" y="104" width="132" height="7" rx="3.5" fill="url(#c5Amber)" />
+  </g>
+
+  <!-- WORDMARK -->
+  <text x="228" y="92" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+    <tspan fill="url(#c5Cyan)">Sky</tspan><tspan fill="url(#c5Amber)">Kloud</tspan>
+  </text>
+  <text x="232" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.2" fill="#94A3B8">
+    ADVISORY · PROCUREMENT · GROWTH
+  </text>
+</svg>
