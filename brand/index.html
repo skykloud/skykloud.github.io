@@ -113,13 +113,28 @@
   </div>
 
   <!-- SECTION 1: ALL 6 LOGO OPTIONS -->
-  <div id="section-logos" class="max-w-7xl mx-auto mt-6 space-y-6">
-    <div class="flex items-center justify-between">
-      <div>
-        <h2 class="text-lg font-bold text-white">6 Reimagined SkyKloud Logo Directions</h2>
-        <p class="text-xs text-[#94A3B8]">All 6 SVG source files are also saved directly in <code class="text-[#38BDF8]">/assets/brand/</code>.</p>
+  <div id="section-logos" class="max-w-7xl mx-auto mt-6 space-y-8">
+    <!-- REIMAGINED OPTION 3 SPOTLIGHT: 4 ARCHITECTURAL SK MONOGRAM VARIATIONS -->
+    <div class="p-6 rounded-2xl bg-[#101932] border-2 border-[#38BDF8]/40 space-y-5 shadow-2xl">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-white/10 pb-4">
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="px-2.5 py-0.5 rounded text-xs font-mono font-bold uppercase bg-[#F59E0B] text-[#070D1E]">Reimagined &amp; Fixed</span>
+            <span class="text-xs font-mono text-[#38BDF8]">True Isometric &amp; Geometric Alignment &middot; Zero Self-Intersection</span>
+          </div>
+          <h2 class="text-xl font-extrabold text-white mt-1.5">Option 3 Reimagined: 4 Architectural &ldquo;SK&rdquo; Monogram Prism Variations</h2>
+          <p class="text-xs text-[#94A3B8] mt-0.5">We fixed the self-intersecting polygon geometry and engineered 4 distinct architectural takes on the <strong class="text-white">SK Monogram Prism</strong>. Click any variation to apply it to all business cards, letterheads, and brochures.</p>
+        </div>
+        <button onclick="toggleGalleryBg()" class="px-3.5 py-2 rounded-lg text-xs font-mono font-semibold bg-[#070D1E] border border-white/15 text-white hover:border-[#38BDF8] flex-shrink-0">Toggle Surface: Dark / Light</button>
       </div>
-      <button onclick="toggleGalleryBg()" class="px-3 py-1.5 rounded-lg text-xs font-mono bg-[#101932] border border-white/10 text-white">Toggle Surface: Dark / Light</button>
+      <div id="sk-prism-variants-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
+    </div>
+
+    <div class="flex items-center justify-between pt-2">
+      <div>
+        <h2 class="text-lg font-bold text-white">Complete 6-Direction Brand Identity Matrix</h2>
+        <p class="text-xs text-[#94A3B8]">All SVG source files are saved directly in <code class="text-[#38BDF8]">/assets/brand/</code>.</p>
+      </div>
     </div>
     <div id="logo-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
   </div>
@@ -589,14 +604,114 @@
   </div>
 
   <script>
-    let activeLogoIndex = 0;
+    let activeLogoIndex = 2; // Default to Option 3 so the reimagined SK Prism is active immediately
+    let activePrismVariant = 0; // 0 = 3A Isometric Prism, 1 = 3B Cloud Crest, 2 = 3C 3D Block Cube, 3 = 3D Ligature Seal
     let galleryDark = true;
+
+    function buildPrismVariants(forLightSurface) {
+      const subColor = forLightSurface ? '#475569' : '#94A3B8';
+      const shieldFill = forLightSurface ? '#0F172A' : '#131F3B';
+      return [
+        {
+          code: '3A',
+          id: 'logo-option-3-monogram-prism.svg',
+          name: 'Variation 3A: Isometric SK Cube Prism (Fixed)',
+          tag: 'True 30° Isometric Grid',
+          rationale: 'Eliminates the previous self-intersecting polygon flaw. Uses true parallel isometric bars for the left Cyan S and right Amber K inside a 3D faceted hexagon crowned by a top cloud keystone.',
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+            <g transform="translate(24, 11)">
+              <polygon points="70,4 130,38 130,98 70,124 10,98 10,38" fill="${shieldFill}" stroke="#38BDF8" stroke-width="2.2" stroke-opacity="0.55" stroke-linejoin="round"/>
+              <polygon points="70,8 126,40 70,66 14,40" fill="#38BDF8" fill-opacity="0.08"/>
+              <polygon points="14,40 70,66 70,120 14,95" fill="#38BDF8" fill-opacity="0.04"/>
+              <line x1="70" y1="66" x2="70" y2="120" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1.5"/>
+              <line x1="70" y1="66" x2="14" y2="40" stroke="#38BDF8" stroke-opacity="0.16" stroke-width="1.2"/>
+              <line x1="70" y1="66" x2="126" y2="40" stroke="#F59E0B" stroke-opacity="0.16" stroke-width="1.2"/>
+              <polygon points="70,14 82,21 70,28 58,21" fill="#38BDF8"/>
+              <path d="M 60 28 L 26 46 L 26 63 L 60 80 L 60 100 L 26 83" fill="none" stroke="#38BDF8" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M 80 30 L 80 100" fill="none" stroke="#F59E0B" stroke-width="11" stroke-linecap="round"/>
+              <path d="M 114 45 L 84 65 L 114 88" fill="none" stroke="#F59E0B" stroke-width="10.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <text x="192" y="92" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+              <tspan fill="#0284C7">Sky</tspan><tspan fill="#F59E0B">Kloud</tspan>
+            </text>
+            <text x="196" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.5" fill="${subColor}">STRATEGIC ADVISORY PARTNERS</text>
+          </svg>`
+        },
+        {
+          code: '3B',
+          id: 'logo-option-3b-cloud-crest.svg',
+          name: 'Variation 3B: Executive Cloud Crest SK Shield',
+          tag: 'C-Suite Advisory Crest',
+          rationale: 'A beveled heraldic advisory shield crowned by an ascending cloud arc and gold apex node, framing a smooth geometric S + K monogram with balanced negative space.',
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+            <g transform="translate(24, 11)">
+              <path d="M 70 4 L 128 24 L 128 74 C 128 102, 102 120, 70 128 C 38 120, 12 102, 12 74 L 12 24 Z" fill="${shieldFill}" stroke="#38BDF8" stroke-width="2.2" stroke-opacity="0.55"/>
+              <path d="M 70 11 L 120 29 L 120 73 C 120 97, 97 113, 70 120 C 43 113, 20 97, 20 73 L 20 29 Z" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.12"/>
+              <path d="M 42 34 C 48 24, 58 19, 70 19 C 82 19, 92 24, 98 34" fill="none" stroke="#38BDF8" stroke-width="3.5" stroke-linecap="round" opacity="0.85"/>
+              <circle cx="70" cy="19" r="3.5" fill="#FBBF24"/>
+              <path d="M 62 42 L 40 42 C 33 42, 29 46, 29 53 C 29 59, 33 63, 40 65 L 54 68 C 61 70, 65 74, 65 81 C 65 88, 60 93, 52 93 L 31 93" fill="none" stroke="#38BDF8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M 79 41 L 79 94" fill="none" stroke="#F59E0B" stroke-width="10" stroke-linecap="round"/>
+              <path d="M 109 42 L 83 66 L 109 93" fill="none" stroke="#F59E0B" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <text x="192" y="92" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+              <tspan fill="#0284C7">Sky</tspan><tspan fill="#F59E0B">Kloud</tspan>
+            </text>
+            <text x="196" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.5" fill="${subColor}">STRATEGIC ADVISORY PARTNERS</text>
+          </svg>`
+        },
+        {
+          code: '3C',
+          id: 'logo-option-3c-faceted-cube.svg',
+          name: 'Variation 3C: 3D Architectural Block Cube',
+          tag: 'Freestanding 3D Prism',
+          rationale: 'No outer background shield required: the left 3D face of the cube is carved directly into a precision 12px-grid block S, the right 3D face into a block K, and the top diamond forms the cloud platform.',
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+            <g transform="translate(24, 11)">
+              <polygon points="70,8 124,32 70,54 16,32" fill="#0284C7"/>
+              <polygon points="70,17 100,31 70,44 40,31" fill="${shieldFill}"/>
+              <polygon points="70,23 85,30 70,37 55,30" fill="#FBBF24"/>
+              <polygon points="16,40 66,60 66,72 30,58 30,70 66,84 66,120 16,100 16,88 52,102 52,90 16,76" fill="#38BDF8"/>
+              <polygon points="74,60 88,54 88,114 74,120" fill="#F59E0B"/>
+              <polygon points="86,78 124,40 124,55 86,91" fill="#FBBF24"/>
+              <polygon points="94,81 124,86 124,100 86,91" fill="#D97706"/>
+            </g>
+            <text x="192" y="92" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+              <tspan fill="#0284C7">Sky</tspan><tspan fill="#F59E0B">Kloud</tspan>
+            </text>
+            <text x="196" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.5" fill="${subColor}">STRATEGIC ADVISORY PARTNERS</text>
+          </svg>`
+        },
+        {
+          code: '3D',
+          id: 'logo-option-3d-ligature-seal.svg',
+          name: 'Variation 3D: Shared-Spine SK Ligature Seal',
+          tag: 'Foil & Emboss Ready',
+          rationale: 'A double-rimmed hexagonal seal where the S and K are fused along a central vertical axis pillar—engineered specifically for metallic foil stamping on business cards and formal stationery.',
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+            <g transform="translate(24, 11)">
+              <polygon points="70,4 130,38 130,98 70,124 10,98 10,38" fill="${shieldFill}" stroke="#38BDF8" stroke-width="2.5" stroke-opacity="0.6" stroke-linejoin="round"/>
+              <polygon points="70,12 122,42 122,94 70,116 18,94 18,42" fill="none" stroke="#F59E0B" stroke-width="1.2" stroke-opacity="0.35" stroke-linejoin="round"/>
+              <path d="M 70 36 L 44 36 C 35 36, 30 41, 30 49 C 30 57, 35 62, 44 64 L 58 67 C 66 69, 70 74, 70 83 C 70 92, 64 98, 54 98 L 32 98" fill="none" stroke="#38BDF8" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <line x1="70" y1="26" x2="70" y2="104" stroke="#F8FAFC" stroke-width="8.5" stroke-linecap="round"/>
+              <path d="M 106 38 L 74 66 L 106 96" fill="none" stroke="#F59E0B" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="70" cy="26" r="4.5" fill="#FBBF24"/>
+            </g>
+            <text x="192" y="92" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+              <tspan fill="#0284C7">Sky</tspan><tspan fill="#F59E0B">Kloud</tspan>
+            </text>
+            <text x="196" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.5" fill="${subColor}">STRATEGIC ADVISORY PARTNERS</text>
+          </svg>`
+        }
+      ];
+    }
 
     function buildLogos(forLightSurface) {
       const textPrimary = forLightSurface ? '#0F172A' : '#F8FAFC';
       const subColor = forLightSurface ? '#475569' : '#94A3B8';
       const channelCut = forLightSurface ? '#FFFFFF' : '#070D1E';
       const shieldFill = forLightSurface ? '#0F172A' : '#131F3B';
+      const prismVariants = buildPrismVariants(forLightSurface);
+      const selectedPrism = prismVariants[activePrismVariant] || prismVariants[0];
 
       return [
         {
@@ -651,22 +766,11 @@
           </svg>`
         },
         {
-          id: 'logo-option-3-monogram-prism.svg',
-          name: 'Option 3: The SK Monogram Prism',
-          tag: 'Executive Consulting Crest',
-          rationale: 'Architectural S + K monogram inside a faceted hexagonal shield. Projects institutional C-suite gravitas, structured governance, and strategic advisory authority.',
-          svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
-            <g transform="translate(24, 15)">
-              <polygon points="70,2 134,36 134,94 70,122 6,94 6,36" fill="${shieldFill}" stroke="#38BDF8" stroke-width="2.5" stroke-opacity="0.5"/>
-              <path d="M 64 20 L 24 42 L 24 66 L 64 82 L 64 104 L 24 86 L 24 74 L 48 84 L 48 72 L 16 58 L 16 36 L 64 10 Z" fill="#38BDF8"/>
-              <path d="M 76 16 L 92 24 L 92 56 L 118 36 L 124 48 L 98 66 L 124 88 L 114 98 L 92 78 L 92 104 L 76 112 Z" fill="#F59E0B"/>
-              <circle cx="70" cy="14" r="3.5" fill="#FFFFFF"/>
-            </g>
-            <text x="195" y="92" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
-              <tspan fill="${textPrimary}">Sky</tspan><tspan fill="#0284C7">K</tspan><tspan fill="#F59E0B">loud</tspan>
-            </text>
-            <text x="199" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.5" fill="${subColor}">STRATEGIC ADVISORY PARTNERS</text>
-          </svg>`
+          id: selectedPrism.id,
+          name: `Option 3: The SK Monogram Prism (${selectedPrism.code})`,
+          tag: selectedPrism.tag,
+          rationale: selectedPrism.rationale,
+          svg: selectedPrism.svg
         },
         {
           id: 'logo-option-4-constellation.svg',
@@ -728,15 +832,51 @@
       ];
     }
 
+    function selectPrismVariant(vIdx) {
+      activePrismVariant = vIdx;
+      activeLogoIndex = 2;
+      renderAll();
+    }
+
     function renderAll() {
       const darkSet = buildLogos(false);
       const lightSet = buildLogos(true);
       const gallerySet = buildLogos(!galleryDark);
+      const prismGallerySet = buildPrismVariants(!galleryDark);
+      const canvasBg = galleryDark ? '#070D1E' : '#FFFFFF';
+
+      const prismGrid = document.getElementById('sk-prism-variants-grid');
+      if (prismGrid) {
+        prismGrid.innerHTML = prismGallerySet.map((v, vIdx) => {
+          const isSelected = activeLogoIndex === 2 && activePrismVariant === vIdx;
+          return `
+            <div class="rounded-2xl bg-[#0B1226] border ${isSelected ? 'border-[#F59E0B] ring-2 ring-[#F59E0B]/30' : 'border-white/10'} overflow-hidden flex flex-col justify-between">
+              <div class="p-6 flex items-center justify-center h-44 transition-colors" style="background: ${canvasBg};">
+                <div class="w-full h-32 flex items-center justify-center">${v.svg}</div>
+              </div>
+              <div class="p-4 space-y-2.5 border-t border-white/10">
+                <div class="flex items-center justify-between gap-2">
+                  <span class="font-bold text-sm text-white">${v.name}</span>
+                  <span class="px-2 py-0.5 rounded text-xs font-mono bg-[#101932] border border-white/10 text-[#38BDF8]">${v.tag}</span>
+                </div>
+                <p class="text-xs text-[#94A3B8] leading-relaxed">${v.rationale}</p>
+                <div class="pt-2 flex items-center justify-between gap-2">
+                  <button onclick="selectPrismVariant(${vIdx})" class="px-3 py-1.5 rounded-lg text-xs font-semibold ${isSelected ? 'bg-[#F59E0B] text-[#070D1E]' : 'bg-[#101932] border border-white/10 text-white hover:border-[#F59E0B]'}">
+                    ${isSelected ? '✓ Active Option 3 Variant' : 'Use Variation ' + v.code + ' Across Stationery'}
+                  </button>
+                  <a href="/assets/brand/${v.id}" download="${v.id}" class="px-2.5 py-1.5 rounded-lg text-xs font-mono border border-white/10 bg-[#101932] text-[#94A3B8] hover:text-white">
+                    ⬇ SVG File
+                  </a>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+      }
 
       const grid = document.getElementById('logo-cards-grid');
       grid.innerHTML = gallerySet.map((item, idx) => {
         const isSelected = idx === activeLogoIndex;
-        const canvasBg = galleryDark ? '#070D1E' : '#FFFFFF';
         return `
           <div class="rounded-2xl bg-[#101932] border ${isSelected ? 'border-[#38BDF8] ring-2 ring-[#38BDF8]/30' : 'border-white/10'} overflow-hidden flex flex-col justify-between">
             <div class="p-6 flex items-center justify-center h-44 transition-colors" style="background: ${canvasBg};">

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="c3dCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="c3dAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="c3dBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14203B" />
+      <stop offset="100%" stop-color="#080E1E" />
+    </linearGradient>
+  </defs>
+
+  <!-- EMBLEM: Option 3D - Shared-Spine 'SK' Architectural Ligature Seal -->
+  <g transform="translate(24, 11)">
+    <!-- Outer & Inner Precision Hexagonal Seal -->
+    <polygon points="70,4 130,38 130,98 70,124 10,98 10,38"
+             fill="url(#c3dBg)" stroke="#38BDF8" stroke-width="2.5" stroke-opacity="0.6" stroke-linejoin="round" />
+    <polygon points="70,12 122,42 122,94 70,116 18,94 18,42"
+             fill="none" stroke="#F59E0B" stroke-width="1.2" stroke-opacity="0.35" stroke-linejoin="round" />
+
+    <!-- Left 'S' Interlocked with Central Spine -->
+    <path d="M 70 36 L 44 36 C 35 36, 30 41, 30 49 C 30 57, 35 62, 44 64 L 58 67 C 66 69, 70 74, 70 83 C 70 92, 64 98, 54 98 L 32 98"
+          fill="none" stroke="url(#c3dCyan)" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Central Shared Vertical Spine + Right 'K' Chevron -->
+    <line x1="70" y1="26" x2="70" y2="104" stroke="#F8FAFC" stroke-width="8.5" stroke-linecap="round" />
+    <path d="M 106 38 L 74 66 L 106 96"
+          fill="none" stroke="url(#c3dAmber)" stroke-width="9.5" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="70" cy="26" r="4.5" fill="#FBBF24" />
+  </g>
+
+  <!-- WORDMARK -->
+  <text x="192" y="92" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+    <tspan fill="#0284C7">Sky</tspan><tspan fill="#F59E0B">Kloud</tspan>
+  </text>
+  <text x="196" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.5" fill="#94A3B8">
+    STRATEGIC ADVISORY PARTNERS
+  </text>
+</svg>
