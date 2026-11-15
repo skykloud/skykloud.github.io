@@ -1,0 +1,65 @@
+# SkyKloud Inc. - Official Robots Exclusion Protocol
+# Keep sandbox and branding collateral studio private and away from all search engines and AI bots
+
+User-agent: *
+Disallow: /sandbox/
+Disallow: /brand/
+Disallow: /assets/brand/
+Allow: /
+
+User-agent: Googlebot
+Disallow: /sandbox/
+Disallow: /brand/
+Disallow: /assets/brand/
+
+User-agent: Googlebot-Image
+Disallow: /sandbox/
+Disallow: /brand/
+Disallow: /assets/brand/
+
+User-agent: Bingbot
+Disallow: /sandbox/
+Disallow: /brand/
+Disallow: /assets/brand/
+
+User-agent: GPTBot
+Disallow: /sandbox/
+Disallow: /brand/
+Disallow: /assets/brand/
+
+User-agent: ChatGPT-User
+Disallow: /sandbox/
+Disallow: /brand/
+Disallow: /assets/brand/
+
+User-agent: OAI-SearchBot
+Disallow: /sandbox/
+Disallow: /brand/
+Disallow: /assets/brand/
+
+User-agent: ClaudeBot
+Disallow: /sandbox/
+Disallow: /brand/
+Disallow: /assets/brand/
+
+User-agent: anthropic-ai
+Disallow: /sandbox/
+Disallow: /brand/
+Disallow: /assets/brand/
+
+User-agent: PerplexityBot
+Disallow: /sandbox/
+Disallow: /brand/
+Disallow: /assets/brand/
+
+User-agent: Google-Extended
+Disallow: /sandbox/
+Disallow: /brand/
+Disallow: /assets/brand/
+
+User-agent: CCBot
+Disallow: /sandbox/
+Disallow: /brand/
+Disallow: /assets/brand/
+
+Sitemap: https://skykloud.com/sitemap.xml
