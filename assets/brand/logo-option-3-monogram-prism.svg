@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="c3Cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#0284C7" />
+    </linearGradient>
+    <linearGradient id="c3Amber" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24" />
+      <stop offset="100%" stop-color="#D97706" />
+    </linearGradient>
+    <linearGradient id="c3Shield" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+  </defs>
+
+  <!-- EMBLEM: Option 3 - Architectural 'SK' Monogram Prism (McKinsey/Enterprise style) -->
+  <g transform="translate(24, 15)">
+    <!-- Outer Hexagonal Prism Frame -->
+    <polygon points="70,2 134,36 134,94 70,122 6,94 6,36"
+             fill="url(#c3Shield)" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.35" />
+
+    <!-- Left 'S' / Cloud Wing (Cyan) -->
+    <path d="M 64 20
+             L 24 42
+             L 24 66
+             L 64 82
+             L 64 104
+             L 24 86
+             L 24 74
+             L 48 84
+             L 48 72
+             L 16 58
+             L 16 36
+             L 64 10 Z"
+          fill="url(#c3Cyan)" />
+
+    <!-- Right 'K' / Ascent Chevron Wing (Amber) -->
+    <path d="M 76 16
+             L 92 24
+             L 92 56
+             L 118 36
+             L 124 48
+             L 98 66
+             L 124 88
+             L 114 98
+             L 92 78
+             L 92 104
+             L 76 112 Z"
+          fill="url(#c3Amber)" />
+
+    <!-- Top Cloud Apex Node -->
+    <circle cx="70" cy="14" r="3.5" fill="#F8FAFC" />
+  </g>
+
+  <!-- WORDMARK -->
+  <text x="195" y="92" font-family="'Plus Jakarta Sans', -apple-system, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+    <tspan fill="#F8FAFC">Sky</tspan><tspan fill="url(#c3Cyan)">K</tspan><tspan fill="url(#c3Amber)">loud</tspan>
+  </text>
+  <text x="199" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.5" fill="#94A3B8">
+    STRATEGIC ADVISORY PARTNERS
+  </text>
+</svg>

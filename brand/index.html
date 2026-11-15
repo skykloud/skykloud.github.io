@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brand Identity &amp; Print Collateral Studio | SkyKloud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --background: #070D1E;
+      --card: #101932;
+      --border: rgba(255, 255, 255, 0.12);
+      --foreground: #F8FAFC;
+      --muted-foreground: #94A3B8;
+      --primary: #0284C7;
+      --primary-foreground: #FFFFFF;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background-color: var(--background);
+      color: var(--foreground);
+    }
+    @media print {
+      .no-print { display: none !important; }
+      body { background: #ffffff !important; color: #000000 !important; }
+      .print-sheet { box-shadow: none !important; border: none !important; margin: 0 !important; page-break-after: always; }
+    }
+    .bg-micro-grid {
+      background-size: 24px 24px;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    }
+    .bg-micro-grid-light {
+      background-size: 24px 24px;
+      background-image:
+        linear-gradient(to right, rgba(15, 23, 42, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.035) 1px, transparent 1px);
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen p-4 md:p-8">
+
+  <!-- TOP STUDIO HEADER & GLOBAL CONTROLS -->
+  <div class="max-w-7xl mx-auto space-y-4 no-print">
+    <div class="p-5 rounded-2xl bg-[#101932] border border-white/10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2">
+          <a href="/" class="px-2.5 py-0.5 rounded text-xs font-mono uppercase tracking-wider bg-[#0284C7] text-white hover:bg-[#38BDF8] transition-colors">&larr; skykloud.com</a>
+          <span class="text-xs font-mono text-[#94A3B8]">SkyKloud Inc. &middot; Brand &amp; Print Identity System</span>
+        </div>
+        <h1 class="text-2xl font-extrabold mt-1.5 text-white">SkyKloud Logo Concepts &amp; Print Collateral Studio</h1>
+        <p class="text-xs text-[#94A3B8] mt-0.5">Select any of the 6 logo options below — every business card, letterhead, envelope, and capabilities brochure updates automatically.</p>
+      </div>
+
+      <!-- Global Logo Selector Pills -->
+      <div class="flex flex-wrap items-center gap-1.5">
+        <span class="text-xs font-mono text-[#94A3B8] mr-1">Active Logo:</span>
+        <button onclick="setGlobalLogo(0)" id="glogo-0" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#0284C7] text-white">1. Convergence Pro</button>
+        <button onclick="setGlobalLogo(1)" id="glogo-1" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[#070D1E] text-[#94A3B8] border border-white/10">2. Infinity Ribbon</button>
+        <button onclick="setGlobalLogo(2)" id="glogo-2" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[#070D1E] text-[#94A3B8] border border-white/10">3. SK Prism</button>
+        <button onclick="setGlobalLogo(3)" id="glogo-3" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[#070D1E] text-[#94A3B8] border border-white/10">4. Constellation</button>
+        <button onclick="setGlobalLogo(4)" id="glogo-4" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[#070D1E] text-[#94A3B8] border border-white/10">5. Horizon Strata</button>
+        <button onclick="setGlobalLogo(5)" id="glogo-5" class="px-3 py-1.5 rounded-lg text-xs font-medium bg-[#070D1E] text-[#94A3B8] border border-white/10">6. Apex Wordmark</button>
+      </div>
+    </div>
+
+    <!-- LIVE PERSONALIZATION BAR -->
+    <div class="p-4 rounded-2xl bg-[#101932] border border-white/10 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs">
+      <div>
+        <label class="block text-[#94A3B8] font-mono mb-1">Full Name</label>
+        <input id="inp-name" type="text" value="Gagan" oninput="syncText()" class="w-full px-2.5 py-1.5 rounded bg-[#070D1E] border border-white/10 text-white font-medium" />
+      </div>
+      <div>
+        <label class="block text-[#94A3B8] font-mono mb-1">Executive Title</label>
+        <input id="inp-title" type="text" value="Managing Partner" oninput="syncText()" class="w-full px-2.5 py-1.5 rounded bg-[#070D1E] border border-white/10 text-white font-medium" />
+      </div>
+      <div>
+        <label class="block text-[#94A3B8] font-mono mb-1">Email</label>
+        <input id="inp-email" type="text" value="partner@skykloud.com" oninput="syncText()" class="w-full px-2.5 py-1.5 rounded bg-[#070D1E] border border-white/10 text-white font-mono" />
+      </div>
+      <div>
+        <label class="block text-[#94A3B8] font-mono mb-1">Phone</label>
+        <input id="inp-phone" type="text" value="+1.412.727.0544" oninput="syncText()" class="w-full px-2.5 py-1.5 rounded bg-[#070D1E] border border-white/10 text-white font-mono" />
+      </div>
+      <div>
+        <label class="block text-[#94A3B8] font-mono mb-1">HQ Location</label>
+        <input id="inp-loc" type="text" value="Pittsburgh, Pennsylvania, USA" oninput="syncText()" class="w-full px-2.5 py-1.5 rounded bg-[#070D1E] border border-white/10 text-white" />
+      </div>
+      <div>
+        <label class="block text-[#94A3B8] font-mono mb-1">Website</label>
+        <input id="inp-web" type="text" value="www.skykloud.com" oninput="syncText()" class="w-full px-2.5 py-1.5 rounded bg-[#070D1E] border border-white/10 text-white font-mono" />
+      </div>
+    </div>
+
+    <!-- CATEGORY NAVIGATION TABS -->
+    <div class="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-3">
+      <div class="flex flex-wrap items-center gap-2">
+        <button onclick="switchSection('logos')" id="sec-btn-logos" class="px-4 py-2 rounded-lg text-xs font-bold bg-[#0284C7] text-white">1. All 6 Logo Options &amp; Lockups</button>
+        <button onclick="switchSection('cards')" id="sec-btn-cards" class="px-4 py-2 rounded-lg text-xs font-semibold bg-[#101932] text-white border border-white/10">2. Business Cards (3 Styles &middot; Front/Back)</button>
+        <button onclick="switchSection('letterhead')" id="sec-btn-letterhead" class="px-4 py-2 rounded-lg text-xs font-semibold bg-[#101932] text-white border border-white/10">3. Letterhead &amp; Executive Memo (2 Styles)</button>
+        <button onclick="switchSection('brochure')" id="sec-btn-brochure" class="px-4 py-2 rounded-lg text-xs font-semibold bg-[#101932] text-white border border-white/10">4. Capabilities One-Pager Brochure</button>
+        <button onclick="switchSection('envelope')" id="sec-btn-envelope" class="px-4 py-2 rounded-lg text-xs font-semibold bg-[#101932] text-white border border-white/10">5. Envelopes &amp; Email Signature</button>
+      </div>
+      <div class="flex items-center gap-2">
+        <button onclick="downloadActiveSvg()" class="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold border border-white/15 bg-[#101932] text-white hover:border-[#38BDF8]">⬇ Download Active SVG</button>
+        <button onclick="window.print()" class="px-3 py-1.5 rounded-lg text-xs font-mono font-semibold bg-[#F59E0B] text-[#070D1E] hover:bg-[#D97706]">🖨 Print / Save PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 1: ALL 6 LOGO OPTIONS -->
+  <div id="section-logos" class="max-w-7xl mx-auto mt-6 space-y-6">
+    <div class="flex items-center justify-between">
+      <div>
+        <h2 class="text-lg font-bold text-white">6 Reimagined SkyKloud Logo Directions</h2>
+        <p class="text-xs text-[#94A3B8]">All 6 SVG source files are also saved directly in <code class="text-[#38BDF8]">/assets/brand/</code>.</p>
+      </div>
+      <button onclick="toggleGalleryBg()" class="px-3 py-1.5 rounded-lg text-xs font-mono bg-[#101932] border border-white/10 text-white">Toggle Surface: Dark / Light</button>
+    </div>
+    <div id="logo-cards-grid" class="grid grid-cols-1 md:grid-cols-2 gap-5"></div>
+  </div>
+
+  <!-- SECTION 2: BUSINESS CARDS -->
+  <div id="section-cards" class="max-w-7xl mx-auto mt-6 space-y-8 hidden">
+    <div>
+      <h2 class="text-lg font-bold text-white">Executive Business Card Options (Standard US 3.5&Prime; &times; 2.0&Prime;)</h2>
+      <p class="text-xs text-[#94A3B8]">Three distinct print-ready aesthetics automatically populated with your active logo and live executive details.</p>
+    </div>
+
+    <!-- STYLE A -->
+    <div class="p-6 rounded-2xl bg-[#101932] border border-white/10 space-y-4">
+      <div>
+        <span class="text-xs font-mono uppercase tracking-wider text-[#38BDF8]">Business Card Option A &middot; Recommended</span>
+        <h3 class="text-base font-bold text-white">Obsidian Velvet &amp; Spot-UV Accent Edition</h3>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
+        <div class="space-y-1.5">
+          <div class="text-xs font-mono text-[#94A3B8]">FRONT SIDE (3.5&Prime; &times; 2.0&Prime;)</div>
+          <div class="w-full aspect-[1.75/1] rounded-xl overflow-hidden relative shadow-2xl border border-white/15 bg-micro-grid flex flex-col justify-between p-6" style="background-color: #070D1E; color: #F8FAFC;">
+            <div class="absolute top-0 left-0 right-0 h-1.5" style="background: linear-gradient(90deg, #0284C7 0%, #38BDF8 55%, #F59E0B 100%);"></div>
+            <div class="flex items-start justify-between z-10">
+              <div class="card-logo-dark h-11 w-48"></div>
+              <div class="text-right font-mono text-xs text-[#94A3B8]">
+                <div class="font-semibold text-[#F59E0B]">ADVISORY &amp; CX</div>
+                <div>EST. PITTSBURGH</div>
+              </div>
+            </div>
+            <div class="z-10 pt-3 border-t border-white/10 flex items-end justify-between gap-4">
+              <div>
+                <div class="dyn-name text-lg font-extrabold tracking-tight text-white">Gagan</div>
+                <div class="dyn-title text-xs font-mono uppercase tracking-wider mt-0.5 text-[#38BDF8]">Managing Partner</div>
+                <div class="text-xs mt-2 text-[#94A3B8]">Procurement &middot; EPM &middot; CRM &middot; Growth Partner</div>
+              </div>
+              <div class="text-right font-mono text-xs space-y-1 text-[#CBD5E1]">
+                <div class="dyn-phone font-semibold text-white">+1.412.727.0544</div>
+                <div class="dyn-email text-[#F59E0B]">partner@skykloud.com</div>
+                <div class="dyn-loc text-xs text-[#94A3B8]">Pittsburgh, Pennsylvania, USA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-1.5">
+          <div class="text-xs font-mono text-[#94A3B8]">REVERSE SIDE (3.5&Prime; &times; 2.0&Prime;)</div>
+          <div class="w-full aspect-[1.75/1] rounded-xl overflow-hidden relative shadow-2xl border border-white/15 bg-micro-grid flex flex-col justify-between p-6" style="background-color: #0B1326; color: #F8FAFC;">
+            <div class="absolute bottom-0 left-0 right-0 h-1.5" style="background: linear-gradient(90deg, #F59E0B 0%, #38BDF8 45%, #0284C7 100%);"></div>
+            <div class="flex items-center justify-between my-auto gap-6">
+              <div class="space-y-3 flex-1">
+                <div class="card-logo-dark h-14 w-56"></div>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  <span class="px-2 py-0.5 rounded text-xs font-mono bg-[#0284C7]/20 text-[#38BDF8] border border-[#38BDF8]/30">Coupa &amp; Ariba</span>
+                  <span class="px-2 py-0.5 rounded text-xs font-mono bg-[#F59E0B]/20 text-[#FBBF24] border border-[#F59E0B]/30">OneStream EPM</span>
+                  <span class="px-2 py-0.5 rounded text-xs font-mono bg-white/5 text-[#CBD5E1]">HubSpot &amp; CRM</span>
+                </div>
+              </div>
+              <div class="flex flex-col items-center p-2.5 rounded-xl border border-white/15 bg-[#070D1E]">
+                <svg viewBox="0 0 60 60" class="w-16 h-16" fill="none">
+                  <rect x="2" y="2" width="18" height="18" rx="2" stroke="#38BDF8" stroke-width="3"/>
+                  <rect x="7" y="7" width="8" height="8" fill="#F59E0B"/>
+                  <rect x="40" y="2" width="18" height="18" rx="2" stroke="#38BDF8" stroke-width="3"/>
+                  <rect x="45" y="7" width="8" height="8" fill="#38BDF8"/>
+                  <rect x="2" y="40" width="18" height="18" rx="2" stroke="#38BDF8" stroke-width="3"/>
+                  <rect x="7" y="45" width="8" height="8" fill="#38BDF8"/>
+                  <rect x="25" y="6" width="4" height="4" fill="#F8FAFC"/>
+                  <rect x="31" y="12" width="4" height="8" fill="#F8FAFC"/>
+                  <rect x="25" y="24" width="10" height="10" rx="2" fill="#F59E0B"/>
+                  <rect x="6" y="26" width="12" height="4" fill="#F8FAFC"/>
+                  <rect x="40" y="26" width="6" height="6" fill="#F8FAFC"/>
+                  <rect x="50" y="26" width="6" height="12" fill="#38BDF8"/>
+                  <rect x="26" y="40" width="8" height="4" fill="#F8FAFC"/>
+                  <rect x="38" y="42" width="6" height="14" fill="#F8FAFC"/>
+                  <rect x="48" y="46" width="8" height="10" fill="#F59E0B"/>
+                </svg>
+                <span class="dyn-web text-xs font-mono mt-1 text-[#94A3B8]">skykloud.com</span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between text-xs font-mono pt-2 border-t border-white/10 text-[#64748B]">
+              <span>THINK &rarr; ADVISE &rarr; BUILD &rarr; RUN &rarr; OPTIMIZE</span>
+              <span class="dyn-web text-[#38BDF8]">www.skykloud.com</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STYLE B -->
+    <div class="p-6 rounded-2xl bg-[#101932] border border-white/10 space-y-4">
+      <div>
+        <span class="text-xs font-mono uppercase tracking-wider text-[#F59E0B]">Business Card Option B &middot; High-Contrast Print</span>
+        <h3 class="text-base font-bold text-white">Executive Cotton White &amp; Architectural Sidebar</h3>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
+        <div class="space-y-1.5">
+          <div class="text-xs font-mono text-[#94A3B8]">FRONT SIDE (CRISP WHITE STOCK)</div>
+          <div class="w-full aspect-[1.75/1] rounded-xl overflow-hidden relative shadow-xl border border-slate-300 bg-micro-grid-light flex bg-white text-slate-900">
+            <div class="w-3 h-full flex flex-col">
+              <div class="h-2/3 w-full bg-[#0284C7]"></div>
+              <div class="h-1/3 w-full bg-[#F59E0B]"></div>
+            </div>
+            <div class="flex-1 p-6 flex flex-col justify-between">
+              <div class="flex items-start justify-between">
+                <div class="card-logo-light h-10 w-44"></div>
+                <span class="px-2 py-0.5 rounded text-xs font-mono font-bold bg-slate-100 text-[#0284C7]">US GROWTH PARTNER</span>
+              </div>
+              <div class="grid grid-cols-12 gap-2 items-end pt-3 border-t border-slate-200">
+                <div class="col-span-6">
+                  <div class="dyn-name text-lg font-extrabold text-slate-900">Gagan</div>
+                  <div class="dyn-title text-xs font-mono font-semibold uppercase text-[#0284C7]">Managing Partner</div>
+                  <div class="dyn-loc text-xs text-slate-500 mt-1">Pittsburgh, Pennsylvania, USA</div>
+                </div>
+                <div class="col-span-6 text-right font-mono text-xs text-slate-700 space-y-0.5">
+                  <div class="dyn-phone font-bold text-slate-900">+1.412.727.0544</div>
+                  <div class="dyn-email font-semibold text-[#D97706]">partner@skykloud.com</div>
+                  <div class="dyn-web text-slate-500">www.skykloud.com</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-1.5">
+          <div class="text-xs font-mono text-[#94A3B8]">REVERSE SIDE (DEEP SLATE CONTRAST)</div>
+          <div class="w-full aspect-[1.75/1] rounded-xl overflow-hidden relative shadow-xl border border-slate-700 flex flex-col items-center justify-center p-6 text-center" style="background: linear-gradient(135deg, #070D1E 0%, #131F3B 100%); color: #F8FAFC;">
+            <div class="card-logo-dark h-16 w-64 mb-3"></div>
+            <div class="h-0.5 w-16 rounded my-1" style="background: linear-gradient(90deg, #38BDF8, #F59E0B);"></div>
+            <p class="text-xs font-mono uppercase tracking-widest mt-2 text-[#CBD5E1]">Boutique Advisory &middot; Global Delivery</p>
+            <p class="text-xs mt-1 text-[#94A3B8]">Enterprise Procurement &middot; EPM Finance &middot; Customer Experience</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STYLE C -->
+    <div class="p-6 rounded-2xl bg-[#101932] border border-white/10 space-y-4">
+      <div>
+        <span class="text-xs font-mono uppercase tracking-wider text-[#10B981]">Business Card Option C &middot; Dual-Tone Split</span>
+        <h3 class="text-base font-bold text-white">Architectural Cloud Convergence Split</h3>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 pt-2">
+        <div class="space-y-1.5">
+          <div class="text-xs font-mono text-[#94A3B8]">FRONT SIDE (DUAL-TONE ARCHITECTURAL)</div>
+          <div class="w-full aspect-[1.75/1] rounded-xl overflow-hidden relative shadow-xl border border-slate-300 grid grid-cols-12 bg-slate-50 text-slate-900">
+            <div class="col-span-5 p-5 flex flex-col justify-between bg-[#070D1E] text-white border-r-4 border-[#F59E0B]">
+              <div class="card-logo-dark h-10 w-full"></div>
+              <div class="text-xs font-mono text-[#94A3B8]">
+                <div class="text-[#38BDF8] font-bold">100+</div>
+                <div>Enterprise Deployments</div>
+              </div>
+            </div>
+            <div class="col-span-7 p-5 flex flex-col justify-between">
+              <div>
+                <div class="dyn-name text-lg font-extrabold text-slate-900">Gagan</div>
+                <div class="dyn-title text-xs font-mono uppercase font-bold text-[#0284C7]">Managing Partner</div>
+              </div>
+              <div class="space-y-1 font-mono text-xs text-slate-700 border-t border-slate-200 pt-2.5">
+                <div><span class="text-slate-400">T:</span> <span class="dyn-phone font-semibold">+1.412.727.0544</span></div>
+                <div><span class="text-slate-400">E:</span> <span class="dyn-email font-semibold text-[#D97706]">partner@skykloud.com</span></div>
+                <div><span class="text-slate-400">W:</span> <span class="dyn-web">www.skykloud.com</span></div>
+                <div><span class="text-slate-400">HQ:</span> <span class="dyn-loc">Pittsburgh, PA</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="space-y-1.5">
+          <div class="text-xs font-mono text-[#94A3B8]">REVERSE SIDE (MINIMALIST WHITE)</div>
+          <div class="w-full aspect-[1.75/1] rounded-xl overflow-hidden relative shadow-xl border border-slate-300 flex flex-col justify-between p-6 bg-white text-slate-900">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono font-bold uppercase tracking-widest text-slate-400">SKYKLOUD ADVISORY ENGINE</span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#F59E0B]"></span>
+            </div>
+            <div class="my-auto flex justify-center">
+              <div class="card-logo-light h-14 w-60"></div>
+            </div>
+            <div class="flex items-center justify-between text-xs font-mono text-slate-500 border-t border-slate-100 pt-2">
+              <span>Coupa &middot; OneStream &middot; SAP Ariba &middot; HubSpot</span>
+              <span class="dyn-loc">Pittsburgh, PA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: LETTERHEAD & MEMO -->
+  <div id="section-letterhead" class="max-w-7xl mx-auto mt-6 space-y-8 hidden">
+    <div class="no-print">
+      <h2 class="text-lg font-bold text-white">Corporate Letterhead &amp; Executive Proposal Stationery (US Letter 8.5&Prime; &times; 11&Prime;)</h2>
+      <p class="text-xs text-[#94A3B8]">Print-ready executive correspondence and left-rail technical advisory templates.</p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Option A -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between no-print">
+          <span class="text-xs font-mono font-bold text-[#38BDF8]">LETTERHEAD OPTION A &middot; EXECUTIVE FORMAL</span>
+          <span class="text-xs font-mono text-[#94A3B8]">8.5&Prime; &times; 11&Prime; US Letter</span>
+        </div>
+        <div class="print-sheet w-full aspect-[8.5/11] rounded-xl overflow-hidden shadow-2xl border border-slate-300 relative flex flex-col justify-between bg-white text-slate-900">
+          <div class="h-2.5 w-full flex">
+            <div class="w-2/3 h-full" style="background: linear-gradient(90deg, #070D1E 0%, #0284C7 100%);"></div>
+            <div class="w-1/3 h-full" style="background: linear-gradient(90deg, #F59E0B 0%, #FBBF24 100%);"></div>
+          </div>
+          <div class="px-8 pt-6 pb-4 border-b border-slate-200 flex items-start justify-between">
+            <div class="card-logo-light h-12 w-52"></div>
+            <div class="text-right font-mono text-xs text-slate-600 space-y-0.5">
+              <div class="font-bold text-slate-900">SKYKLOUD INC.</div>
+              <div class="dyn-loc">Pittsburgh, Pennsylvania, USA</div>
+              <div><span class="dyn-phone">+1.412.727.0544</span> &middot; <span class="dyn-email text-[#0284C7]">partner@skykloud.com</span></div>
+              <div class="dyn-web text-slate-400">www.skykloud.com</div>
+            </div>
+          </div>
+          <div class="px-10 py-6 flex-1 flex flex-col justify-between relative">
+            <div class="card-logo-light absolute right-6 bottom-12 w-64 h-24 opacity-[0.04] pointer-events-none"></div>
+            <div class="space-y-4 text-xs leading-relaxed text-slate-700">
+              <div class="flex items-center justify-between font-mono text-xs text-slate-500 pb-2">
+                <span>DATE: NOVEMBER 14, 2026</span>
+                <span>REF: SK-ADV-2026-09</span>
+              </div>
+              <div class="text-slate-900 font-semibold">
+                <div>To: Office of the Chief Financial Officer &amp; VP of Enterprise Supply Chain</div>
+                <div class="text-slate-500 font-normal">Re: Enterprise Cloud Procurement &amp; EPM Transformation Roadmap</div>
+              </div>
+              <p>Dear Executive Leadership Team,</p>
+              <p>Thank you for engaging <strong>SkyKloud</strong> to architect your upcoming digital transformation across Business Spend Management, Corporate Performance Management (EPM), and Customer Experience.</p>
+              <p>At SkyKloud, our advisory practice bridges the gap between executive strategy and hands-on technical execution. Whether modernizing source-to-pay workflows in <strong>Coupa</strong> and <strong>SAP Ariba</strong>, unifying financial close and planning in <strong>OneStream</strong>, or aligning revenue operations in <strong>HubSpot</strong> and <strong>Salesforce</strong>, our 7-stage delivery framework (<em>Think &rarr; Advise &rarr; Build &rarr; Run &rarr; Optimize</em>) ensures measurable ROI from day one.</p>
+              <div class="p-3.5 rounded-lg border-l-4 border-[#0284C7] my-3 bg-slate-50">
+                <div class="font-mono font-bold text-slate-900 text-xs uppercase mb-1">Proposed Engagement Milestones</div>
+                <ul class="list-disc list-inside space-y-1 text-slate-600">
+                  <li><strong>Phase 1 (Weeks 1–3):</strong> Current-State Architecture Audit &amp; Spend/CRM Data Readiness</li>
+                  <li><strong>Phase 2 (Weeks 4–8):</strong> Target Operating Model Blueprint &amp; ERP Integration Specification</li>
+                  <li><strong>Phase 3 (Weeks 9+):</strong> Phased Platform Deployment, Change Management &amp; Value Realization</li>
+                </ul>
+              </div>
+              <p>We look forward to reviewing this blueprint during our executive briefing session this week.</p>
+            </div>
+            <div class="pt-6">
+              <div class="text-xs text-slate-500 mb-3">Sincerely,</div>
+              <div class="font-serif italic text-lg text-slate-800 tracking-wide">Gagan</div>
+              <div class="h-0.5 w-24 my-1 bg-[#F59E0B]"></div>
+              <div class="dyn-name text-xs font-bold text-slate-900">Gagan</div>
+              <div class="dyn-title text-xs font-mono text-[#0284C7]">Managing Partner, SkyKloud Inc.</div>
+            </div>
+          </div>
+          <div class="px-8 py-3 border-t border-slate-200 flex items-center justify-between text-xs font-mono text-slate-500 bg-slate-50">
+            <span>SKYKLOUD INC. &middot; PITTSBURGH HQ &middot; PENNSYLVANIA, USA</span>
+            <span class="dyn-web font-semibold text-[#0284C7]">www.skykloud.com</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Option B -->
+      <div class="space-y-2">
+        <div class="flex items-center justify-between no-print">
+          <span class="text-xs font-mono font-bold text-[#F59E0B]">LETTERHEAD OPTION B &middot; EXECUTIVE BRIEFING MEMO</span>
+          <span class="text-xs font-mono text-[#94A3B8]">8.5&Prime; &times; 11&Prime; US Letter</span>
+        </div>
+        <div class="print-sheet w-full aspect-[8.5/11] rounded-xl overflow-hidden shadow-2xl border border-slate-300 grid grid-cols-12 bg-white text-slate-900">
+          <div class="col-span-4 p-6 flex flex-col justify-between bg-[#070D1E] text-white">
+            <div class="space-y-6">
+              <div class="card-logo-dark h-11 w-full"></div>
+              <div class="pt-4 border-t border-white/10 space-y-2">
+                <div class="text-xs font-mono uppercase tracking-wider text-[#F59E0B]">Practice Desk</div>
+                <div class="dyn-name text-sm font-bold text-white">Gagan</div>
+                <div class="dyn-title text-xs font-mono text-[#38BDF8]">Managing Partner</div>
+              </div>
+              <div class="pt-4 border-t border-white/10 space-y-2 font-mono text-xs text-[#94A3B8]">
+                <div class="text-white font-semibold">Pittsburgh HQ</div>
+                <div class="dyn-loc">Pittsburgh, PA, USA</div>
+                <div class="dyn-phone text-white pt-1">+1.412.727.0544</div>
+                <div class="dyn-email text-[#F59E0B]">partner@skykloud.com</div>
+                <div class="dyn-web text-[#38BDF8]">www.skykloud.com</div>
+              </div>
+              <div class="pt-4 border-t border-white/10 space-y-2">
+                <div class="text-xs font-mono uppercase tracking-wider text-[#38BDF8]">Core Ecosystems</div>
+                <div class="space-y-1 text-xs text-[#CBD5E1]">
+                  <div>&bull; Coupa BSM</div>
+                  <div>&bull; OneStream CPM</div>
+                  <div>&bull; SAP Ariba &amp; S/4</div>
+                  <div>&bull; iValua &amp; GEP SMART</div>
+                  <div>&bull; HubSpot &amp; Salesforce</div>
+                  <div>&bull; Microsoft Dynamics</div>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-white/10 text-xs font-mono text-[#64748B]">
+              <div class="text-[#F59E0B] font-bold">$450M+</div>
+              <div>Client ROI Delivered</div>
+            </div>
+          </div>
+          <div class="col-span-8 p-8 flex flex-col justify-between">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between border-b-2 border-slate-900 pb-3">
+                <div>
+                  <span class="text-xs font-mono uppercase tracking-widest px-2 py-0.5 rounded bg-amber-100 text-amber-800">EXECUTIVE MEMORANDUM</span>
+                  <h3 class="text-base font-extrabold text-slate-900 mt-1">US Growth Partner &amp; Enterprise Architecture Charter</h3>
+                </div>
+                <span class="text-xs font-mono text-slate-400">DOC #SK-2026</span>
+              </div>
+              <div class="grid grid-cols-2 gap-2 p-3 rounded-lg bg-slate-50 border border-slate-200 font-mono text-xs">
+                <div><span class="text-slate-400">PREPARED BY:</span> <span class="dyn-name font-bold text-slate-800">Gagan</span></div>
+                <div><span class="text-slate-400">DATE:</span> <span class="text-slate-800">Nov 14, 2026</span></div>
+                <div><span class="text-slate-400">PRACTICE:</span> <span class="text-slate-800">Advisory &amp; Transformation</span></div>
+                <div><span class="text-slate-400">STATUS:</span> <span class="text-[#0284C7] font-bold">Confidential Briefing</span></div>
+              </div>
+              <div class="space-y-3 text-xs leading-relaxed text-slate-700 pt-2">
+                <p><strong>1. Strategic Context:</strong> Midmarket and enterprise organizations scaling across North America require unified visibility across procurement spend, financial performance, and customer revenue pipelines.</p>
+                <p><strong>2. SkyKloud Delivery Model:</strong> Operating from our Pittsburgh headquarters—within a 4 to 6 hour corridor of 10+ East Coast states—SkyKloud combines onshore executive governance with follow-the-sun technical implementation.</p>
+                <p><strong>3. Key Deliverables:</strong></p>
+                <div class="grid grid-cols-2 gap-2.5 pt-1">
+                  <div class="p-2.5 rounded border border-slate-200">
+                    <div class="font-bold text-slate-900">Spend &amp; EPM</div>
+                    <div class="text-xs text-slate-500 mt-0.5">End-to-end Coupa, Ariba &amp; OneStream architecture</div>
+                  </div>
+                  <div class="p-2.5 rounded border border-slate-200">
+                    <div class="font-bold text-slate-900">RevOps &amp; CX</div>
+                    <div class="text-xs text-slate-500 mt-0.5">Unified CRM &amp; ERP data integration</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pt-4 border-t border-slate-200 flex items-center justify-between text-xs font-mono text-slate-400">
+              <span>CONFIDENTIAL &middot; SKYKLOUD ADVISORY</span>
+              <span>PAGE 1 OF 1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: CAPABILITIES BROCHURE -->
+  <div id="section-brochure" class="max-w-5xl mx-auto mt-6 space-y-6 hidden">
+    <div class="print-sheet w-full rounded-2xl overflow-hidden shadow-2xl border border-white/15 bg-micro-grid p-8 space-y-6 bg-[#070D1E] text-white">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
+        <div class="card-logo-dark h-14 w-64"></div>
+        <div class="text-right font-mono text-xs">
+          <span class="px-2.5 py-1 rounded-full font-bold uppercase tracking-wider bg-[#F59E0B]/15 text-[#FBBF24] border border-[#F59E0B]/30">Corporate Capabilities Brief</span>
+          <div class="mt-2 text-[#94A3B8]">Pittsburgh HQ &middot; North America &amp; Global Delivery</div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center p-6 rounded-xl border border-white/10 bg-[#101932]">
+        <div class="lg:col-span-7 space-y-2">
+          <div class="text-xs font-mono uppercase tracking-widest text-[#38BDF8]">BOUTIQUE ADVISORY &middot; GLOBAL EXECUTION</div>
+          <h3 class="text-2xl font-extrabold tracking-tight text-white">Engineering the Architectures Behind Modern Enterprise Spend, Finance &amp; CX</h3>
+          <p class="text-xs leading-relaxed text-[#CBD5E1]">SkyKloud helps midmarket and enterprise organizations modernize how they procure, plan, sell, and grow—unifying ERP, EPM, and CRM ecosystems into a single source of operational truth.</p>
+        </div>
+        <div class="lg:col-span-5 grid grid-cols-3 gap-2.5 text-center">
+          <div class="p-3 rounded-lg border border-white/10 bg-[#070D1E]">
+            <div class="text-xl font-extrabold text-[#F59E0B]">100+</div>
+            <div class="text-xs font-mono mt-0.5 text-[#94A3B8]">Deployments</div>
+          </div>
+          <div class="p-3 rounded-lg border border-white/10 bg-[#070D1E]">
+            <div class="text-xl font-extrabold text-[#38BDF8]">98%</div>
+            <div class="text-xs font-mono mt-0.5 text-[#94A3B8]">CSAT Rate</div>
+          </div>
+          <div class="p-3 rounded-lg border border-white/10 bg-[#070D1E]">
+            <div class="text-xl font-extrabold text-white">$450M+</div>
+            <div class="text-xs font-mono mt-0.5 text-[#94A3B8]">Savings Built</div>
+          </div>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-5 rounded-xl border border-white/10 space-y-2 bg-[#101932]">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold uppercase text-[#38BDF8]">01 &middot; Procurement &amp; Spend (BSM)</span>
+            <span class="text-xs font-mono text-[#64748B]">Coupa &middot; Ariba &middot; iValua &middot; GEP</span>
+          </div>
+          <h4 class="text-sm font-bold text-white">Source-to-Pay Transformation &amp; Spend Governance</h4>
+          <p class="text-xs leading-relaxed text-[#94A3B8]">End-to-end architecture, supplier enablement, contract lifecycle management, and ERP integration delivering rapid spend under management.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-white/10 space-y-2 bg-[#101932]">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold uppercase text-[#F59E0B]">02 &middot; EPM &amp; Finance Modernization</span>
+            <span class="text-xs font-mono text-[#64748B]">OneStream &middot; S/4HANA</span>
+          </div>
+          <h4 class="text-sm font-bold text-white">Intelligent Corporate Performance Management</h4>
+          <p class="text-xs leading-relaxed text-[#94A3B8]">Financial consolidation, FP&amp;A modeling, and real-time operational analytics engineered for CFOs and finance transformation leaders.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-white/10 space-y-2 bg-[#101932]">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold uppercase text-[#38BDF8]">03 &middot; Customer Experience (CX) &amp; RevOps</span>
+            <span class="text-xs font-mono text-[#64748B]">HubSpot &middot; Salesforce &middot; Dynamics</span>
+          </div>
+          <h4 class="text-sm font-bold text-white">Unified Customer View &amp; Revenue Architecture</h4>
+          <p class="text-xs leading-relaxed text-[#94A3B8]">CRM modernization, CPQ configuration, and bidirectional ERP-to-CRM data pipelines that eliminate silos across sales, service, and finance.</p>
+        </div>
+        <div class="p-5 rounded-xl border border-white/10 space-y-2 bg-[#101932]">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono font-bold uppercase text-[#F59E0B]">04 &middot; US Growth Partner Network</span>
+            <span class="text-xs font-mono text-[#64748B]">Pittsburgh Regional Hub</span>
+          </div>
+          <h4 class="text-sm font-bold text-white">North American Market Entry &amp; Executive Advisory</h4>
+          <p class="text-xs leading-relaxed text-[#94A3B8]">On-the-ground US partner representation, enterprise GTM execution, and leadership coaching for global B2B technology firms.</p>
+        </div>
+      </div>
+      <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs font-mono">
+        <div>
+          <span class="text-white font-bold">Schedule an Executive Briefing:</span>
+          <span class="dyn-name ml-2 text-[#38BDF8]">Gagan</span> &middot; <span class="dyn-title text-[#94A3B8]">Managing Partner</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <span class="dyn-phone text-white">+1.412.727.0544</span>
+          <span class="dyn-email text-[#F59E0B]">partner@skykloud.com</span>
+          <span class="dyn-web text-[#38BDF8]">www.skykloud.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: ENVELOPES & EMAIL SIGNATURE -->
+  <div id="section-envelope" class="max-w-7xl mx-auto mt-6 space-y-8 hidden">
+    <div class="p-6 rounded-2xl bg-[#101932] border border-white/10 space-y-4">
+      <div>
+        <span class="text-xs font-mono uppercase tracking-wider text-[#38BDF8]">Stationery &middot; #10 Commercial Envelope (9.5&Prime; &times; 4.125&Prime;)</span>
+        <h3 class="text-base font-bold text-white">Executive #10 Windowless Envelope</h3>
+      </div>
+      <div class="w-full aspect-[2.3/1] rounded-xl overflow-hidden shadow-xl border border-slate-300 relative flex flex-col justify-between p-6 md:p-8 bg-white text-slate-900">
+        <div class="absolute top-0 left-0 bottom-0 w-2.5 flex flex-col">
+          <div class="h-2/3 w-full bg-[#0284C7]"></div>
+          <div class="h-1/3 w-full bg-[#F59E0B]"></div>
+        </div>
+        <div class="pl-4 flex items-start justify-between">
+          <div>
+            <div class="card-logo-light h-9 w-40 mb-1.5"></div>
+            <div class="font-mono text-xs text-slate-500 space-y-0.5">
+              <div class="font-bold text-slate-800">SkyKloud Inc. &middot; Executive Advisory</div>
+              <div class="dyn-loc">Pittsburgh, Pennsylvania, USA</div>
+              <div class="dyn-web text-[#0284C7]">www.skykloud.com</div>
+            </div>
+          </div>
+          <div class="w-16 h-16 rounded border border-dashed border-slate-300 flex items-center justify-center text-center font-mono text-xs text-slate-400 p-2">FIRST CLASS POSTAGE</div>
+        </div>
+        <div class="my-auto mx-auto pl-12 border-l-2 border-amber-500 py-1">
+          <div class="text-xs font-mono uppercase tracking-wider text-slate-400">CONFIDENTIAL &middot; EXECUTIVE BRIEFING</div>
+          <div class="text-sm font-bold text-slate-900 mt-0.5">Office of the Chief Procurement Officer</div>
+          <div class="text-xs text-slate-600">Enterprise Global Holdings Inc.</div>
+          <div class="text-xs text-slate-600">One Financial Plaza, Suite 4200 &middot; New York, NY 10005</div>
+        </div>
+        <div class="pl-4 flex items-center justify-between text-xs font-mono text-slate-400">
+          <span>THINK &middot; ADVISE &middot; BUILD &middot; RUN &middot; OPTIMIZE</span>
+          <span class="dyn-phone">+1.412.727.0544</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-6 rounded-2xl bg-[#101932] border border-white/10 space-y-4">
+      <div>
+        <span class="text-xs font-mono uppercase tracking-wider text-[#F59E0B]">Digital Stationery &middot; Executive Email Signature</span>
+        <h3 class="text-base font-bold text-white">Standardized Corporate Email Signature</h3>
+      </div>
+      <div class="p-6 rounded-xl border border-slate-200 max-w-2xl bg-white text-slate-900">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+          <div class="card-logo-light h-14 w-48 flex-shrink-0"></div>
+          <div class="h-14 w-0.5 hidden sm:block" style="background: linear-gradient(180deg, #0284C7, #F59E0B);"></div>
+          <div class="space-y-1 text-xs">
+            <div class="dyn-name text-base font-extrabold text-slate-900">Gagan</div>
+            <div class="dyn-title font-mono font-semibold uppercase text-[#0284C7]">Managing Partner &middot; SkyKloud Inc.</div>
+            <div class="font-mono text-slate-600 pt-1">
+              <span class="dyn-phone font-semibold text-slate-900">+1.412.727.0544</span> &middot;
+              <span class="dyn-email font-semibold text-[#D97706]">partner@skykloud.com</span> &middot;
+              <span class="dyn-web text-[#0284C7]">www.skykloud.com</span>
+            </div>
+            <div class="dyn-loc text-xs text-slate-400 font-mono">Pittsburgh, Pennsylvania, USA &middot; Enterprise Procurement, EPM &amp; CX Advisory</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let activeLogoIndex = 0;
+    let galleryDark = true;
+
+    function buildLogos(forLightSurface) {
+      const textPrimary = forLightSurface ? '#0F172A' : '#F8FAFC';
+      const subColor = forLightSurface ? '#475569' : '#94A3B8';
+      const channelCut = forLightSurface ? '#FFFFFF' : '#070D1E';
+      const shieldFill = forLightSurface ? '#0F172A' : '#131F3B';
+
+      return [
+        {
+          id: 'logo-option-1-convergence.svg',
+          name: 'Option 1: Cloud Convergence Pro (Recommended)',
+          tag: 'Evolution of Current Brand',
+          rationale: 'Refines your existing Cyan + Amber dual-cloud emblem with golden-ratio curvature, a clean negative-space separation channel, 5-node neural circuit tree, and recessed server bus tracks.',
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+            <defs>
+              <linearGradient id="s1C" x1="15%" y1="10%" x2="85%" y2="95%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="55%" stop-color="#0284C7"/><stop offset="100%" stop-color="#0369A1"/></linearGradient>
+              <linearGradient id="s1A" x1="15%" y1="5%" x2="90%" y2="95%"><stop offset="0%" stop-color="#FBBF24"/><stop offset="65%" stop-color="#F59E0B"/><stop offset="100%" stop-color="#D97706"/></linearGradient>
+            </defs>
+            <g transform="translate(14, 12)">
+              <path d="M 88 20 C 104 6, 130 4, 150 16 C 166 26, 175 43, 175 61 C 194 63, 210 78, 210 98 C 210 116, 195 126, 175 126 L 124 126 C 134 119, 140 108, 140 96 C 140 78, 126 64, 108 63 L 106 63 C 106 43, 99 29, 88 20 Z" fill="url(#s1A)"/>
+              <g stroke="${channelCut}" stroke-width="5.5" stroke-linecap="round">
+                <line x1="134" y1="78" x2="174" y2="78"/><line x1="140" y1="93" x2="174" y2="93"/><line x1="136" y1="108" x2="174" y2="108"/>
+              </g>
+              <g stroke="#FEF3C7" stroke-width="2" stroke-linecap="round">
+                <line x1="134" y1="78" x2="171" y2="78"/><circle cx="175" cy="78" r="3.5" fill="#FBBF24" stroke="${channelCut}" stroke-width="2"/>
+                <line x1="140" y1="93" x2="171" y2="93"/><circle cx="175" cy="93" r="3.5" fill="#FBBF24" stroke="${channelCut}" stroke-width="2"/>
+                <line x1="136" y1="108" x2="171" y2="108"/><circle cx="175" cy="108" r="3.5" fill="#FBBF24" stroke="${channelCut}" stroke-width="2"/>
+              </g>
+              <path d="M 80 24 C 94 35, 100 50, 100 68 L 106 68 C 122 68, 134 80, 134 97 C 134 113, 121 126, 104 126 L 40 126 C 18 126, 4 110, 4 88 C 4 65, 22 48, 44 48 C 53 48, 61 52, 66 58 C 66 44, 71 32, 80 24 Z" fill="url(#s1C)"/>
+              <g stroke="#E0F2FE" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M 65 125 L 65 65"/><path d="M 65 104 L 52 91 L 52 77"/><path d="M 57 125 L 57 112 L 42 98 L 42 73"/><path d="M 65 100 L 77 88 L 77 76"/><path d="M 73 125 L 73 110 L 87 96 L 87 71"/>
+              </g>
+              <g fill="#FFFFFF">
+                <circle cx="65" cy="63" r="3.6"/><circle cx="52" cy="75" r="3.2"/><circle cx="42" cy="71" r="3.5"/><circle cx="77" cy="74" r="3.2"/><circle cx="87" cy="69" r="3.5"/>
+              </g>
+            </g>
+            <text x="242" y="94" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="66" font-weight="800" letter-spacing="-1.8">
+              <tspan fill="#0284C7">Sky</tspan><tspan fill="#F59E0B">Kloud</tspan>
+            </text>
+            <text x="246" y="120" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.2" fill="${subColor}">ADVISORY &amp; TRANSFORMATION</text>
+          </svg>`
+        },
+        {
+          id: 'logo-option-2-infinity-ribbon.svg',
+          name: 'Option 2: Infinity Cloud Ribbon',
+          tag: 'Seamless Integration',
+          rationale: 'Two continuous geometric ribbons interlocking into a cloud silhouette and infinity loop—symbolizing continuous interoperability across ERP, Procurement, and CRM.',
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+            <g transform="translate(20, 16)">
+              <path d="M 46 108 C 21 108, 4 91, 4 67 C 4 45, 20 28, 42 27 C 51 11, 69 2, 89 2 C 116 2, 138 21, 142 47 L 120 47 C 116 32, 104 22, 89 22 C 73 22, 60 31, 55 45 L 44 45 C 31 45, 23 54, 23 67 C 23 80, 32 89, 46 89 L 98 89 L 114 108 Z" fill="#0284C7"/>
+              <path d="M 92 38 L 76 57 L 144 57 C 157 57, 166 66, 166 78 C 166 90, 157 99, 144 99 L 122 99 L 106 79 L 68 79 L 84 118 L 144 118 C 168 118, 186 101, 186 78 C 186 55, 168 38, 144 38 Z" fill="#F59E0B"/>
+              <circle cx="96" cy="68" r="5" fill="#38BDF8"/>
+            </g>
+            <text x="232" y="92" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+              <tspan fill="#0284C7">Sky</tspan><tspan fill="#F59E0B">Kloud</tspan>
+            </text>
+            <text x="236" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.2" fill="${subColor}">ENTERPRISE CLOUD ARCHITECTURE</text>
+          </svg>`
+        },
+        {
+          id: 'logo-option-3-monogram-prism.svg',
+          name: 'Option 3: The SK Monogram Prism',
+          tag: 'Executive Consulting Crest',
+          rationale: 'Architectural S + K monogram inside a faceted hexagonal shield. Projects institutional C-suite gravitas, structured governance, and strategic advisory authority.',
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+            <g transform="translate(24, 15)">
+              <polygon points="70,2 134,36 134,94 70,122 6,94 6,36" fill="${shieldFill}" stroke="#38BDF8" stroke-width="2.5" stroke-opacity="0.5"/>
+              <path d="M 64 20 L 24 42 L 24 66 L 64 82 L 64 104 L 24 86 L 24 74 L 48 84 L 48 72 L 16 58 L 16 36 L 64 10 Z" fill="#38BDF8"/>
+              <path d="M 76 16 L 92 24 L 92 56 L 118 36 L 124 48 L 98 66 L 124 88 L 114 98 L 92 78 L 92 104 L 76 112 Z" fill="#F59E0B"/>
+              <circle cx="70" cy="14" r="3.5" fill="#FFFFFF"/>
+            </g>
+            <text x="195" y="92" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+              <tspan fill="${textPrimary}">Sky</tspan><tspan fill="#0284C7">K</tspan><tspan fill="#F59E0B">loud</tspan>
+            </text>
+            <text x="199" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.5" fill="${subColor}">STRATEGIC ADVISORY PARTNERS</text>
+          </svg>`
+        },
+        {
+          id: 'logo-option-4-constellation.svg',
+          name: 'Option 4: Stratosphere Data Mesh',
+          tag: 'Connected SaaS & AI Era',
+          rationale: 'Geometric cloud outline housing a constellation of interconnected platform nodes with an Amber North-Star apex—ideal for data-driven RevOps and EPM consulting.',
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+            <g transform="translate(18, 18)">
+              <path d="M 42 104 L 148 104 C 168 104, 182 90, 182 72 C 182 55, 169 42, 152 40 C 145 18, 124 4, 98 4 C 71 4, 49 20, 43 44 C 24 46, 10 61, 10 80 C 10 94, 24 104, 42 104 Z" fill="none" stroke="#0284C7" stroke-width="5" stroke-linejoin="round"/>
+              <g stroke="#38BDF8" stroke-width="2.2" opacity="0.75">
+                <line x1="42" y1="78" x2="74" y2="48"/><line x1="74" y1="48" x2="102" y2="28"/><line x1="74" y1="48" x2="106" y2="74"/><line x1="42" y1="78" x2="106" y2="74"/><line x1="102" y1="28" x2="142" y2="56"/><line x1="106" y1="74" x2="142" y2="56"/><line x1="106" y1="74" x2="152" y2="82"/>
+              </g>
+              <circle cx="42" cy="78" r="6" fill="#0284C7"/><circle cx="74" cy="48" r="6.5" fill="#0284C7"/><circle cx="106" cy="74" r="7" fill="#0284C7"/><circle cx="152" cy="82" r="5.5" fill="#0284C7"/>
+              <circle cx="102" cy="28" r="8" fill="#F59E0B"/><circle cx="142" cy="56" r="7" fill="#F59E0B"/>
+            </g>
+            <text x="225" y="92" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+              <tspan fill="#0284C7">Sky</tspan><tspan fill="#F59E0B">Kloud</tspan>
+            </text>
+            <text x="229" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.2" fill="${subColor}">CONNECTED ENTERPRISE SYSTEMS</text>
+          </svg>`
+        },
+        {
+          id: 'logo-option-5-horizon-strata.svg',
+          name: 'Option 5: Horizon Ascent Strata',
+          tag: 'Print & Foil Friendly',
+          rationale: 'Sweeping layered strata forming an ascending cloud horizon. Exceptionally clean at small sizes, single-color embossing, metallic foil stamping, and embroidered apparel.',
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+            <g transform="translate(18, 20)">
+              <path d="M 62 46 C 70 20, 94 4, 122 4 C 152 4, 176 26, 180 54 C 162 40, 138 34, 112 36 C 92 37, 75 41, 62 46 Z" fill="#F59E0B"/>
+              <path d="M 22 72 C 30 46, 56 28, 88 28 C 124 28, 156 44, 184 72 C 156 58, 124 52, 88 54 C 60 56, 38 62, 22 72 Z" fill="#0284C7"/>
+              <path d="M 8 92 C 42 74, 86 68, 134 72 C 156 74, 174 80, 188 88 L 172 96 C 142 84, 104 80, 64 84 C 42 86, 22 90, 8 92 Z" fill="#38BDF8"/>
+              <rect x="28" y="104" width="132" height="7" rx="3.5" fill="#F59E0B"/>
+            </g>
+            <text x="228" y="92" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="64" font-weight="800" letter-spacing="-1.8">
+              <tspan fill="#0284C7">Sky</tspan><tspan fill="#F59E0B">Kloud</tspan>
+            </text>
+            <text x="232" y="118" font-family="'IBM Plex Mono', monospace" font-size="11.5" font-weight="600" letter-spacing="4.2" fill="${subColor}">ADVISORY &middot; PROCUREMENT &middot; GROWTH</text>
+          </svg>`
+        },
+        {
+          id: 'logo-option-6-executive-wordmark.svg',
+          name: 'Option 6: Executive Wordmark & Badge',
+          tag: 'Minimalist Corporate',
+          rationale: 'Compact rounded-square app icon badge paired with a high-contrast wordmark and solar amber period dot—tailored for formal stationery headers and pitch decks.',
+          svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 150" width="100%" height="100%" fill="none">
+            <g transform="translate(22, 26)">
+              <rect x="0" y="6" width="84" height="84" rx="20" fill="${shieldFill}" stroke="#38BDF8" stroke-width="2" stroke-opacity="0.5"/>
+              <path d="M 18 58 C 18 44, 29 34, 42 34 C 52 34, 60 40, 63 48 C 63 60, 54 66, 42 66 L 24 66 C 20 66, 18 62, 18 58 Z" fill="#0284C7"/>
+              <path d="M 38 36 C 42 26, 52 22, 61 26 C 68 30, 71 39, 68 47 L 54 47 C 50 39, 44 36, 38 36 Z" fill="#F59E0B"/>
+              <circle cx="36" cy="52" r="3" fill="#FFFFFF"/><line x1="36" y1="52" x2="52" y2="52" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round"/>
+            </g>
+            <text x="128" y="92" font-family="'Plus Jakarta Sans', system-ui, sans-serif" font-size="68" font-weight="800" letter-spacing="-2">
+              <tspan fill="${textPrimary}">Sky</tspan><tspan fill="#0284C7">Kloud</tspan>
+            </text>
+            <circle cx="448" cy="78" r="7" fill="#F59E0B"/>
+            <text x="132" y="122" font-family="'IBM Plex Mono', monospace" font-size="11" font-weight="600" letter-spacing="4.8" fill="#F59E0B">PITTSBURGH &middot; GLOBAL ADVISORY</text>
+          </svg>`
+        }
+      ];
+    }
+
+    function renderAll() {
+      const darkSet = buildLogos(false);
+      const lightSet = buildLogos(true);
+      const gallerySet = buildLogos(!galleryDark);
+
+      const grid = document.getElementById('logo-cards-grid');
+      grid.innerHTML = gallerySet.map((item, idx) => {
+        const isSelected = idx === activeLogoIndex;
+        const canvasBg = galleryDark ? '#070D1E' : '#FFFFFF';
+        return `
+          <div class="rounded-2xl bg-[#101932] border ${isSelected ? 'border-[#38BDF8] ring-2 ring-[#38BDF8]/30' : 'border-white/10'} overflow-hidden flex flex-col justify-between">
+            <div class="p-6 flex items-center justify-center h-44 transition-colors" style="background: ${canvasBg};">
+              <div class="w-full h-32 flex items-center justify-center">${item.svg}</div>
+            </div>
+            <div class="p-4 space-y-2.5 border-t border-white/10">
+              <div class="flex items-center justify-between gap-2">
+                <span class="font-bold text-sm text-white">${item.name}</span>
+                <span class="px-2 py-0.5 rounded text-xs font-mono bg-[#070D1E] border border-white/10 text-[#94A3B8]">${item.tag}</span>
+              </div>
+              <p class="text-xs text-[#94A3B8] leading-relaxed">${item.rationale}</p>
+              <div class="pt-2 flex items-center justify-between gap-2">
+                <button onclick="setGlobalLogo(${idx})" class="px-3 py-1.5 rounded-lg text-xs font-semibold ${isSelected ? 'bg-[#0284C7] text-white' : 'bg-[#070D1E] border border-white/10 text-white hover:border-[#38BDF8]'}">
+                  ${isSelected ? '✓ Active Across All Collateral' : 'Select & Apply to Stationery'}
+                </button>
+                <a href="/assets/brand/${item.id}" download="${item.id}" class="px-2.5 py-1.5 rounded-lg text-xs font-mono border border-white/10 bg-[#070D1E] text-[#94A3B8] hover:text-white">
+                  ⬇ SVG File
+                </a>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      for (let i = 0; i < 6; i++) {
+        const b = document.getElementById('glogo-' + i);
+        if (i === activeLogoIndex) {
+          b.className = 'px-3 py-1.5 rounded-lg text-xs font-semibold bg-[#0284C7] text-white';
+        } else {
+          b.className = 'px-3 py-1.5 rounded-lg text-xs font-medium bg-[#070D1E] text-[#94A3B8] border border-white/10';
+        }
+      }
+
+      document.querySelectorAll('.card-logo-dark').forEach(el => {
+        el.innerHTML = darkSet[activeLogoIndex].svg;
+      });
+      document.querySelectorAll('.card-logo-light').forEach(el => {
+        el.innerHTML = lightSet[activeLogoIndex].svg;
+      });
+
+      syncText();
+    }
+
+    function syncText() {
+      const name = document.getElementById('inp-name').value || 'Gagan';
+      const title = document.getElementById('inp-title').value || 'Managing Partner';
+      const email = document.getElementById('inp-email').value || 'partner@skykloud.com';
+      const phone = document.getElementById('inp-phone').value || '+1.412.727.0544';
+      const loc = document.getElementById('inp-loc').value || 'Pittsburgh, Pennsylvania, USA';
+      const web = document.getElementById('inp-web').value || 'www.skykloud.com';
+
+      document.querySelectorAll('.dyn-name').forEach(el => el.textContent = name);
+      document.querySelectorAll('.dyn-title').forEach(el => el.textContent = title);
+      document.querySelectorAll('.dyn-email').forEach(el => el.textContent = email);
+      document.querySelectorAll('.dyn-phone').forEach(el => el.textContent = phone);
+      document.querySelectorAll('.dyn-loc').forEach(el => el.textContent = loc);
+      document.querySelectorAll('.dyn-web').forEach(el => el.textContent = web);
+    }
+
+    function setGlobalLogo(idx) {
+      activeLogoIndex = idx;
+      renderAll();
+    }
+
+    function toggleGalleryBg() {
+      galleryDark = !galleryDark;
+      renderAll();
+    }
+
+    function switchSection(sec) {
+      const sections = ['logos', 'cards', 'letterhead', 'brochure', 'envelope'];
+      sections.forEach(s => {
+        document.getElementById('section-' + s).classList.toggle('hidden', s !== sec);
+        const btn = document.getElementById('sec-btn-' + s);
+        if (s === sec) {
+          btn.className = 'px-4 py-2 rounded-lg text-xs font-bold bg-[#0284C7] text-white';
+        } else {
+          btn.className = 'px-4 py-2 rounded-lg text-xs font-semibold bg-[#101932] text-white border border-white/10';
+        }
+      });
+    }
+
+    function downloadActiveSvg() {
+      const set = buildLogos(!galleryDark);
+      const item = set[activeLogoIndex];
+      const blob = new Blob([item.svg], { type: 'image/svg+xml;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = item.id;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    renderAll();
+  </script>
+</body>
+</html>
